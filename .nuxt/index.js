@@ -13,6 +13,7 @@ import { setContext, getLocation, getRouteData, normalizeError } from './utils'
 /* Plugins */
 
 import nuxt_plugin_plugin_f8074a76 from 'nuxt_plugin_plugin_f8074a76' // Source: .\\components\\plugin.js (mode: 'all')
+import nuxt_plugin_index_26206153 from 'nuxt_plugin_index_26206153' // Source: .\\firebase\\index.js (mode: 'all')
 import nuxt_plugin_axios_07fa0e68 from 'nuxt_plugin_axios_07fa0e68' // Source: .\\axios.js (mode: 'all')
 
 // Component: <ClientOnly>
@@ -63,7 +64,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"title":"sp-books","htmlAttrs":{"lang":"en"},"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":""},{"name":"format-detection","content":"telephone=no"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"style":[],"script":[]},
+    head: {"title":"sp-books","htmlAttrs":{"lang":"en"},"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":""},{"name":"format-detection","content":"telephone=no"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"stylesheet","href":"href=\"https:\u002F\u002Ffonts.googleapis.com\u002Fcss2?family=Abyssinica+SIL&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap\""},{"rel":"preconnect","href":"https:\u002F\u002Ffonts.gstatic.com","crossOrigin":true},{"rel":"preconnect","href":"https:\u002F\u002Ffonts.googleapis.com","crossOrigin":true},{"rel":"stylesheet","href":"https:\u002F\u002Fcdn.jsdelivr.net\u002Fnpm\u002Fbootstrap@5.2.1\u002Fdist\u002Fcss\u002Fbootstrap.min.css"}],"script":[{"src":"https:\u002F\u002Fcdn.jsdelivr.net\u002Fnpm\u002Fbootstrap@5.2.1\u002Fdist\u002Fjs\u002Fbootstrap.bundle.min.js"},{"src":"https:\u002F\u002Fcdn.jsdelivr.net\u002Fnpm\u002F@popperjs\u002Fcore@2.11.6\u002Fdist\u002Fumd\u002Fpopper.min.js"},{"src":"https:\u002F\u002Fcdn.jsdelivr.net\u002Fnpm\u002Fbootstrap@5.2.1\u002Fdist\u002Fjs\u002Fbootstrap.min.js"}],"style":[]},
 
     router,
     nuxt: {
@@ -179,6 +180,10 @@ async function createApp(ssrContext, config = {}) {
 
   if (typeof nuxt_plugin_plugin_f8074a76 === 'function') {
     await nuxt_plugin_plugin_f8074a76(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_index_26206153 === 'function') {
+    await nuxt_plugin_index_26206153(app.context, inject)
   }
 
   if (typeof nuxt_plugin_axios_07fa0e68 === 'function') {
