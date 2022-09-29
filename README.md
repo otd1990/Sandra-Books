@@ -12,6 +12,10 @@ https://dribbble.com/shots/9838689-Folium-Portfolio-Template
 Fonts: 
 https://fonts.google.com/specimen/Abyssinica+SIL
 
+## get from fb
+https://medium.com/@magallen.fc/retrieve-data-from-firebase-realtime-database-using-nuxtjs-and-axios-5c6b5a4cb908
+https://stackoverflow.com/questions/71738935/how-do-i-get-database-data-using-firebase-nuxtjs
+
 ## Build Setup
 
 ```bash
