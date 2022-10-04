@@ -2,6 +2,9 @@
 
 Inspo
 
+SUPABASE_URL="https://ryjvicejickwdbxrtvmp.supabase.co"
+SUPABASE_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ5anZpY2VqaWNrd2RieHJ0dm1wIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjQ2Mjg4MDIsImV4cCI6MTk4MDIwNDgwMn0.-fsZdY0aKal72zq4IbVYTYCVAznYO0kPxSq3iD21EjA"
+
 https://dribbble.com/shots/14955852-Maggie-Stiefvater-New-Website
 https://dribbble.com/shots/10228950-Book-Author-Website
 https://dribbble.com/shots/14790486-Belletrist-Book-Shop-Home
