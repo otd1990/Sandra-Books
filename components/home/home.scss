@@ -2,34 +2,80 @@
 @import "../../assets/scss/mixins.scss";
 @import "../../assets/scss/main.scss";
 
-.home{
-    background-color: $orangeMain;
-    h1 {
-        font-size: 5rem;
-        color: rgba(0,0,0, 0.5)
-    }
-    &__hero{
-        height: 40vh;
-        margin-top: 5rem;
-        @include display-flex-column;
-    }
+.home {
+  background-color: $orangeMain;
+  h1,
+  h2 {
+    font-size: 5rem;
+    color: rgba(0, 0, 0, 0.5);
+  }
+  &__hero {
+    height: 30vh;
+    margin-top: 5rem;
+    @include display-flex-column;
+  }
 
-    &__image-wrap{
-        display: flex;
-    }
+  &__image-wrap {
+    display: flex;
+  }
 
-    &__image-container{
-        margin: .75rem;
-    }
+  &__image-container {
+    margin: 0.75rem;
+  }
 
-    &__image-image{
-        filter: $shadow;
-        max-width: 270px;
-        height: 370px;
-    }
+  &__image-image {
+    filter: $shadow;
+    max-width: 270px;
+    height: 370px;
+  }
 
-    &__main{
-        min-height: 60vh;
-        background-color: $beigeMain;
+  &__main {
+    min-height: 60vh;
+    background-color: $beigeMain;
+    margin-top: 3rem;
+    padding: 5.75rem 1rem;
+    text-align: center;
+  }
+}
+
+.about {
+  margin: $sectionSpacer;
+  &__image {
+    border-radius: 50%;
+    width: 300px;
+    height: 275px;
+  }
+}
+
+.authored {
+  margin: $sectionSpacer;
+  &__books {
+    &-wrap {
+      text-decoration: none;
+      color: $blackMain;
+      &:hover {
+        color: inherit;
+      }
     }
+    &-image {
+      max-width: 270px;
+      height: 370px;
+      display: block;
+      margin: 2rem auto;
+    }
+  }
+}
+
+.contact {
+  margin: $sectionSpacer;
+  background-color: $orangeMain;
+  text-align: center;
+  position: relative;
+  padding: 4rem 0;
+  h2 {
+    position: absolute;
+    top: -85px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
