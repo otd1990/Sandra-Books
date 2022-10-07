@@ -1,8 +1,11 @@
 <template>
-  <div class="container" style="padding: 50px 0 100px 0">
-    <!-- <Account v-if="user" />
-    <Auth v-else /> -->
+  <!-- <div class="container" style="padding: 50px 0 100px 0">
+    <Account v-if="user" />
+    <Auth v-else />
     <Books />
+  </div> -->
+  <div>
+    <NuxtPage />
   </div>
 </template>
 
@@ -18,11 +21,11 @@
 </script>
 
 <script>
-import Books from "./components/books/Books.vue";
+// import Books from "./components/books/Books.vue";
 
-export default {
-  components: {
-    Books,
-  },
-};
+// export default {
+//   components: {
+//     Books,
+//   },
+// };
 </script>

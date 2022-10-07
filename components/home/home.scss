@@ -1,0 +1,35 @@
+@import "../../assets/scss/variables.scss";
+@import "../../assets/scss/mixins.scss";
+@import "../../assets/scss/main.scss";
+
+.home{
+    background-color: $orangeMain;
+    h1 {
+        font-size: 5rem;
+        color: rgba(0,0,0, 0.5)
+    }
+    &__hero{
+        height: 40vh;
+        margin-top: 5rem;
+        @include display-flex-column;
+    }
+
+    &__image-wrap{
+        display: flex;
+    }
+
+    &__image-container{
+        margin: .75rem;
+    }
+
+    &__image-image{
+        filter: $shadow;
+        max-width: 270px;
+        height: 370px;
+    }
+
+    &__main{
+        min-height: 60vh;
+        background-color: $beigeMain;
+    }
+}
