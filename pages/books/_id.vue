@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Book page for book {{ $router.params.id }}</h1>
+    <h1>Book page for book {{ $route.params.id }}</h1>
   </div>
 </template>
 

@@ -3,8 +3,12 @@
     <NavComponent />
     <div class="home__hero">
       <h1>Sandra Plum</h1>
-      <div class="home__image-wrap" v-if="data">
-        <div v-for="book in data" :key="book.id" class="home__image-container">
+      <div class="home__image-wrap" v-if="booksStore.books">
+        <div
+          v-for="book in booksStore.books"
+          :key="book.id"
+          class="home__image-container"
+        >
           <img :src="book.image" :alt="book.title" class="home__image-image" />
         </div>
       </div>
@@ -40,9 +44,9 @@
         </section>
         <section class="authored">
           <h2>Books I've Written</h2>
-          <div class="row justify-content-center">
+          <div class="row justify-content-center" v-if="booksStore.books">
             <div
-              v-for="book in data"
+              v-for="book in booksStore.books"
               :key="book.id"
               class="authored__books col-12 col-md-5"
             >
@@ -79,10 +83,13 @@
 </template>
 
 <script setup>
+import { useBooksStore } from "@/store/BooksStore";
 //todo add this to vuex
 const supabase = useSupabaseClient();
-let { data } = await supabase.from("books").select(`*`);
-console.log(data);
+const booksStore = useBooksStore();
+
+booksStore.getBooksFromServ(supabase);
+console.log(booksStore.books);
 </script>
 
 <script>

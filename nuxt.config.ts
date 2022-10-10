@@ -2,7 +2,7 @@ import { defineNuxtConfig } from "nuxt";
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-  modules: ["@nuxtjs/supabase"],
+  modules: ["@nuxtjs/supabase", "@pinia/nuxt"],
   css: ["@/assets/css/bootstrap.css", "~/assets/scss/main.scss"],
   head: {
     link: [
