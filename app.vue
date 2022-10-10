@@ -4,9 +4,9 @@
     <Auth v-else />
     <Books />
   </div> -->
-  <div>
+  <NuxtLayout>
     <NuxtPage />
-  </div>
+  </NuxtLayout>
 </template>
 
 <script setup>

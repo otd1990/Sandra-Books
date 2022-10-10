@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <NavComponent />
     <div class="home__hero">
       <h1>Sandra Plum</h1>
       <div class="home__image-wrap" v-if="booksStore.books">
@@ -68,12 +67,48 @@
     <section class="contact">
       <div class="container">
         <h2>Get In Touch</h2>
+        <p>If you have any queries please get in touch using the form below</p>
         <div class="row justify-content-center">
-          <div class="col-12 col-sm-8 col-md-6 col-lg-5">
+          <div class="col-12 col-sm-8 col-md-6">
             <form>
-              <input type="text" class="form-control" />
-              <input type="text" class="form-control" />
-              <input type="text" class="form-control" />
+              <div class="row justify-content-center">
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <label class="form-label" for="name">Name:</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="name"
+                      id="name"
+                    />
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <label class="form-label" for="email">Email:</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      name="email"
+                      id="email"
+                    />
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <label class="form-label" for="message"
+                      >Your Message:</label
+                    >
+                    <textarea
+                      name="message"
+                      class="form-control"
+                      id="message"
+                      cols="30"
+                      rows="5"
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
             </form>
           </div>
         </div>
