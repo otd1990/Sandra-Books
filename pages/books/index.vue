@@ -1,12 +1,21 @@
 <template>
-  <div>
-    <h1>Books</h1>
-    <p>All books here</p>
+  <div class="books__page">
+    <div class="container">
+      <h1>Books</h1>
+      <Books />
+    </div>
   </div>
 </template>
 
 <script>
-export default {};
+import "./scss/booksPage.scss";
+import Books from "@/components/books/Books";
+
+export default {
+  components: {
+    Books,
+  },
+};
 </script>
 
 <style lang="scss" scoped></style>

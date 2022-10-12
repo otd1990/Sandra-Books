@@ -1,0 +1,16 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+
+.btn--orange {
+  background-color: $orangeMain;
+  color: $blackMain;
+  margin: 1rem 0;
+  border-color: $orangeMain;
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: $blackMain !important;
+    border-color: $blackMain !important;
+    color: $beigeMain !important;
+  }
+}

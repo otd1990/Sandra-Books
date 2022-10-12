@@ -17,6 +17,9 @@
         <li class="nav__item">
           <nuxt-link to="/reviews" class="nav__link">Reviews</nuxt-link>
         </li>
+        <li class="nav__item">
+          <nuxt-link to="/download" class="nav__link">Downloads</nuxt-link>
+        </li>
       </ul>
     </div>
   </nav>

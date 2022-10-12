@@ -12,7 +12,8 @@ type NuxtAppInjections =
   InjectionType<typeof import("../../node_modules/nuxt/dist/pages/runtime/router").default> &
   InjectionType<typeof import("../../node_modules/@pinia/nuxt/dist/runtime/plugin.vue3").default> &
   InjectionType<typeof import("../../node_modules/@nuxtjs/supabase/dist/runtime/plugins/supabase.client").default> &
-  InjectionType<typeof import("../../node_modules/@nuxtjs/supabase/dist/runtime/plugins/supabase.server").default>
+  InjectionType<typeof import("../../node_modules/@nuxtjs/supabase/dist/runtime/plugins/supabase.server").default> &
+  InjectionType<typeof import("../../plugins/allBooksPlugin").default>
 
 declare module '#app' {
   interface NuxtApp extends NuxtAppInjections { }

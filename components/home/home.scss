@@ -4,14 +4,11 @@
 
 .home {
   background-color: $orangeMain;
-  h1,
-  h2 {
-    font-size: 5rem;
-    color: rgba(0, 0, 0, 0.5);
-  }
+  padding-top: 3rem;
   &__hero {
     height: 30vh;
-    margin-top: 5rem;
+    margin-top: 2rem;
+    background-color: $orangeMain;
     @include display-flex-column;
   }
 
@@ -35,15 +32,6 @@
     margin-top: 3rem;
     padding: 5.75rem 1rem;
     text-align: center;
-  }
-}
-
-.about {
-  margin: $sectionSpacer;
-  &__image {
-    border-radius: 50%;
-    width: 300px;
-    height: 275px;
   }
 }
 
@@ -71,7 +59,7 @@
   background-color: $orangeMain;
   text-align: center;
   position: relative;
-  padding: 4rem 0;
+  padding: 2rem 0 4rem 0;
   h2 {
     position: absolute;
     top: -85px;
@@ -86,5 +74,9 @@
   .form-group {
     margin-bottom: 1rem;
     font-size: 0.85rem;
+  }
+
+  .form-control {
+    border: none;
   }
 }

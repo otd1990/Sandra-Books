@@ -2,9 +2,9 @@
   <div class="home">
     <div class="home__hero">
       <h1>Sandra Plum</h1>
-      <div class="home__image-wrap" v-if="booksStore.books">
+      <div class="home__image-wrap" v-if="booksStore">
         <div
-          v-for="book in booksStore.books"
+          v-for="book in booksStore.getBooks"
           :key="book.id"
           class="home__image-container"
         >
@@ -14,38 +14,12 @@
     </div>
     <section class="home__main">
       <div class="container">
-        <section class="about">
-          <div class="row justify-content-center align-items-center">
-            <div class="col-12 col-md-4">
-              <img
-                class="about__image"
-                src="https://images.unsplash.com/photo-1523311964370-42ac336c878b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bGFtYnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                alt="sandra plum profile"
-              />
-            </div>
-            <div class="col-12 col-md-6">
-              <h2>About</h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
-                accumsan porttitor venenatis. Duis eu pellentesque ex, eu
-                vulputate metus. Pellentesque ullamcorper purus erat, sed tempor
-                massa elementum et. Nulla facilisi. Phasellus posuere fermentum
-                lorem vel aliquam. Suspendisse id lacus lectus. Phasellus vel
-                quam maximus, accumsan purus id, gravida felis. Proin convallis
-                nibh id erat consectetur, non imperdiet augue gravida. Quisque
-                vestibulum eleifend finibus. Etiam mauris neque, faucibus
-                euismod hendrerit ut, fringilla ut elit. Vestibulum nec
-                pellentesque nulla. Vestibulum accumsan libero sed mi placerat
-                egestas.
-              </p>
-            </div>
-          </div>
-        </section>
+        <About />
         <section class="authored">
           <h2>Books I've Written</h2>
-          <div class="row justify-content-center" v-if="booksStore.books">
+          <div class="row justify-content-center" v-if="booksStore">
             <div
-              v-for="book in booksStore.books"
+              v-for="book in booksStore.getBooks"
               :key="book.id"
               class="authored__books col-12 col-md-5"
             >
@@ -70,46 +44,7 @@
         <p>If you have any queries please get in touch using the form below</p>
         <div class="row justify-content-center">
           <div class="col-12 col-sm-8 col-md-6">
-            <form>
-              <div class="row justify-content-center">
-                <div class="col-12 col-md-6">
-                  <div class="form-group">
-                    <label class="form-label" for="name">Name:</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      name="name"
-                      id="name"
-                    />
-                  </div>
-                </div>
-                <div class="col-12 col-md-6">
-                  <div class="form-group">
-                    <label class="form-label" for="email">Email:</label>
-                    <input
-                      type="email"
-                      class="form-control"
-                      name="email"
-                      id="email"
-                    />
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="form-group">
-                    <label class="form-label" for="message"
-                      >Your Message:</label
-                    >
-                    <textarea
-                      name="message"
-                      class="form-control"
-                      id="message"
-                      cols="30"
-                      rows="5"
-                    ></textarea>
-                  </div>
-                </div>
-              </div>
-            </form>
+            <ContactForm />
           </div>
         </div>
       </div>
@@ -117,24 +52,25 @@
   </div>
 </template>
 
-<script setup>
-import { useBooksStore } from "@/store/BooksStore";
-//todo add this to vuex
-const supabase = useSupabaseClient();
-const booksStore = useBooksStore();
-
-booksStore.getBooksFromServ(supabase);
-console.log(booksStore.books);
-</script>
-
 <script>
+import { useBooksStore } from "@/store/BooksStore";
+
+import About from "@/components/about/About";
+import ContactForm from "@/components/forms/ContactForm";
+
 import "./home.scss";
-import NavComponent from "@/components/utility-components/NavComponent.vue";
 
 export default {
   name: "Home",
   components: {
-    NavComponent,
+    About,
+    ContactForm,
+  },
+  setup() {
+    console.log("Set up");
+    const booksStore = useBooksStore();
+
+    return { booksStore };
   },
 };
 </script>

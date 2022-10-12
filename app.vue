@@ -10,6 +10,13 @@
 </template>
 
 <script setup>
+import { useBooksStore } from "@/store/BooksStore";
+//todo add this to vuex
+// const supabase = useSupabaseClient();
+const booksStore = useBooksStore();
+
+booksStore.getBooksFromServ();
+
 // import Books from "./components/books/Books.vue";
 // const user = useSupabaseUser();
 

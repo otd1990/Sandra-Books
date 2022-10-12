@@ -1,7 +1,11 @@
 <template>
-  <NavComponent class="mb-2" />
-  <slot />
-  <FooterComponent />
+  <main>
+    <div class="default__layout">
+      <NavComponent />
+      <slot />
+    </div>
+    <FooterComponent />
+  </main>
 </template>
 
 <script>

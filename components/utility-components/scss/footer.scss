@@ -1,0 +1,26 @@
+@import "../../../assets/scss/variables.scss";
+@import "../../../assets/scss/mixins.scss";
+@import "../../../assets/scss/main.scss";
+
+.footer {
+  background-color: $beigeMain;
+  padding: 3rem 1rem 1.25rem 1rem;
+  &__list {
+    @include flex-center-list;
+    list-style: none;
+    padding: 0;
+    &--item {
+      margin-right: 1rem;
+    }
+  }
+
+  &__link {
+    color: $blackMain;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  &__copyright {
+    text-align: center;
+  }
+}

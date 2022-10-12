@@ -1,12 +1,17 @@
 import { defineStore } from "pinia";
-// const supabase = useSupabaseClient();
 
 export const useBooksStore = defineStore("BooksStore", {
   state: () => ({
     books: undefined,
+    singleBook: undefined,
   }),
+  getters: {
+    getBooks: (state) => state.books,
+  },
   actions: {
-    async getBooksFromServ(supabase) {
+    async getBooksFromServ() {
+      console.log("Getting books");
+      const supabase = useSupabaseClient();
       try {
         let { data } = await supabase.from("books").select(`*`);
         this.books = data;
@@ -15,5 +20,10 @@ export const useBooksStore = defineStore("BooksStore", {
         return error;
       }
     },
+    setSingleBook(book) {
+      console.log("SINGLE BOOK SETTING ", book);
+      this.singleBook = book;
+    },
+    persist: true,
   },
 });

@@ -1,0 +1,35 @@
+@import "../../../assets/scss/variables.scss";
+@import "../../../assets/scss/mixins.scss";
+@import "../../../assets/scss/main.scss";
+
+.books__page {
+  background-color: $beigeMain;
+  padding: $sectionSpacer;
+
+  h1 {
+    text-align: center;
+    margin: 1.5rem;
+  }
+
+  .book:nth-child(even) .row {
+    flex-flow: row-reverse;
+  }
+
+  .book {
+    margin-bottom: 2rem;
+    text-align: center;
+    h2 {
+      margin-bottom: 2rem;
+    }
+    &__image {
+      max-width: 400px;
+      height: 360px;
+      margin: auto;
+      img {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+    }
+  }
+}

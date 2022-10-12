@@ -1,7 +1,21 @@
 # sp-books
 
-Inspo
+## TODO
 
+- Purchase section
+- Admin section
+  - login in
+  - verification
+  - redirects
+  - upload information
+  - Form to upload books
+  - Form to upload about info
+- Add About to DB
+
+- Mobile Responsive
+- little touches like underlines and animations
+
+Inspo
 
 https://dribbble.com/shots/14955852-Maggie-Stiefvater-New-Website
 https://dribbble.com/shots/10228950-Book-Author-Website
@@ -10,10 +24,11 @@ https://dribbble.com/shots/17402668-Author-or-Writers-Blog-Website
 https://dribbble.com/shots/14430600-EleBrary-Library-Template-for-Elementor
 https://dribbble.com/shots/9838689-Folium-Portfolio-Template
 
-Fonts: 
+Fonts:
 https://fonts.google.com/specimen/Abyssinica+SIL
 
 ## get from fb
+
 https://medium.com/@magallen.fc/retrieve-data-from-firebase-realtime-database-using-nuxtjs-and-axios-5c6b5a4cb908
 https://stackoverflow.com/questions/71738935/how-do-i-get-database-data-using-firebase-nuxtjs
 
@@ -57,7 +72,6 @@ More information about the usage of this directory in [the documentation](https:
 Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
 
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
-
 
 ### `pages`
 

@@ -2,28 +2,25 @@
 @import "../../../assets/scss/mixins.scss";
 @import "../../../assets/scss/variables.scss";
 
-.nav{ 
-    width: 100%;
-    @include display-flex-between;
-    padding: .75rem 1rem;
-    &__list {
-        display: flex;
-        align-items: center;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
+.nav {
+  width: 100%;
+  background-color: $orangeMain;
+  @include display-flex-between;
+  padding: 0.75rem 1rem;
+  &__list {
+    @include flex-center-list;
+  }
 
-    &__item{
-        margin: 1rem;
-    }
+  &__item {
+    margin: 1rem;
+  }
 
-    &__link{
-        color: $blackMain;
-        cursor: pointer;
-        text-decoration: none;
-        &:hover{
-            color: $blackMain;
-        }
+  &__link {
+    color: $blackMain;
+    cursor: pointer;
+    text-decoration: none;
+    &:hover {
+      color: $blackMain;
     }
+  }
 }

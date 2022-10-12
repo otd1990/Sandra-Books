@@ -1,12 +1,23 @@
 <template>
-  <div>
-    <h1>About</h1>
-    <p>About stuff here</p>
+  <div class="about-page__container">
+    <About />
   </div>
 </template>
 
 <script>
-export default {};
+import About from "@/components/about/About";
+
+export default {
+  components: {
+    About,
+  },
+};
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.about-page__container {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+</style>
