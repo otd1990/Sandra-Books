@@ -67,7 +67,6 @@ export default {
     ContactForm,
   },
   setup() {
-    console.log("Set up");
     const booksStore = useBooksStore();
 
     return { booksStore };

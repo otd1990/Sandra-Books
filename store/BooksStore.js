@@ -10,7 +10,6 @@ export const useBooksStore = defineStore("BooksStore", {
   },
   actions: {
     async getBooksFromServ() {
-      console.log("Getting books");
       const supabase = useSupabaseClient();
       try {
         let { data } = await supabase.from("books").select(`*`);
@@ -21,7 +20,6 @@ export const useBooksStore = defineStore("BooksStore", {
       }
     },
     setSingleBook(book) {
-      console.log("SINGLE BOOK SETTING ", book);
       this.singleBook = book;
     },
     persist: true,

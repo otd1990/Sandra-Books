@@ -8,6 +8,24 @@
   border-color: $orangeMain;
   text-transform: uppercase;
 
+  letter-spacing: 1px;
+
+  &:hover {
+    background-color: $blackMain !important;
+    border-color: $blackMain !important;
+    color: $beigeMain !important;
+  }
+}
+.btn--beige,
+.btn--beige:disabled {
+  background-color: $beigeMain;
+  color: $blackMain;
+  margin: 1rem 0;
+  border-color: $beigeMain;
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+
   &:hover {
     background-color: $blackMain !important;
     border-color: $blackMain !important;

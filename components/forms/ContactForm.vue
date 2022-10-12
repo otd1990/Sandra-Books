@@ -85,7 +85,7 @@ import { required, email } from "@vuelidate/validators";
 export default {
   name: "ContactForm",
   setup() {
-    return { v$: useVuelidate() };
+    return {};
   },
   data() {
     return {
@@ -94,6 +94,7 @@ export default {
         email: "",
         message: "",
       },
+      v$: useVuelidate(),
     };
   },
   validations() {

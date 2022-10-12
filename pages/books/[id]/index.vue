@@ -1,6 +1,11 @@
 <template>
+  <div @click="show = !show">Show component</div>
   <div class="single__book-page">
-    <Book :bookId="bookId" />
+    <Transition>
+      <div v-if="show">
+        <Book :bookId="bookId" />
+      </div>
+    </Transition>
   </div>
 </template>
 
@@ -9,8 +14,10 @@ export default {
   data() {
     return {
       bookId: this.$route.params.id,
+      show: false,
     };
   },
+  transition: "home",
 };
 </script>
 
@@ -26,5 +33,15 @@ export default {
 .single__book-page {
   display: flex;
   align-items: center;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 </style>
