@@ -18,13 +18,13 @@
             </div>
             <div class="col-12">
               <div class="form-group">
-                <label class="form-label" for="password">Password:</label>
+                <label class="form-label" for="password">password:</label>
                 <input
                   type="password"
                   class="form-control"
                   name="password"
                   id="password"
-                  v-model="email"
+                  v-model="password"
                 />
               </div>
             </div>
@@ -51,8 +51,15 @@ export default {
     };
   },
   methods: {
-    onSubmit() {
-      console.log("Submittin");
+    async onSubmit() {
+      const supabase = useSupabaseClient();
+      const { data, error } = await supabase.auth.signIn({
+        email: this.email,
+        password: this.password,
+      });
+
+      console.log("DATA ", data);
+      console.log("ERROR ", error);
     },
   },
 };
