@@ -5,8 +5,8 @@
 - Purchase section
 - Admin section
   - login in
-  -- https://ui.supabase.io/components/auth
-  -- https://supabase.com/docs/guides/with-nuxt-3
+    - https://ui.supabase.io/components/auth
+    - https://supabase.com/docs/guides/with-nuxt-3
   --https://supabase.com/docs/guides/auth
   - verification
   - redirects
