@@ -1,8 +1,7 @@
 <template>
-  <div @click="show = !show">Show component</div>
   <div class="single__book-page">
     <Transition>
-      <div v-if="show">
+      <div>
         <Book :bookId="bookId" />
       </div>
     </Transition>

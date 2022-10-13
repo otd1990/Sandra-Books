@@ -7,55 +7,49 @@
       >
         <div class="col-12 col-md-3">
           <div class="single-book__quote">
-            <Transition>
-              <p v-if="show">
-                “<br />
-                Lorem ipsum dolor sit, <br />amet consectetur adipisicing elit.
-                <br />
-                ”
-              </p>
-            </Transition>
+            <p v-if="show">
+              “<br />
+              Lorem ipsum dolor sit, <br />amet consectetur adipisicing elit.
+              <br />
+              ”
+            </p>
           </div>
         </div>
         <div class="col-12 col-md-9">
-          <Transition name="movein">
-            <section class="single-book__main" v-if="show">
-              <div class="single-book__image">
-                <img
-                  :src="singleBook.image"
-                  :alt="singleBook.title"
-                  class="single-book--image h-100"
-                />
-              </div>
-              <div class="single-book__info">
-                <h1 class="single-book__title">{{ singleBook.title }}</h1>
-                <p class="single-book__desc">{{ singleBook.desc }}</p>
-                <div class="info__wrapper">
-                  <div class="info--title">
-                    <h5>Published</h5>
-                    <p>{{ singleBook.publishedDate }}</p>
-                  </div>
-                  <div class="info--title">
-                    <h5>Price</h5>
-                    <p>&pound;{{ singleBook.price }}</p>
-                  </div>
-                  <div class="info--title">
-                    <h5>Extract</h5>
-                    <p class="extract">{{ singleBook.extract }}</p>
-                  </div>
+          <section class="single-book__main">
+            <div class="single-book__image">
+              <img
+                :src="singleBook.image"
+                :alt="singleBook.title"
+                class="single-book--image h-100"
+              />
+            </div>
+            <div class="single-book__info">
+              <h1 class="single-book__title">{{ singleBook.title }}</h1>
+              <p class="single-book__desc">{{ singleBook.desc }}</p>
+              <div class="info__wrapper">
+                <div class="info--title">
+                  <h5>Published</h5>
+                  <p>{{ singleBook.publishedDate }}</p>
+                </div>
+                <div class="info--title">
+                  <h5>Price</h5>
+                  <p>&pound;{{ singleBook.price }}</p>
+                </div>
+                <div class="info--title">
+                  <h5>Extract</h5>
+                  <p class="extract">{{ singleBook.extract }}</p>
                 </div>
               </div>
-            </section>
-          </Transition>
-          <Transition>
-            <div class="flex-end" v-if="show">
-              <nuxt-link
-                :to="`/buy/book/${singleBook.id}`"
-                class="btn btn-primary btn--orange"
-                >Buy Book</nuxt-link
-              >
             </div>
-          </Transition>
+          </section>
+          <div class="flex-end">
+            <nuxt-link
+              :to="`/buy/book/${singleBook.id}`"
+              class="btn btn-primary btn--orange"
+              >Buy Book</nuxt-link
+            >
+          </div>
         </div>
       </div>
       <div v-else>Loading...</div>

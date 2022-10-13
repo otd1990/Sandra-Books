@@ -9,14 +9,12 @@
         <div class="row justify-content-center align-items-center">
           <div class="col-12 col-md-5">
             <div class="book__image">
-              <Transition name="imgtrans">
-                <img
-                  :src="book.image"
-                  :alt="book.title"
-                  :class="[index % 2 === 1 ? 'even' : 'odd']"
-                  v-if="show"
-                />
-              </Transition>
+              <img
+                :src="book.image"
+                :alt="book.title"
+                :class="[index % 2 === 1 ? 'even' : 'odd']"
+                v-if="show"
+              />
             </div>
           </div>
           <div class="col-12 col-md-5">

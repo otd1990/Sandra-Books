@@ -2,54 +2,37 @@
   <form @submit.prevent="onSubmit">
     <div class="row justify-content-center">
       <div class="col-12 col-md-6">
-        <div
-          class="form-group"
-          :class="{ error: v$.form.personName.$errors.length }"
-        >
+        <div class="form-group">
           <label class="form-label" for="name">Name:</label>
           <input
             type="text"
             class="form-control"
             name="name"
             id="name"
-            v-model="v$.form.personName.$model"
+            v-model="personName"
           />
-          <div
-            class="input-errors"
-            v-for="(error, index) of v$.form.personName.$errors"
-            :key="index"
-          >
-            <div class="error-msg">{{ error.$message }}</div>
-          </div>
+          <span class="error-msg" v-if="v$.personName.$error">
+            {{ v$.personName.$errors[0].$message }}
+          </span>
         </div>
       </div>
       <div class="col-12 col-md-6">
-        <div
-          class="form-group"
-          :class="{ error: v$.form.email.$errors.length }"
-        >
+        <div class="form-group">
           <label class="form-label" for="email">Email:</label>
           <input
             type="email"
             class="form-control"
             name="email"
             id="email"
-            v-model="v$.form.email.$model"
+            v-model="email"
           />
-          <div
-            class="input-errors"
-            v-for="(error, index) of v$.form.email.$errors"
-            :key="index"
-          >
-            <div class="error-msg">{{ error.$message }}</div>
-          </div>
+          <span class="error-msg" v-if="v$.email.$error">
+            {{ v$.email.$errors[0].$message }}
+          </span>
         </div>
       </div>
       <div class="col-12">
-        <div
-          class="form-group"
-          :class="{ error: v$.form.message.$errors.length }"
-        >
+        <div class="form-group">
           <label class="form-label" for="message">Your Message:</label>
           <textarea
             name="message"
@@ -57,65 +40,61 @@
             id="message"
             cols="30"
             rows="5"
-            v-model="v$.form.message.$model"
-            required
+            v-model="message"
           ></textarea>
-          <div
-            class="input-errors"
-            v-for="(error, index) of v$.form.message.$errors"
-            :key="index"
-          >
-            <div class="error-msg">{{ error.$message }}</div>
-          </div>
+          <span class="error-msg" v-if="v$.message.$error">
+            {{ v$.message.$errors[0].$message }}
+          </span>
         </div>
       </div>
     </div>
     <div class="form--btn">
-      <button :disabled="v$.form.$invalid" class="btn btn-primary btn--beige">
-        Submit
-      </button>
+      <button class="btn btn-primary btn--beige">Submit</button>
     </div>
   </form>
 </template>
 
 <script>
 import useVuelidate from "@vuelidate/core";
-import { required, email } from "@vuelidate/validators";
+import { required, email, helpers } from "@vuelidate/validators";
 
 export default {
   name: "ContactForm",
-  setup() {
-    return {};
-  },
   data() {
     return {
-      form: {
-        personName: "",
-        email: "",
-        message: "",
-      },
       v$: useVuelidate(),
+      personName: "",
+      email: "",
+      message: "",
     };
   },
   validations() {
     return {
-      form: {
-        email: {
-          required,
-          email,
-        },
-        personName: {
-          required,
-        },
-        message: {
-          required,
-        },
+      email: {
+        email,
+        required: helpers.withMessage(
+          "Please enter your email address",
+          required
+        ),
+      },
+      personName: {
+        required: helpers.withMessage("Please enter you name", required),
+      },
+      message: {
+        required: helpers.withMessage("Please enter a message", required),
       },
     };
   },
   methods: {
     onSubmit() {
-      console.log("Submitting form data ", this.form);
+      console.log(this.v$);
+      this.v$.$validate();
+
+      if (this.v$.$error) {
+        console.log(this.v$.$error);
+      }
+
+      console.log("Submitting form data ", this.email);
     },
   },
 };
