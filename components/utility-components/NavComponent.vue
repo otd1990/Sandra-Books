@@ -20,6 +20,9 @@
         <li class="nav__item">
           <nuxt-link to="/downloads" class="nav__link">Downloads</nuxt-link>
         </li>
+        <li class="nav__item">
+          <nuxt-link to="/admin" class="nav__link">Admin</nuxt-link>
+        </li>
       </ul>
     </div>
   </nav>

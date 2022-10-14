@@ -4,6 +4,7 @@ export const useBooksStore = defineStore("BooksStore", {
   state: () => ({
     books: undefined,
     singleBook: undefined,
+    user: null,
   }),
   getters: {
     getBooks: (state) => state.books,
@@ -21,6 +22,9 @@ export const useBooksStore = defineStore("BooksStore", {
     },
     setSingleBook(book) {
       this.singleBook = book;
+    },
+    setUser(user) {
+      this.user = user;
     },
     persist: true,
   },

@@ -10,6 +10,13 @@
           placeholder="Your email"
           v-model="email"
         />
+
+        <input
+          class="inputField"
+          type="password"
+          placeholder="password"
+          v-model="password"
+        />
       </div>
       <div>
         <input
@@ -28,11 +35,19 @@ const supabase = useSupabaseClient();
 
 const loading = ref(false);
 const email = ref("");
+const password = ref("");
+
 const handleLogin = async () => {
   try {
     loading.value = true;
-    const { error } = await supabase.auth.signIn({ email: email.value });
-    if (error) throw error;
+    const resp = await supabase.auth.signUp({
+      email: email.value,
+      password: password.value,
+    });
+
+    console.log("DATA ", resp);
+
+    if (resp.error) throw error;
     alert("Check your email for the login link!");
   } catch (error) {
     alert(error.error_description || error.message);
