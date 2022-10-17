@@ -6,11 +6,20 @@
       Rejected reviews will be deleted and approved reviews will appear on the
       site on the <nuxt-link to="/reviews">reviews page</nuxt-link>
     </p>
+    <ReviewList />
   </div>
 </template>
 
 <script>
-export default {};
+import ReviewList from "@/components/review-list/ReviewList.vue";
+import { useBooksStore } from "@/store/BooksStore";
+
+export default {
+  components: { ReviewList },
+  setup() {
+    reviews;
+  },
+};
 </script>
 
 <style lang="scss" scoped>
