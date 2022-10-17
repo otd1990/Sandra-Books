@@ -15,6 +15,10 @@ export default {
   components: {
     NavComponent,
   },
+  setup() {
+    const booksStore = useBooksStore();
+    booksStore.getAllReviews();
+  },
   watch: {
     $route(to, from) {
       console.log("route change to", to);

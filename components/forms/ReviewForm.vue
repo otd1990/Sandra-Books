@@ -17,7 +17,7 @@
           </p>
         </div>
         <div v-if="submitSuccess">
-          <h3>Thanks</h3>
+          <h3 class="text-center">Thanks</h3>
           <p>
             Your review has been submitted and it will be available here once
             the review has been approved
@@ -51,6 +51,18 @@
                   name="displayName"
                   id="displayName"
                   v-model="review.dispName"
+                  required
+                />
+              </div>
+            </div>
+            <div class="col-12 mb-2">
+              <div class="form-group">
+                <label for="reviewTitle" class="form-label">Review Title</label>
+                <input
+                  class="form-control"
+                  name="reviewTitle"
+                  id="reviewTitle"
+                  v-model="review.reviewTitle"
                   required
                 />
               </div>
@@ -108,6 +120,7 @@ export default {
         dispName: null,
         comment: null,
         bookTitle: null,
+        reviewTitle: null,
       },
       submitSuccess: false,
       submitError: false,
@@ -125,6 +138,7 @@ export default {
           review: this.review.comment,
           reviewerName: this.review.dispName,
           bookTitle: this.review.bookTitle,
+          reviewTitle: this.review.reviewTitle,
         });
 
         console.log("REVIEW SUBMIT ", resp);
@@ -134,6 +148,8 @@ export default {
         this.review = {
           dispName: null,
           comment: null,
+          bookTitle: null,
+          reviewTitle: null,
         };
 
         this.submitSuccess = true;
@@ -150,3 +166,37 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.review__trigger {
+  cursor: pointer;
+}
+
+.reviewModal {
+  background: rgba(0, 0, 0, 0.3);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+.review-modal__container {
+  padding: 2rem 3rem;
+  background: #fff;
+  border-radius: 0.8rem;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  z-index: 5;
+  text-align: left;
+}
+
+.review-modal__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+</style>

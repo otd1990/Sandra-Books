@@ -6,7 +6,8 @@
       Rejected reviews will be deleted and approved reviews will appear on the
       site on the <nuxt-link to="/reviews">reviews page</nuxt-link>
     </p>
-    <ReviewList />
+
+    <ReviewList :reviews="reviews" :showAdminControls="showAdmin" />
   </div>
 </template>
 
@@ -17,7 +18,13 @@ import { useBooksStore } from "@/store/BooksStore";
 export default {
   components: { ReviewList },
   setup() {
-    reviews;
+    const booksStore = useBooksStore();
+    const reviews = booksStore.reviews;
+    const showAdmin = true;
+
+    console.log("REVIEWS ", reviews);
+
+    return { reviews, showAdmin };
   },
 };
 </script>
