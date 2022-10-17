@@ -1,10 +1,10 @@
 <template>
-  <main>
-    <!-- <div class="default__layout"> -->
+  <div class="admin__layout">
     <NavComponent />
-    <slot />
-    <!-- </div> -->
-  </main>
+    <div class="main__content">
+      <slot />
+    </div>
+  </div>
 </template>
 
 <script>
@@ -20,10 +20,21 @@ export default {
       console.log("route change to", to);
       console.log("route change from", from);
 
-      if (from.name === "admin") {
-        console.log("leaving admin");
-        this.handleLogout();
+      const toName = to.name.split("-");
+      const fromName = from.name.split("-");
+
+      console.log("TO NAME ", toName);
+      console.log("From name ", fromName);
+
+      if (fromName.includes("admin") && toName.includes("admin")) {
+        console.log("admin logged in");
+        return;
       }
+
+      // if (from.name === "admin") {
+      console.log("leaving admin");
+      this.handleLogout();
+      // }
     },
   },
   methods: {
@@ -45,5 +56,3 @@ export default {
   },
 };
 </script>
-
-<style></style>

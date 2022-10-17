@@ -1,7 +1,7 @@
 <template>
   <nav class="nav">
     <div class="nav__left">
-      <nuxt-link to="/" class="nav__link">Sandra Plum</nuxt-link>
+      <nuxt-link to="/" class="nav__link">Sandra Plumb</nuxt-link>
     </div>
     <div class="nav__right">
       <ul class="nav__list">
@@ -19,9 +19,6 @@
         </li>
         <li class="nav__item">
           <nuxt-link to="/downloads" class="nav__link">Downloads</nuxt-link>
-        </li>
-        <li class="nav__item">
-          <nuxt-link to="/admin" class="nav__link">Admin</nuxt-link>
         </li>
       </ul>
     </div>

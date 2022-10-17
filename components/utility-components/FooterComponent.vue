@@ -20,7 +20,7 @@
       </ul>
     </div>
     <div class="footer__bottom">
-      <p class="footer__copyright">&copy; Sandra Plum {{ year }}</p>
+      <p class="footer__copyright">&copy; Sandra Plumb {{ year }}</p>
     </div>
   </footer>
 </template>

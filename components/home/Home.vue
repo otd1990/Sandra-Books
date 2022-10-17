@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="home__hero">
-      <h1>Sandra Plum</h1>
+      <h1>Sandra Plumb</h1>
       <div class="home__image-wrap" v-if="booksStore">
         <div
           v-for="book in booksStore.getBooks"

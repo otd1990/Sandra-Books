@@ -87,14 +87,11 @@ export default {
   },
   methods: {
     onSubmit() {
-      console.log(this.v$);
       this.v$.$validate();
 
       if (this.v$.$error) {
-        console.log(this.v$.$error);
+        console.error(this.v$.$error);
       }
-
-      console.log("Submitting form data ", this.email);
     },
   },
 };

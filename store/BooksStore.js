@@ -5,6 +5,7 @@ export const useBooksStore = defineStore("BooksStore", {
     books: undefined,
     singleBook: undefined,
     user: null,
+    approvedReviews: undefined,
   }),
   getters: {
     getBooks: (state) => state.books,
@@ -18,6 +19,23 @@ export const useBooksStore = defineStore("BooksStore", {
       } catch (error) {
         console.error("ERROR GETTING BOOKS ", error);
         return error;
+      }
+    },
+    async getApprovedReviews() {
+      const supabase = useSupabaseClient();
+      try {
+        const resp = await supabase
+          .from("reviews")
+          .select()
+          .is("approved", true);
+
+        console.log("RESPONSE ", resp);
+
+        if (resp.error) throw error;
+
+        this.approvedReviews = resp.data;
+      } catch (error) {
+        console.error("ERROR GETTING REVIEWS ", error);
       }
     },
     setSingleBook(book) {

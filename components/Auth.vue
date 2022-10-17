@@ -45,10 +45,8 @@ const handleLogin = async () => {
       password: password.value,
     });
 
-    console.log("DATA ", resp);
-
     if (resp.error) throw error;
-    alert("Check your email for the login link!");
+    // alert("Check your email for the login link!");
   } catch (error) {
     alert(error.error_description || error.message);
   } finally {
