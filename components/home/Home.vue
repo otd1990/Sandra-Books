@@ -4,7 +4,7 @@
       <h1>Sandra Plumb</h1>
       <div class="home__image-wrap" v-if="booksStore">
         <div
-          v-for="book in booksStore.getBooks"
+          v-for="book in allBooks"
           :key="book.id"
           class="home__image-container"
         >
@@ -19,7 +19,7 @@
           <h2>Books I've Written</h2>
           <div class="row justify-content-center" v-if="booksStore">
             <div
-              v-for="book in booksStore.getBooks"
+              v-for="book in allBooks"
               :key="book.id"
               class="authored__books col-12 col-md-5"
             >
@@ -68,8 +68,9 @@ export default {
   },
   setup() {
     const booksStore = useBooksStore();
+    const allBooks = booksStore.getBooks.filter((book) => book.showOnHomePage);
 
-    return { booksStore };
+    return { allBooks, booksStore };
   },
 };
 </script>

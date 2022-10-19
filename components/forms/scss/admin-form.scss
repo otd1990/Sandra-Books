@@ -1,0 +1,38 @@
+@import "./forms.scss";
+
+.show-diff-forms {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 0.5rem 0;
+  background: $beigeMain;
+
+  &-list {
+    @include display-flex-between;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    &--link {
+      color: $blackMain;
+      padding: 1rem 0.5rem;
+      text-decoration: none;
+      display: block;
+      background: #fafafa;
+      opacity: 0.7;
+      border-right: 1px solid rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: all 0.3s ease;
+      &:hover {
+        color: inherit;
+        opacity: 1;
+      }
+    }
+  }
+
+  &-list-item {
+    flex: 1;
+  }
+
+  a.router-link-exact-active {
+    opacity: 1;
+    background: #b7c4cf;
+  }
+}

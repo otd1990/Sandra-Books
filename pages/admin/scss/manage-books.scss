@@ -1,0 +1,21 @@
+@import "../../../assets/scss/main.scss";
+
+.manage-books {
+  .book {
+    padding: 1rem;
+
+    h5 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    img {
+      max-width: 250px;
+    }
+
+    &__head,
+    &__info {
+      @include display-flex-between;
+    }
+  }
+}

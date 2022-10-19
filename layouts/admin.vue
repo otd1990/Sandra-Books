@@ -7,6 +7,13 @@
   </div>
 </template>
 
+<script setup>
+definePageMeta({
+  middleware: ["auth"],
+  // or middleware: 'auth'
+});
+</script>
+
 <script>
 import NavComponent from "@/components/utility-components/NavComponent";
 import { useBooksStore } from "@/store/BooksStore";
@@ -26,9 +33,6 @@ export default {
 
       const toName = to.name.split("-");
       const fromName = from.name.split("-");
-
-      console.log("TO NAME ", toName);
-      console.log("From name ", fromName);
 
       if (fromName.includes("admin") && toName.includes("admin")) {
         console.log("admin logged in");

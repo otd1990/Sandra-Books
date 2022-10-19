@@ -14,6 +14,7 @@ import AdminForm from "@/components/forms/AdminForm";
 
 definePageMeta({
   layout: false,
+  middleware: ["auth"],
 });
 
 export default {

@@ -1,10 +1,10 @@
 <template>
-  <div class="add-book-form">
+  <div class="edit-book-form mt-3">
     <form @submit.prevent="handleNewDataSubmit">
       <div class="row justify-content-center align-items-center">
-        <div class="col-12 col-sm-10 col-md-6">
+        <div class="col-12">
           <div class="row">
-            <div class="col-12 mb-2">
+            <div class="col-12 col-md-6 mb-2">
               <div class="form-group">
                 <label class="form-label" for="title">Title</label>
                 <input
@@ -18,7 +18,7 @@
               </div>
             </div>
 
-            <div class="col-12 mb-2">
+            <div class="col-12 col-md-6 mb-2">
               <div class="form-group">
                 <label class="form-label" for="desc">Description</label>
                 <input
@@ -32,7 +32,7 @@
               </div>
             </div>
 
-            <div class="col-12 mb-2">
+            <div class="col-12 col-md-6 mb-2">
               <div class="form-group">
                 <label class="form-label" for="extract">Extract</label>
                 <input
@@ -46,7 +46,7 @@
               </div>
             </div>
 
-            <div class="col-12 mb-2">
+            <div class="col-12 col-md-6 mb-2">
               <div class="form-group">
                 <label class="form-label" for="published">Published Date</label>
                 <input
@@ -60,7 +60,7 @@
               </div>
             </div>
 
-            <div class="col-12 mb-2">
+            <div class="col-12 col-md-6 mb-2">
               <div class="form-group">
                 <label class="form-label" for="price">Price</label>
                 <input
@@ -74,21 +74,20 @@
               </div>
             </div>
 
-            <div class="col-12 mb-2">
+            <div class="col-12 col-md-6 mb-2">
               <div class="form-group">
                 <label for="image">Image</label>
                 <input
                   type="file"
                   accept="image/*"
                   id="image"
-                  required
                   class="form-control"
                   @change="uploadAvatar"
                 />
               </div>
             </div>
 
-            <div class="col-12 mb-2">
+            <div class="col-12 col-md-6 mb-2">
               <div class="form-group">
                 <label for="quote">Quote</label>
                 <input
@@ -102,7 +101,7 @@
               </div>
             </div>
 
-            <div class="col-12 mb-2">
+            <div class="col-12 col-md-6 mb-2">
               <div class="form-group">
                 <input
                   type="checkbox"
@@ -128,32 +127,43 @@
 </template>
 
 <script>
+import { useBooksStore } from "~~/store/BooksStore";
 export default {
-  name: "AddBookForm",
+  name: "EditBookForm",
+  props: ["book"],
   data() {
     return {
       uploadState: {
-        image: "",
-        title: "",
-        desc: "",
-        extract: "",
-        publishedDate: "",
-        price: 0,
-        quote: "",
-        showOnHomePage: false,
+        image: this.book.image,
+        title: this.book.title,
+        desc: this.book.desc,
+        extract: this.book.extract,
+        publishedDate: this.book.publishedDate,
+        price: this.book.price,
+        quote: this.book.quote,
+        showOnHomePage: this.book.showOnHomePage,
       },
     };
   },
   methods: {
     async handleNewDataSubmit() {
       const supabase = useSupabaseClient();
+      const bookStore = useBooksStore();
+
+      console.log(this.book);
 
       try {
         const { data, error } = await supabase
           .from("books")
-          .insert(this.uploadState);
+          .update(this.uploadState)
+          .eq("id", this.book.id);
 
         if (error) throw error;
+
+        console.log(data);
+
+        this.$emit("formEditSuccess");
+        bookStore.getBooksFromServ();
       } catch (error) {
         console.error("Error submitting data ", error);
       }

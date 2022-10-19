@@ -1,0 +1,28 @@
+@import "../../../assets/scss/main.scss";
+
+.contact-data__wrap {
+  text-align: left;
+  .contact {
+    background-color: transparent;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: left;
+    padding: 1rem;
+
+    h5 {
+      color: $blackMain;
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    &__info {
+      @include display-flex-between;
+    }
+
+    &__name,
+    &__email,
+    &__date {
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+  }
+}

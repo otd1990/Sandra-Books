@@ -32,15 +32,21 @@
             <div class="review-list__dets">
               <p class="review-list__by">Review By {{ review.reviewerName }}</p>
               <p class="review-list__date">
-                {{ new Date(review.created_at).toLocaleDateString("en-EN") }}
+                {{ new Date(review.created_at).toLocaleDateString("en-GB") }}
               </p>
             </div>
-            <p v-if="approved" class="review-status">
-              Review has been <b>APPROVED</b> and will show on the site
-            </p>
-            <p v-if="rejected" class="review-status">
-              Review has been <b>REJECTED</b> and will not show on the site
-            </p>
+            <div v-if="showAdminControls">
+              <p class="my-5">
+                REVIEW STATUS:
+                <b>{{ review.approved ? "APPROVED" : "NOT APPROVED" }}</b>
+              </p>
+              <p v-if="approved" class="review-status">
+                Review has been <b>APPROVED</b> and will show on the site
+              </p>
+              <p v-if="rejected" class="review-status">
+                Review has been <b>REJECTED</b> and will not show on the site
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -61,6 +67,9 @@ export default {
       approved: false,
       rejected: false,
     };
+  },
+  created(props) {
+    console.log(this.$props);
   },
   methods: {
     async approveReview(id) {
@@ -125,6 +134,7 @@ p {
   }
 
   &__book-title {
+    text-align: left;
     font-size: 1.2rem;
     span {
       font-weight: bold;
@@ -134,6 +144,7 @@ p {
   &__review {
     margin: 1rem 0;
     font-style: italic;
+    text-align: left;
   }
 
   &__dets {

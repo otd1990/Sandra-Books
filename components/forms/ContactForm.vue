@@ -11,7 +11,10 @@
             id="name"
             v-model="personName"
           />
-          <span class="error-msg" v-if="v$.personName.$error">
+          <span
+            class="error-msg"
+            v-if="v$.personName !== '' && v$.personName.$error"
+          >
             {{ v$.personName.$errors[0].$message }}
           </span>
         </div>
@@ -26,7 +29,7 @@
             id="email"
             v-model="email"
           />
-          <span class="error-msg" v-if="v$.email.$error">
+          <span class="error-msg" v-if="v$.email !== '' && v$.email.$error">
             {{ v$.email.$errors[0].$message }}
           </span>
         </div>
@@ -42,14 +45,19 @@
             rows="5"
             v-model="message"
           ></textarea>
-          <span class="error-msg" v-if="v$.message.$error">
+          <span class="error-msg" v-if="v$.message !== '' && v$.message.$error">
             {{ v$.message.$errors[0].$message }}
           </span>
         </div>
       </div>
     </div>
     <div class="form--btn">
-      <button class="btn btn-primary btn--beige">Submit</button>
+      <button
+        class="btn ms-auto"
+        :class="buttonColor ? 'btn--orange' : 'btn--beige'"
+      >
+        Submit
+      </button>
     </div>
   </form>
 </template>
@@ -60,6 +68,7 @@ import { required, email, helpers } from "@vuelidate/validators";
 
 export default {
   name: "ContactForm",
+  props: ["buttonColor"],
   data() {
     return {
       v$: useVuelidate(),
@@ -86,11 +95,30 @@ export default {
     };
   },
   methods: {
-    onSubmit() {
+    async onSubmit() {
       this.v$.$validate();
+      const supabase = useSupabaseClient();
 
-      if (this.v$.$error) {
-        console.error(this.v$.$error);
+      if (this.v$.$error) return;
+
+      try {
+        const resp = await supabase.from("contact").insert({
+          name: this.personName,
+          email: this.email,
+          message: this.message,
+        });
+
+        if (resp.error) throw resp.error;
+
+        console.log("RESP ", resp);
+
+        alert("Thanks for your message I will be in touch shortly");
+
+        this.personName = "";
+        this.email = "";
+        this.message = "";
+      } catch (error) {
+        alert("There has been an error ", error);
       }
     },
   },

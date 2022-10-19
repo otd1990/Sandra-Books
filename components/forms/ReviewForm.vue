@@ -90,28 +90,24 @@
         </form>
       </div>
     </div>
-    <div class="container">
-      <ReviewList :reviews="reviews" />
+    <div class="container" v-if="booksStore.approvedReviews">
+      <ReviewList :reviews="booksStore.approvedReviews" />
     </div>
   </div>
 </template>
 
+<script setup>
+import { useBooksStore } from "@/store/BooksStore";
+const booksStore = useBooksStore();
+</script>
+
 <script>
 import ReviewList from "@/components/review-list/ReviewList";
-import { useBooksStore } from "@/store/BooksStore";
 
 export default {
   name: "ReviewForm",
   components: {
     ReviewList,
-  },
-  async setup() {
-    const bookStore = useBooksStore();
-    const reviews = bookStore.approvedReviews;
-
-    console.log("REVIEWS ", reviews);
-
-    return { reviews };
   },
   data() {
     return {

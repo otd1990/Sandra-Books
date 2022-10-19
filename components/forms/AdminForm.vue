@@ -41,12 +41,38 @@
     <div v-else>
       <button @click="handleLogout" class="btn btn--orange">Log Out</button>
       <div class="show-diff-forms">
-        <nuxt-link to="/admin/add-books" class="btn btn--beige"
-          >Add A New Book</nuxt-link
-        >
-        <nuxt-link to="/admin/manage-reviews" class="btn btn--beige"
-          >Manage Reviews</nuxt-link
-        >
+        <nav class="show-diff-forms-nav">
+          <ul class="show-diff-forms-list">
+            <li class="show-diff-forms-list-item">
+              <nuxt-link
+                to="/admin/add-books"
+                class="show-diff-forms-list--link"
+                >Add A New Book</nuxt-link
+              >
+            </li>
+            <li class="show-diff-forms-list-item">
+              <nuxt-link
+                to="/admin/manage-books"
+                class="show-diff-forms-list--link"
+                >Manage Books</nuxt-link
+              >
+            </li>
+            <li class="show-diff-forms-list-item">
+              <nuxt-link
+                to="/admin/manage-reviews"
+                class="show-diff-forms-list--link"
+                >Manage Reviews</nuxt-link
+              >
+            </li>
+            <li class="show-diff-forms-list-item">
+              <nuxt-link
+                to="/admin/manage-contact"
+                class="show-diff-forms-list--link"
+                >Manage Messages</nuxt-link
+              >
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
 
@@ -55,6 +81,7 @@
 </template>
 
 <script>
+import "./scss/admin-form.scss";
 import { useBooksStore } from "@/store/BooksStore";
 
 export default {
@@ -91,6 +118,7 @@ export default {
 
         booksStore.setUser(data);
         this.loggedIn = true;
+        navigateTo("/admin/add-books");
       } catch (error) {
         console.error("Error Signing in ", error);
         this.showError = true;
@@ -113,6 +141,7 @@ export default {
 
         this.email = null;
         this.password = null;
+        navigateTo("/admin");
       } catch (error) {
         console.error("ERROR Signing out ", error);
       }
@@ -120,11 +149,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.show-diff-forms {
-  display: flex;
-  align-content: center;
-  justify-content: center;
-}
-</style>
