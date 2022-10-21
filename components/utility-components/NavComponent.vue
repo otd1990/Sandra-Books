@@ -3,7 +3,10 @@
     <div class="nav__left">
       <nuxt-link to="/" class="nav__link">Sandra Plumb</nuxt-link>
     </div>
-    <div class="nav__right">
+    <div class="nav__control">
+      <button @click="handleNavClick">---</button>
+    </div>
+    <div class="nav__right" :class="classes">
       <ul class="nav__list">
         <li class="nav__item">
           <nuxt-link to="/about" class="nav__link">About</nuxt-link>
@@ -30,5 +33,37 @@ import "./scss/nav.scss";
 
 export default {
   name: "NavComponent",
+  data() {
+    return {
+      navShowing: false,
+      classes: "",
+      width: document.documentElement.clientWidth,
+    };
+  },
+  mounted() {
+    window.addEventListener("resize", this.getWidth);
+  },
+  unmounted() {
+    window.removeEventListener("resize", this.getWidth);
+  },
+  methods: {
+    getDimensions() {
+      this.width = document.documentElement.clientWidth;
+
+      if (this.width > 767) {
+        this.navShowing = true;
+        this.classes = "";
+      }
+
+      if (this.width < 768) {
+        this.navShowing = false;
+        this.classes = "not-showing";
+      }
+    },
+    handleNavClick() {
+      this.navShowing = !this.navShowing;
+      this.classes = this.navShowing ? "showing" : "not-showing";
+    },
+  },
 };
 </script>

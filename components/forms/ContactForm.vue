@@ -11,10 +11,7 @@
             id="name"
             v-model="personName"
           />
-          <span
-            class="error-msg"
-            v-if="v$.personName !== '' && v$.personName.$error"
-          >
+          <span class="error-msg" v-if="v$.$dirty && v$.personName.$error">
             {{ v$.personName.$errors[0].$message }}
           </span>
         </div>
@@ -29,7 +26,7 @@
             id="email"
             v-model="email"
           />
-          <span class="error-msg" v-if="v$.email !== '' && v$.email.$error">
+          <span class="error-msg" v-if="v$.$dirty && v$.email.$error">
             {{ v$.email.$errors[0].$message }}
           </span>
         </div>
@@ -45,7 +42,7 @@
             rows="5"
             v-model="message"
           ></textarea>
-          <span class="error-msg" v-if="v$.message !== '' && v$.message.$error">
+          <span class="error-msg" v-if="v$.$dirty && v$.message.$error">
             {{ v$.message.$errors[0].$message }}
           </span>
         </div>

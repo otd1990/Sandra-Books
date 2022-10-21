@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container text-center page-top-padding">
     <h1>Downloads</h1>
   </div>
 </template>

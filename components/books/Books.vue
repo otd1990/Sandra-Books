@@ -8,7 +8,7 @@
       >
         <div class="row justify-content-center align-items-center">
           <div class="col-12 col-md-5">
-            <div class="book__image">
+            <div class="book__image mb-4 mb-md-0">
               <img
                 :src="book.image"
                 :alt="book.title"

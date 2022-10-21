@@ -7,8 +7,31 @@
   background-color: $orangeMain;
   @include display-flex-between;
   padding: 0.75rem 1rem;
+
+  &__right {
+    @media (max-width: 767px) {
+      display: none;
+      position: absolute;
+      top: 3rem;
+      left: 0;
+      width: 100%;
+      background: $orangeMain;
+    }
+  }
+
+  &__control {
+    display: none;
+
+    @media (max-width: 767px) {
+      display: block;
+    }
+  }
+
   &__list {
     @include flex-center-list;
+    @media (max-width: 767px) {
+      display: block;
+    }
   }
 
   &__item {
@@ -22,5 +45,17 @@
     &:hover {
       color: $blackMain;
     }
+  }
+}
+
+.nav__right.showing {
+  @media (max-width: 767px) {
+    display: block;
+  }
+}
+
+.nav__right.not-showing {
+  @media (max-width: 767px) {
+    display: none;
   }
 }

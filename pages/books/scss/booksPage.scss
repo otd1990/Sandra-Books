@@ -13,6 +13,8 @@
 
   .book:nth-child(even) .row {
     flex-flow: row-reverse;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
   }
 
   .book {

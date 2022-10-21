@@ -4,7 +4,8 @@
 
 .footer {
   background-color: $beigeMain;
-  padding: 3rem 1rem 1.25rem 1rem;
+  padding: 2rem 1rem 1.25rem 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   &__list {
     @include flex-center-list;
     list-style: none;

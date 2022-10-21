@@ -1,5 +1,5 @@
 <template>
-  <div class="container text-center">
+  <div class="container text-center page-top-padding">
     <h1 class="my-2">Reviews</h1>
     <ReviewForm />
   </div>

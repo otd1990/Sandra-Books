@@ -2,7 +2,9 @@
   <main>
     <div class="default__layout">
       <NavComponent />
-      <slot />
+      <div class="slot--container">
+        <slot />
+      </div>
     </div>
     <FooterComponent />
   </main>
