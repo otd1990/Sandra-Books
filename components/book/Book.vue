@@ -17,28 +17,34 @@
         </div>
         <div class="col-12 col-md-9">
           <section class="single-book__main">
-            <div class="single-book__image">
-              <img
-                :src="singleBook.image"
-                :alt="singleBook.title"
-                class="single-book--image h-100"
-              />
-            </div>
-            <div class="single-book__info">
-              <h1 class="single-book__title">{{ singleBook.title }}</h1>
-              <p class="single-book__desc">{{ singleBook.desc }}</p>
-              <div class="info__wrapper">
-                <div class="info--title">
-                  <h5>Published</h5>
-                  <p>{{ singleBook.publishedDate }}</p>
+            <div class="row">
+              <div class="col-12 col-lg-5">
+                <div class="single-book__image">
+                  <img
+                    :src="singleBook.image"
+                    :alt="singleBook.title"
+                    class="single-book--image h-100"
+                  />
                 </div>
-                <div class="info--title">
-                  <h5>Price</h5>
-                  <p>&pound;{{ singleBook.price }}</p>
-                </div>
-                <div class="info--title">
-                  <h5>Extract</h5>
-                  <p class="extract">{{ singleBook.extract }}</p>
+              </div>
+              <div class="col-12 col-lg-7">
+                <div class="single-book__info">
+                  <h1 class="single-book__title">{{ singleBook.title }}</h1>
+                  <p class="single-book__desc">{{ singleBook.desc }}</p>
+                  <div class="info__wrapper">
+                    <div class="info--title">
+                      <h5>Published</h5>
+                      <p>{{ singleBook.publishedDate }}</p>
+                    </div>
+                    <div class="info--title">
+                      <h5>Price</h5>
+                      <p>&pound;{{ singleBook.price }}</p>
+                    </div>
+                    <div class="info--title">
+                      <h5>Extract</h5>
+                      <p class="extract">{{ singleBook.extract }}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -186,9 +192,15 @@ export default {
     }
   }
 
+  &__image {
+    height: 100%;
+  }
+
   &--image {
     max-width: 100%;
     object-fit: fill;
+    width: 100%;
+    max-height: 700px;
   }
 }
 </style>
