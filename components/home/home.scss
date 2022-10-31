@@ -7,9 +7,14 @@
   padding-top: 3rem;
   &__hero {
     height: 30vh;
-    margin-top: 2rem;
+    margin-top: 6rem;
     background-color: $orangeMain;
     @include display-flex-column;
+
+    @media (min-height: 750px) {
+      //height of screen
+      margin-top: 3rem;
+    }
   }
 
   &__image-wrap {
