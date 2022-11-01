@@ -1,16 +1,12 @@
 <template>
   <div class="home">
-    <div class="home__hero">
-      <h1>Sandra Plumb</h1>
-      <div class="home__image-wrap" v-if="booksStore">
-        <div
-          v-for="book in allBooks"
-          :key="book.id"
-          class="home__image-container"
-        >
-          <img :src="book.image" :alt="book.title" class="home__image-image" />
-        </div>
-      </div>
+    <div class="home__hero" v-if="booksStore">
+      <div
+        class="home__hero--image"
+        v-for="(book, index) in allBooks"
+        :key="book.id"
+        :style="animationCalc(book, index)"
+      ></div>
     </div>
     <section class="home__main">
       <div class="container">
@@ -71,6 +67,29 @@ export default {
     const allBooks = booksStore.getBooks.filter((book) => book.showOnHomePage);
 
     return { allBooks, booksStore };
+  },
+  methods: {
+    animationCalc(book, index) {
+      // const banners = document.querySelectorAll('.home__banner--wrap');
+
+      console.log("ALL BOOKS ", this.allBooks);
+      const num = window.matchMedia("(min-width: 768px)").matches ? 6 : 4;
+
+      return `background-image: url('${book.image}'); animation-delay: ${
+        index * num
+      }s; -webkit-animation-delay: ${index * num}s; animation-duration: ${
+        this.allBooks.length * num
+      }s; -webkit-animation-duration: ${this.allBooks.length * num}s`;
+
+      // banners.forEach((banner, i) => {
+      //     //work out the animation duration, smaller the value of num the quicker the transition
+      //     const num = window.matchMedia("(min-width: 768px)").matches ? 6 : 4;
+      //     const duration = banners.length * num;
+      //     //set the delay and the duration for the animation
+      //     banner.setAttribute(`style`, `animation-delay: ${ i * num }s; -webkit-animation-delay: ${ i * num }s; animation-duration: ${ duration }s; -webkit-animation-duration: ${ duration }s;`);
+      //     //orders.push(banner.dataset.order);
+      // });
+    },
   },
 };
 </script>
