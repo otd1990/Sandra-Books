@@ -37,7 +37,7 @@ export default {
     return {
       navShowing: false,
       classes: "",
-      width: document.documentElement.clientWidth,
+      width: process.client ? document.documentElement.clientWidth : "",
     };
   },
   mounted() {
@@ -48,6 +48,8 @@ export default {
   },
   methods: {
     getDimensions() {
+      if (!process.client) return;
+
       this.width = document.documentElement.clientWidth;
 
       if (this.width > 767) {
