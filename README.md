@@ -8,7 +8,7 @@
     - https://supabase.com/docs/reference/dart/auth-signin
     - https://ui.supabase.io/components/auth
     - https://supabase.com/docs/guides/with-nuxt-3
-  --https://supabase.com/docs/guides/auth
+      --https://supabase.com/docs/guides/auth
   - verification
   - redirects
   - upload information
@@ -29,6 +29,9 @@ Inspo
 - https://dribbble.com/shots/9838689-Folium-Portfolio-Template
 - https://neonyang.com/
 - https://www.helenhoang.com/
+- children's authors
+  - https://lindatharpink.com/
+  - http://loislowry.com/
 
 Fonts:
 https://fonts.google.com/specimen/Abyssinica+SIL
