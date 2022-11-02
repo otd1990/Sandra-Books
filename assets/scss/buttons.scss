@@ -32,3 +32,16 @@
     color: $beigeMain !important;
   }
 }
+
+.btn--black,
+.btn--black:disabled {
+  background-color: $blackMain;
+  border-color: $blackMain;
+  color: $beigeMain;
+  @include btn-base;
+
+  &:hover {
+    background-color: $beigeMain;
+    color: $blackMain;
+  }
+}

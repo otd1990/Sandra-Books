@@ -6,18 +6,24 @@
         :key="book.id"
         class="book"
       >
-        <div class="row justify-content-center align-items-center">
-          <div class="col-12 col-md-5">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-6">
             <div class="book__image mb-4 mb-md-0">
-              <img
+              <!-- <img
                 :src="book.image"
                 :alt="book.title"
                 :class="[index % 2 === 1 ? 'even' : 'odd']"
                 v-if="show"
+              /> -->
+              <img
+                :src="book.image"
+                :alt="book.title"
+                v-if="show"
+                class="even"
               />
             </div>
           </div>
-          <div class="col-12 col-md-5">
+          <div class="col-12 col-md-6">
             <h2>{{ book.title }}</h2>
             <p>{{ book.desc }}</p>
             <nuxt-link :to="`/books/${book.id}`">Read More</nuxt-link>
@@ -54,16 +60,6 @@ export default {
 <style lang="scss" scoped>
 h2 {
   font-size: 3rem;
-}
-
-.imgtrans-enter-active,
-.imgtrans-leave-active {
-  transition: all 0.5s ease;
-}
-
-.imgtrans-enter-from,
-.imgtrans-leave-to {
-  opacity: 0.25;
-  transform: translateY(25px);
+  margin: 3rem 0;
 }
 </style>

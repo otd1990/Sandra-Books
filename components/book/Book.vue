@@ -1,21 +1,26 @@
 <template>
   <section class="single-book">
     <div class="single-book__container">
+      <!-- <h1 class="heading__quote">
+        “
+        {{ singleBook.quote }}
+        ”
+      </h1> -->
       <div
         class="row justify-space-between align-items-center"
         v-if="singleBook"
       >
-        <div class="col-12 col-md-3">
+        <div class="col-12 col-md-2">
           <div class="single-book__quote">
             <p v-if="show">
               “<br />
-              Lorem ipsum dolor sit, <br />amet consectetur adipisicing elit.
+              {{ singleBook.quote }}
               <br />
               ”
             </p>
           </div>
         </div>
-        <div class="col-12 col-md-9">
+        <div class="col-12 col-md-10">
           <section class="single-book__main">
             <div class="row">
               <div class="col-12 col-lg-5">
@@ -49,7 +54,10 @@
               </div>
             </div>
           </section>
-          <div class="flex-end">
+          <div class="flex-between">
+            <nuxt-link @click="$router.back()" class="btn btn--black"
+              >Back</nuxt-link
+            >
             <nuxt-link
               :to="`/buy/book/${singleBook.id}`"
               class="btn btn-primary btn--orange"
@@ -85,6 +93,8 @@ export default {
         booksStore.setSingleBook(singleBook);
       }
     });
+
+    console.log("single book ", singleBook);
 
     return { books, singleBook };
   },
@@ -138,7 +148,7 @@ export default {
 }
 
 .single-book {
-  padding: 2.75rem 0;
+  padding: 5.75rem 0 2.75rem 0;
   background-color: $beigeMain;
 
   h1 {
@@ -153,7 +163,7 @@ export default {
 
   &__quote {
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.45rem;
     font-style: italic;
   }
 
@@ -202,5 +212,11 @@ export default {
     width: 100%;
     max-height: 700px;
   }
+}
+
+.heading__quote {
+  margin: 2rem 0;
+  font-style: italic;
+  text-align: center;
 }
 </style>

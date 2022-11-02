@@ -1,5 +1,5 @@
 <template>
-  <div class="about-page__container page-top-padding">
+  <div class="page-top-padding">
     <About />
   </div>
 </template>

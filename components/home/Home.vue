@@ -1,23 +1,48 @@
 <template>
   <div class="home">
     <div class="home__hero" v-if="booksStore">
-      <div
-        class="home__hero--image"
-        v-for="(book, index) in allBooks"
-        :key="book.id"
-        :style="animationCalc(book, index)"
-      ></div>
+      <swiper
+        :modules="modules"
+        :slides-per-view="1"
+        :space-between="50"
+        :pagination="{ clickable: true }"
+        :loop="true"
+      >
+        <!--         :autoplay="{
+          delay: 5000,
+          disableOnInteraction: false,
+        }"
+        :loop="true" -->
+        <swiper-slide
+          v-for="(book, index) in allBooks"
+          :key="book.id"
+          :index="index"
+          :virtualIndex="index"
+          class="home__hero--image"
+          :style="`background-image: url('${book.image}')`"
+        >
+          <div class="hero__book">
+            <div class="hero__book-container-title">
+              <h1 class="hero__book-title">{{ book.title }}</h1>
+            </div>
+            <p class="hero__book-published">
+              Available From: {{ book.publishedDate }}
+            </p>
+          </div>
+        </swiper-slide>
+      </swiper>
+      <div class="home__overlay"></div>
     </div>
     <section class="home__main">
       <div class="container">
         <About />
         <section class="authored">
-          <h2>Books I've Written</h2>
           <div class="row justify-content-center" v-if="booksStore">
+            <h2 class="col-12">My Books</h2>
             <div
               v-for="book in allBooks"
               :key="book.id"
-              class="authored__books col-12 col-md-5"
+              class="authored__books col-12 col-md-6"
             >
               <nuxt-link :to="`/books/${book.id}`" class="authored__books-wrap">
                 <img
@@ -54,6 +79,15 @@ import { useBooksStore } from "@/store/BooksStore";
 import About from "@/components/about/About";
 import ContactForm from "@/components/forms/ContactForm";
 
+// Import Swiper Vue.js components
+import { Pagination, Autoplay } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/vue";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
+
 import "./home.scss";
 
 export default {
@@ -61,35 +95,14 @@ export default {
   components: {
     About,
     ContactForm,
+    Swiper,
+    SwiperSlide,
   },
   setup() {
     const booksStore = useBooksStore();
     const allBooks = booksStore.getBooks.filter((book) => book.showOnHomePage);
 
-    return { allBooks, booksStore };
-  },
-  methods: {
-    animationCalc(book, index) {
-      // const banners = document.querySelectorAll('.home__banner--wrap');
-
-      console.log("ALL BOOKS ", this.allBooks);
-      const num = window.matchMedia("(min-width: 768px)").matches ? 6 : 4;
-
-      return `background-image: url('${book.image}'); animation-delay: ${
-        index * num
-      }s; -webkit-animation-delay: ${index * num}s; animation-duration: ${
-        this.allBooks.length * num
-      }s; -webkit-animation-duration: ${this.allBooks.length * num}s`;
-
-      // banners.forEach((banner, i) => {
-      //     //work out the animation duration, smaller the value of num the quicker the transition
-      //     const num = window.matchMedia("(min-width: 768px)").matches ? 6 : 4;
-      //     const duration = banners.length * num;
-      //     //set the delay and the duration for the animation
-      //     banner.setAttribute(`style`, `animation-delay: ${ i * num }s; -webkit-animation-delay: ${ i * num }s; animation-duration: ${ duration }s; -webkit-animation-duration: ${ duration }s;`);
-      //     //orders.push(banner.dataset.order);
-      // });
-    },
+    return { allBooks, booksStore, modules: [Pagination, Autoplay] };
   },
 };
 </script>

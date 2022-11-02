@@ -4,14 +4,20 @@
 
 .books__page {
   background-color: $beigeMain;
-  padding: $sectionSpacer;
+  padding: 5rem 0;
 
   h1 {
     text-align: center;
     margin: 1.5rem;
   }
 
-  .book:nth-child(even) .row {
+  // .book:nth-child(even) .row {
+  //   flex-flow: row-reverse;
+  //   flex-wrap: wrap;
+  //   margin-bottom: 3rem;
+  // }
+
+  .book .row {
     flex-flow: row-reverse;
     flex-wrap: wrap;
     margin-bottom: 3rem;
@@ -19,13 +25,23 @@
 
   .book {
     margin-bottom: 2rem;
-    text-align: center;
+    text-align: left;
     h2 {
       margin-bottom: 2rem;
+      position: relative;
+      &::after {
+        position: absolute;
+        top: 50%;
+        left: -50%;
+        content: "";
+        height: 3px;
+        width: 7rem;
+        background-color: $orangeMain;
+      }
     }
     &__image {
-      max-width: 400px;
-      height: 360px;
+      max-width: 100%;
+      height: 450px;
       margin: auto;
       img {
         width: 100%;

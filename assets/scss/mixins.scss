@@ -25,3 +25,9 @@
   padding: 0;
   margin: 0;
 }
+
+@mixin btn-base {
+  margin: 1rem 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}

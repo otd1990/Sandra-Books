@@ -3,49 +3,115 @@
 @import "../../assets/scss/main.scss";
 
 .home {
-  background-color: $orangeMain;
-  // padding-top: 3rem;
   &__hero {
     position: relative;
     overflow: hidden;
     height: 90vh;
-    // margin-top: 6rem;
     background-color: $orangeMain;
     @include display-flex-column;
-
-    // @media (min-height: 750px) {
-    //   //height of screen
-    //   margin-top: 3rem;
-    // }
+    .swiper {
+      height: 100%;
+      width: 100%;
+    }
 
     &--image {
       height: 100%;
-      /* background: aliceblue; */
       width: 100%;
       background-repeat: no-repeat;
       background-position: center;
-      background-size: cover;
+      background-size: 100%;
+      @media (max-width: 1020px) {
+        background-size: 100% 80%;
+      }
+    }
 
-      position: absolute;
+    .swiper-pagination-bullet {
+      background: transparent !important;
+      border: 3px solid white !important;
+      padding: 7px !important;
+    }
+    .swiper-pagination-bullet-active {
+      background: white !important;
+    }
+  }
+
+  .hero {
+    &__book {
+      max-width: 500px;
+      overflow: hidden;
+      margin: auto;
       height: 100%;
-      width: 100%;
-      left: 0;
-      top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      &-container-title {
+        text-align: center;
+        background-color: #fff;
+        width: 100%;
+        transform: translateX(-100%);
+      }
+      &-title {
+        opacity: 0;
+      }
+      &-published {
+        background: #000;
+        color: #fff;
+        padding: 15px;
+        font-size: 1.45rem;
+        margin-top: -1rem;
+        position: relative;
+        opacity: 0;
+      }
+    }
+  }
+
+  .home__hero .swiper-slide-active {
+    .hero__book-container-title {
+      animation: slideInBlock 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+      .hero__book-title {
+        opacity: 1;
+        animation: fadeIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        animation-delay: 0.65s;
+      }
+    }
+    .hero__book-published {
+      opacity: 1;
+      animation: fadeIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+      animation-delay: 1.2s;
+    }
+  }
+
+  @media (min-width: 1020px) {
+    .swiper-slide-active.home__hero--image {
+      animation: scaleImage 10s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    }
+  }
+
+  @keyframes scaleImage {
+    0% {
+      background-size: 100%;
+    }
+    100% {
+      background-size: 105%;
+    }
+  }
+
+  @keyframes slideInBlock {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
       opacity: 0;
-      -webkit-animation-timing-function: linear;
-      animation-timing-function: linear;
-      -webkit-animation-delay: 0s;
-      animation-delay: 0s;
-      -webkit-animation-iteration-count: infinite;
-      animation-iteration-count: infinite;
-      -webkit-animation-direction: normal;
-      animation-direction: normal;
-      -webkit-animation-fill-mode: none;
-      animation-fill-mode: none;
-      -webkit-animation-play-state: running;
-      animation-play-state: running;
-      -webkit-animation-name: slideShow;
-      animation-name: slideShow;
+    }
+    100% {
+      opacity: 1;
     }
   }
 
@@ -72,8 +138,33 @@
   }
 }
 
+.about {
+  .h1 {
+    &::after {
+      left: -56.45%;
+    }
+  }
+}
+
 .authored {
   margin: $sectionSpacer;
+  text-align: left;
+  h2 {
+    // text-align: center;
+    font-size: 4rem;
+    margin: 2rem 0;
+    position: relative;
+    &::after {
+      content: "";
+      display: block;
+      height: 3px;
+      width: 7rem;
+      background-color: $orangeMain;
+      position: absolute;
+      top: 50%;
+      left: -25%;
+    }
+  }
   &__books {
     &-wrap {
       text-decoration: none;
@@ -83,8 +174,8 @@
       }
     }
     &-image {
-      max-width: 270px;
-      height: 370px;
+      max-width: 100%;
+      height: 450px;
       display: block;
       margin: 2rem auto;
     }
