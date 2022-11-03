@@ -6,9 +6,26 @@
   &__hero {
     position: relative;
     overflow: hidden;
-    height: 90vh;
     background-color: $orangeMain;
     @include display-flex-column;
+    height: 35vh;
+
+    @media (min-width: $mobile-md) {
+      height: 40vh;
+    }
+
+    @media (min-width: $mobile-lg) {
+      height: 50vh;
+    }
+
+    @media (min-width: $tablet) {
+      height: 60vh;
+    }
+    //1024px and above
+    @media (min-width: $laptop) {
+      height: 90vh;
+    }
+
     .swiper {
       height: 100%;
       width: 100%;
@@ -19,9 +36,9 @@
       width: 100%;
       background-repeat: no-repeat;
       background-position: center;
-      background-size: 100%;
-      @media (max-width: 1020px) {
-        background-size: 100% 80%;
+      background-size: 100% 100%;
+      @media (min-width: $laptop) {
+        background-size: 100%;
       }
     }
 
@@ -48,8 +65,15 @@
       &-container-title {
         text-align: center;
         background-color: #fff;
-        width: 100%;
         transform: translateX(-100%);
+        width: 80%;
+        padding: 5px;
+        @media (min-width: $mobile-md) {
+          width: 68%;
+        }
+        @media (min-width: $tablet) {
+          width: 100%;
+        }
       }
       &-title {
         opacity: 0;
@@ -57,11 +81,19 @@
       &-published {
         background: #000;
         color: #fff;
-        padding: 15px;
-        font-size: 1.45rem;
-        margin-top: -1rem;
+        padding: 10px;
+        margin-top: -0.75rem;
         position: relative;
         opacity: 0;
+        font-size: 1rem;
+        @media (min-width: $mobile-lg) {
+          font-size: 1.25rem;
+          margin-top: -1rem;
+          padding: 15px;
+        }
+        @media (min-width: $tablet) {
+          font-size: 1.45rem;
+        }
       }
     }
   }
@@ -82,7 +114,7 @@
     }
   }
 
-  @media (min-width: 1020px) {
+  @media (min-width: $laptop) {
     .swiper-slide-active.home__hero--image {
       animation: scaleImage 10s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
     }
@@ -132,16 +164,23 @@
   &__main {
     min-height: 60vh;
     background-color: $beigeMain;
-    margin-top: 3rem;
-    padding: 5.75rem 1rem;
+    padding: 0 1rem;
     text-align: center;
+
+    @media (min-width: $laptop) {
+      padding: 2rem 1rem;
+    }
   }
 }
 
 .about {
   .h1 {
     &::after {
-      left: -56.45%;
+      display: none;
+      @media (min-width: 1023px) {
+        display: block;
+        left: -56.45%;
+      }
     }
   }
 }

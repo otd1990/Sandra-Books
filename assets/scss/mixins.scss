@@ -26,8 +26,32 @@
   margin: 0;
 }
 
+@mixin flex-center-between-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 @mixin btn-base {
   margin: 1rem 0;
   text-transform: uppercase;
   letter-spacing: 1px;
+}
+
+@mixin button-reset {
+  display: inline-block;
+  border: none;
+  margin: 0;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  text-align: center;
+  transition: background 250ms ease-in-out, transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }

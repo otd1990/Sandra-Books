@@ -18,10 +18,9 @@
           <nuxt-link to="/downloads" class="footer__link">Downloads</nuxt-link>
         </li>
       </ul>
-    </div>
-    <div class="footer__bottom">
       <p class="footer__copyright">&copy; Sandra Plumb {{ year }}</p>
     </div>
+    <!-- <div class="footer__bottom"></div> -->
   </footer>
 </template>
 

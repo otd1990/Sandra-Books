@@ -6,10 +6,21 @@
   background-color: $beigeMain;
   padding: 2rem 1rem 1.25rem 1rem;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
+  &__left {
+    @include display-flex-between;
+    flex-wrap: wrap;
+    @media (max-width: $tablet) {
+      justify-content: center !important;
+    }
+  }
   &__list {
     @include flex-center-list;
     list-style: none;
     padding: 0;
+    @media (max-width: $tablet) {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
     &--item {
       margin-right: 1rem;
     }
@@ -23,5 +34,9 @@
 
   &__copyright {
     text-align: center;
+
+    @media (max-width: $tablet) {
+      margin: 0.75rem 0;
+    }
   }
 }

@@ -11,7 +11,7 @@
     rgba(0, 0, 0, 0.45),
     rgba(0, 0, 0, 0.09)
   );
-  opacity: 0.8;
+  opacity: 1;
   @include display-flex-between;
   padding: 0.75rem 1rem;
   position: fixed;
@@ -31,9 +31,33 @@
 
   &__control {
     display: none;
+    button {
+      background-color: $beigeMain;
+      height: 35px;
+      width: 35px;
+      position: relative;
+
+      span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background-color: $blackMain;
+        height: 2px;
+        width: 20px;
+        transform: translate(-50%, -50%);
+
+        &:nth-child(1) {
+          top: 30%;
+        }
+        &:nth-child(3) {
+          top: 70%;
+        }
+      }
+    }
 
     @media (max-width: 767px) {
       display: block;
+      @include button-reset;
     }
   }
 

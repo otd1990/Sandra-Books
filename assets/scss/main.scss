@@ -15,8 +15,14 @@ h2,
 h3,
 h4,
 h5 {
-  font-size: 5rem;
   color: rgba(0, 0, 0, 0.5);
+  font-size: 2rem;
+  @media (min-width: $mobile-lg) {
+    font-size: 3rem;
+  }
+  @media (min-width: $tablet) {
+    font-size: 5rem;
+  }
 }
 
 main {

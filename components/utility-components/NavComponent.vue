@@ -4,7 +4,11 @@
       <nuxt-link to="/" class="nav__link">Sandra Plumb</nuxt-link>
     </div>
     <div class="nav__control">
-      <button @click="handleNavClick">---</button>
+      <button @click="handleNavClick">
+        <span class="nav__control--burger"></span>
+        <span class="nav__control--burger"></span>
+        <span class="nav__control--burger"></span>
+      </button>
     </div>
     <div class="nav__right" :class="classes">
       <ul class="nav__list">
