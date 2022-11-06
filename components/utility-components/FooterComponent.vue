@@ -17,6 +17,11 @@
         <li class="footer__list--item">
           <nuxt-link to="/downloads" class="footer__link">Downloads</nuxt-link>
         </li>
+        <li class="footer__list--item">
+          <nuxt-link to="/illustrations" class="footer__link"
+            >Illustrations</nuxt-link
+          >
+        </li>
       </ul>
       <p class="footer__copyright">&copy; Sandra Plumb {{ year }}</p>
     </div>

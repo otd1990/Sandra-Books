@@ -76,11 +76,30 @@
 
             <div class="col-12 mb-2">
               <div class="form-group">
-                <label for="image">Image</label>
+                <label for="image">Book Image</label>
+                <p>Should be smaller than the <b>Banner Image</b></p>
                 <input
                   type="file"
                   accept="image/*"
                   id="image"
+                  required
+                  class="form-control"
+                  @change="uploadAvatar"
+                />
+              </div>
+            </div>
+
+            <div class="col-12 mb-2">
+              <div class="form-group">
+                <label for="bannerImg">Banner Image</label>
+                <p>
+                  Shown on slider on the homepage, this should be a larger image
+                  than the <b>Book Image</b>
+                </p>
+                <input
+                  type="file"
+                  accept="image/*"
+                  id="bannerImg"
                   required
                   class="form-control"
                   @change="uploadAvatar"
@@ -140,7 +159,8 @@ export default {
         publishedDate: "",
         price: 0,
         quote: "",
-        showOnHomePage: false,
+        showOnHomePage: true,
+        bannerImg: "",
       },
     };
   },
@@ -154,13 +174,31 @@ export default {
           .insert(this.uploadState);
 
         if (error) throw error;
+        alert("this book was uploaded successfully");
+        this.uploadState = {
+          image: "",
+          title: "",
+          desc: "",
+          extract: "",
+          publishedDate: "",
+          price: 0,
+          quote: "",
+          showOnHomePage: false,
+          bannerImg: "",
+        };
       } catch (error) {
         console.error("Error submitting data ", error);
       }
     },
     async uploadAvatar(evt) {
+      console.log(evt.target.id);
       const supabase = useSupabaseClient();
       const files = evt.target.files;
+      const isBanner = evt.target.id === "bannerImg" ? true : false;
+      console.log(isBanner);
+      const uploadURL = isBanner
+        ? "https://ryjvicejickwdbxrtvmp.supabase.co/storage/v1/object/public/bookpics/banners"
+        : "https://ryjvicejickwdbxrtvmp.supabase.co/storage/v1/object/public/bookpics";
 
       try {
         if (!files || files.length === 0) {
@@ -169,15 +207,20 @@ export default {
         const file = files[0];
         const fileExt = file.name.split(".").pop();
         const fileName = `${file.name}`;
-        const filePath = `${fileName}`;
+        const filePath = isBanner ? `banners/${fileName}` : `${fileName}`;
 
         let resp = await supabase.storage
           .from("bookpics")
           .upload(filePath, file);
 
         if (resp.error) throw error;
+        if (isBanner) {
+          this.uploadState.bannerImg = `${uploadURL}/${fileName}`;
+        } else {
+          this.uploadState.image = `${uploadURL}/${fileName}`;
+        }
 
-        this.uploadState.image = `https://ryjvicejickwdbxrtvmp.supabase.co/storage/v1/object/public/bookpics/${fileName}`;
+        console.log(this.uploadState);
       } catch (error) {
         alert(error.message);
       }

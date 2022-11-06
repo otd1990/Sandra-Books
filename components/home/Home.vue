@@ -4,7 +4,7 @@
       <swiper
         :modules="modules"
         :slides-per-view="1"
-        :space-between="50"
+        :space-between="0"
         :pagination="{ clickable: true }"
         :loop="true"
         :autoplay="{
@@ -23,7 +23,7 @@
           :index="index"
           :virtualIndex="index"
           class="home__hero--image"
-          :style="`background-image: url('${book.image}')`"
+          :style="`background-image: url('${book.bannerImg}')`"
         >
           <div class="hero__book">
             <div class="hero__book-container-title">

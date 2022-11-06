@@ -86,7 +86,18 @@
                 />
               </div>
             </div>
-
+            <div class="col-12 col-md-6 mb-2">
+              <div class="form-group">
+                <label for="bannerImg">Banner Image</label>
+                <input
+                  type="file"
+                  accept="image/*"
+                  id="bannerImg"
+                  class="form-control"
+                  @change="uploadAvatar"
+                />
+              </div>
+            </div>
             <div class="col-12 col-md-6 mb-2">
               <div class="form-group">
                 <label for="quote">Quote</label>
@@ -142,6 +153,7 @@ export default {
         price: this.book.price,
         quote: this.book.quote,
         showOnHomePage: this.book.showOnHomePage,
+        bannerImg: this.book.bannerImg,
       },
     };
   },
@@ -169,8 +181,14 @@ export default {
       }
     },
     async uploadAvatar(evt) {
+      console.log(evt.target.id);
       const supabase = useSupabaseClient();
       const files = evt.target.files;
+      const isBanner = evt.target.id === "bannerImg" ? true : false;
+      console.log(isBanner);
+      const uploadURL = isBanner
+        ? "https://ryjvicejickwdbxrtvmp.supabase.co/storage/v1/object/public/bookpics/banners"
+        : "https://ryjvicejickwdbxrtvmp.supabase.co/storage/v1/object/public/bookpics";
 
       try {
         if (!files || files.length === 0) {
@@ -179,15 +197,20 @@ export default {
         const file = files[0];
         const fileExt = file.name.split(".").pop();
         const fileName = `${file.name}`;
-        const filePath = `${fileName}`;
+        const filePath = isBanner ? `banners/${fileName}` : `${fileName}`;
 
         let resp = await supabase.storage
           .from("bookpics")
           .upload(filePath, file);
 
         if (resp.error) throw error;
+        if (isBanner) {
+          this.uploadState.bannerImg = `${uploadURL}/${fileName}`;
+        } else {
+          this.uploadState.image = `${uploadURL}/${fileName}`;
+        }
 
-        this.uploadState.image = `https://ryjvicejickwdbxrtvmp.supabase.co/storage/v1/object/public/bookpics/${fileName}`;
+        console.log(this.uploadState);
       } catch (error) {
         alert(error.message);
       }

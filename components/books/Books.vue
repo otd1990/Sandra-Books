@@ -9,18 +9,7 @@
         <div class="row justify-content-center">
           <div class="col-12 col-md-6">
             <div class="book__image mb-4 mb-md-0">
-              <!-- <img
-                :src="book.image"
-                :alt="book.title"
-                :class="[index % 2 === 1 ? 'even' : 'odd']"
-                v-if="show"
-              /> -->
-              <img
-                :src="book.image"
-                :alt="book.title"
-                v-if="show"
-                class="even"
-              />
+              <img :src="book.image" :alt="book.title" class="even" />
             </div>
           </div>
           <div class="col-12 col-md-6">

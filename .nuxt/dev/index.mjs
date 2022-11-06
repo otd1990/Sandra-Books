@@ -1,24 +1,24 @@
-globalThis._importMeta_={url:import.meta.url,env:process.env};import 'file://C:/Users/oliver.dyer/sp-books/node_modules/node-fetch-native/dist/polyfill.mjs';
+globalThis._importMeta_={url:import.meta.url,env:process.env};import 'file://C:/Users/odyer/sp-books/node_modules/node-fetch-native/dist/polyfill.mjs';
 import { Server } from 'http';
 import { tmpdir } from 'os';
 import { join } from 'path';
 import { mkdirSync } from 'fs';
 import { parentPort, threadId } from 'worker_threads';
-import { provider, isWindows } from 'file://C:/Users/oliver.dyer/sp-books/node_modules/std-env/dist/index.mjs';
-import { createRenderer } from 'file://C:/Users/oliver.dyer/sp-books/node_modules/vue-bundle-renderer/dist/runtime.mjs';
-import { eventHandler, defineEventHandler, handleCacheHeaders, createEvent, assertMethod, readBody, setCookie, createApp, createRouter, lazyEventHandler, getQuery } from 'file://C:/Users/oliver.dyer/sp-books/node_modules/h3/dist/index.mjs';
-import devalue from 'file://C:/Users/oliver.dyer/sp-books/node_modules/@nuxt/devalue/dist/devalue.mjs';
-import { renderToString } from 'file://C:/Users/oliver.dyer/sp-books/node_modules/vue/server-renderer/index.mjs';
-import { parseURL, withQuery, joinURL } from 'file://C:/Users/oliver.dyer/sp-books/node_modules/ufo/dist/index.mjs';
-import destr from 'file://C:/Users/oliver.dyer/sp-books/node_modules/destr/dist/index.mjs';
-import { snakeCase } from 'file://C:/Users/oliver.dyer/sp-books/node_modules/scule/dist/index.mjs';
-import { createFetch as createFetch$1, Headers } from 'file://C:/Users/oliver.dyer/sp-books/node_modules/ohmyfetch/dist/node.mjs';
-import { createRouter as createRouter$1 } from 'file://C:/Users/oliver.dyer/sp-books/node_modules/radix3/dist/index.mjs';
-import { createCall, createFetch } from 'file://C:/Users/oliver.dyer/sp-books/node_modules/unenv/runtime/fetch/index.mjs';
-import { createHooks } from 'file://C:/Users/oliver.dyer/sp-books/node_modules/hookable/dist/index.mjs';
-import { hash } from 'file://C:/Users/oliver.dyer/sp-books/node_modules/ohash/dist/index.mjs';
-import { createStorage } from 'file://C:/Users/oliver.dyer/sp-books/node_modules/unstorage/dist/index.mjs';
-import unstorage_47drivers_47fs from 'file://C:/Users/oliver.dyer/sp-books/node_modules/unstorage/dist/drivers/fs.mjs';
+import { provider, isWindows } from 'file://C:/Users/odyer/sp-books/node_modules/std-env/dist/index.mjs';
+import { createRenderer } from 'file://C:/Users/odyer/sp-books/node_modules/vue-bundle-renderer/dist/runtime.mjs';
+import { eventHandler, defineEventHandler, handleCacheHeaders, createEvent, assertMethod, readBody, setCookie, createApp, createRouter, lazyEventHandler, getQuery } from 'file://C:/Users/odyer/sp-books/node_modules/h3/dist/index.mjs';
+import devalue from 'file://C:/Users/odyer/sp-books/node_modules/@nuxt/devalue/dist/devalue.mjs';
+import { renderToString } from 'file://C:/Users/odyer/sp-books/node_modules/vue/server-renderer/index.mjs';
+import { parseURL, withQuery, joinURL } from 'file://C:/Users/odyer/sp-books/node_modules/ufo/dist/index.mjs';
+import destr from 'file://C:/Users/odyer/sp-books/node_modules/destr/dist/index.mjs';
+import { snakeCase } from 'file://C:/Users/odyer/sp-books/node_modules/scule/dist/index.mjs';
+import { createFetch as createFetch$1, Headers } from 'file://C:/Users/odyer/sp-books/node_modules/ohmyfetch/dist/node.mjs';
+import { createRouter as createRouter$1 } from 'file://C:/Users/odyer/sp-books/node_modules/radix3/dist/index.mjs';
+import { createCall, createFetch } from 'file://C:/Users/odyer/sp-books/node_modules/unenv/runtime/fetch/index.mjs';
+import { createHooks } from 'file://C:/Users/odyer/sp-books/node_modules/hookable/dist/index.mjs';
+import { hash } from 'file://C:/Users/odyer/sp-books/node_modules/ohash/dist/index.mjs';
+import { createStorage } from 'file://C:/Users/odyer/sp-books/node_modules/unstorage/dist/index.mjs';
+import unstorage_47drivers_47fs from 'file://C:/Users/odyer/sp-books/node_modules/unstorage/dist/drivers/fs.mjs';
 
 const _runtimeConfig = {"app":{"baseURL":"/","buildAssetsDir":"/_nuxt/","cdnURL":""},"nitro":{"routes":{},"envPrefix":"NUXT_"},"public":{"supabase":{"url":"https://ryjvicejickwdbxrtvmp.supabase.co","key":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ5anZpY2VqaWNrd2RieHJ0dm1wIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjQ2Mjg4MDIsImV4cCI6MTk4MDIwNDgwMn0.-fsZdY0aKal72zq4IbVYTYCVAznYO0kPxSq3iD21EjA","client":{},"cookies":{"name":"sb","lifetime":28800,"domain":"","path":"/","sameSite":"lax"}}},"supabase":{}};
 const ENV_PREFIX = "NITRO_";
@@ -77,7 +77,7 @@ function timingMiddleware(_req, res, next) {
   next();
 }
 
-const serverAssets = [{"baseName":"server","dir":"C:/Users/oliver.dyer/sp-books/server/assets"}];
+const serverAssets = [{"baseName":"server","dir":"C:/Users/odyer/sp-books/server/assets"}];
 
 const assets = createStorage();
 
@@ -91,10 +91,10 @@ const useStorage = () => storage;
 
 storage.mount('/assets', assets);
 
-storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","base":"C:\\Users\\oliver.dyer\\sp-books","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","base":"C:\\Users\\oliver.dyer\\sp-books\\server","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","base":"C:\\Users\\oliver.dyer\\sp-books\\.nuxt","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","base":"C:\\Users\\oliver.dyer\\sp-books\\.nuxt\\cache","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","base":"C:\\Users\\odyer\\sp-books","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","base":"C:\\Users\\odyer\\sp-books\\server","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","base":"C:\\Users\\odyer\\sp-books\\.nuxt","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","base":"C:\\Users\\odyer\\sp-books\\.nuxt\\cache","ignore":["**/node_modules/**","**/.git/**"]}));
 
 function defineRenderHandler(handler) {
   return eventHandler(async (event) => {
@@ -353,7 +353,7 @@ const errorHandler = (async function errorhandler(error, event) {
   const isErrorPage = event.req.url?.startsWith("/__nuxt_error");
   let html = !isErrorPage ? await $fetch(withQuery("/__nuxt_error", errorObject)).catch(() => null) : null;
   if (!html) {
-    const { template } = await import('file://C:/Users/oliver.dyer/sp-books/node_modules/@nuxt/ui-templates/dist/templates/error-dev.mjs') ;
+    const { template } = await import('file://C:/Users/odyer/sp-books/node_modules/@nuxt/ui-templates/dist/templates/error-dev.mjs') ;
     {
       errorObject.description = errorObject.message;
     }
@@ -364,7 +364,7 @@ const errorHandler = (async function errorhandler(error, event) {
 });
 
 const config = useRuntimeConfig().public;
-const _ynqcCi = defineEventHandler(async (event) => {
+const _Yb4ICc = defineEventHandler(async (event) => {
   assertMethod(event, "POST");
   const body = await readBody(event);
   const cookieOptions = config.supabase.cookies;
@@ -402,12 +402,12 @@ const _ynqcCi = defineEventHandler(async (event) => {
   return "auth cookie set";
 });
 
-const _lazy_SoJDCx = () => Promise.resolve().then(function () { return renderer$1; });
+const _lazy_5g6dcl = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
-  { route: '/__nuxt_error', handler: _lazy_SoJDCx, lazy: true, middleware: false, method: undefined },
-  { route: '/api/_supabase/session', handler: _ynqcCi, lazy: false, middleware: false, method: undefined },
-  { route: '/**', handler: _lazy_SoJDCx, lazy: true, middleware: false, method: undefined }
+  { route: '/__nuxt_error', handler: _lazy_5g6dcl, lazy: true, middleware: false, method: undefined },
+  { route: '/api/_supabase/session', handler: _Yb4ICc, lazy: false, middleware: false, method: undefined },
+  { route: '/**', handler: _lazy_5g6dcl, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {
@@ -491,8 +491,8 @@ function publicAssetsURL(...path) {
   return path.length ? joinURL(publicBase, ...path) : publicBase;
 }
 
-const getClientManifest = () => import('file://C:/Users/oliver.dyer/sp-books/.nuxt/dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
-const getServerEntry = () => import('file://C:/Users/oliver.dyer/sp-books/.nuxt/dist/server/server.mjs').then((r) => r.default || r);
+const getClientManifest = () => import('file://C:/Users/odyer/sp-books/.nuxt/dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
+const getServerEntry = () => import('file://C:/Users/odyer/sp-books/.nuxt/dist/server/server.mjs').then((r) => r.default || r);
 const getSSRRenderer = lazyCachedFunction(async () => {
   const manifest = await getClientManifest();
   if (!manifest) {

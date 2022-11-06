@@ -8,6 +8,7 @@ export const useBooksStore = defineStore("BooksStore", {
     approvedReviews: undefined,
     reviews: undefined,
     contactData: undefined,
+    illustrations: undefined,
   }),
   getters: {
     getBooks: (state) => state.books,
@@ -22,6 +23,24 @@ export const useBooksStore = defineStore("BooksStore", {
         console.error("ERROR GETTING BOOKS ", error);
         return error;
       }
+    },
+    async getIllustrations() {
+      console.log("Getting illustrations");
+      const supabase = useSupabaseClient();
+      try {
+        const resp = await supabase.storage.from("illustrations").list();
+
+        console.log("Data ", resp);
+
+        if (resp.error) throw resp.error;
+        this.illustrations = resp.data;
+      } catch (error) {
+        console.error("Error getting images ", error);
+      }
+
+      console.log("IMAGES ", this.illustrations);
+
+      return this.illustrations;
     },
     async getApprovedReviews() {
       const supabase = useSupabaseClient();
