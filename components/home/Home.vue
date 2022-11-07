@@ -12,11 +12,6 @@
           disableOnInteraction: false,
         }"
       >
-        <!--         :autoplay="{
-          delay: 5000,
-          disableOnInteraction: false,
-        }"
-        :loop="true" -->
         <swiper-slide
           v-for="(book, index) in allBooks"
           :key="book.id"
@@ -30,7 +25,8 @@
               <h1 class="hero__book-title">{{ book.title }}</h1>
             </div>
             <p class="hero__book-published">
-              Available From: {{ book.publishedDate }}
+              Available From:
+              {{ new Date(book.publishedDate).toLocaleDateString("en-GB") }}
             </p>
           </div>
         </swiper-slide>

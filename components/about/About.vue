@@ -2,8 +2,9 @@
   <section class="about">
     <div class="container">
       <div class="row justify-content-center align-items-center">
-        <div class="col-12 col-md-6">
-          <h2 class="h1">About</h2>
+        <h2 class="h1 d-md-none d-block">About</h2>
+        <div class="col-12 col-md-6 order-2 order-md-1">
+          <h2 class="h1 d-none d-md-block">About</h2>
           <p>
             I live in the beautiful village of Long Crendon in Buckinghamshire,
             with my husband and Yellow Labrador Bella. The combination of moving
@@ -28,7 +29,7 @@
             possible if you really believe in yourself.
           </p>
         </div>
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-6 order-1 order-md-2 mb-4 mb-md-0">
           <img
             class="about__image"
             src="https://images.unsplash.com/photo-1523311964370-42ac336c878b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bGFtYnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
