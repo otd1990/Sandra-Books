@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+User-agent: *
+Disallow: /admin
+Disallow: /admin/add-books
+Disallow: /admin/manage-books
+Disallow: /admin/manage-reviews
+Disallow: /admin/manage-contact

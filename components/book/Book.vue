@@ -1,16 +1,18 @@
 <template>
   <section class="single-book">
     <div class="single-book__container">
-      <!-- <h1 class="heading__quote">
-        “
-        {{ singleBook.quote }}
-        ”
-      </h1> -->
       <div
         class="row justify-space-between align-items-center"
         v-if="singleBook"
       >
-        <div class="col-12 col-md-2">
+        <div class="single-book__quote">
+          <p v-if="show">
+            “
+            {{ singleBook.quote }}
+            ”
+          </p>
+        </div>
+        <div v-if="1 > 100" class="col-12 col-md-2">
           <div class="single-book__quote">
             <p v-if="show">
               “<br />
@@ -20,10 +22,10 @@
             </p>
           </div>
         </div>
-        <div class="col-12 col-md-10">
+        <div class="col-12">
           <section class="single-book__main">
-            <div class="row">
-              <div class="col-12 col-lg-5">
+            <div class="row align-items-center">
+              <div class="col-12 col-lg-6 col-xl-3">
                 <div class="single-book__image">
                   <img
                     :src="singleBook.image"
@@ -32,14 +34,20 @@
                   />
                 </div>
               </div>
-              <div class="col-12 col-lg-7">
+              <div class="col-12 col-lg-6 col-xl-9">
                 <div class="single-book__info">
                   <h1 class="single-book__title">{{ singleBook.title }}</h1>
                   <p class="single-book__desc">{{ singleBook.desc }}</p>
                   <div class="info__wrapper">
                     <div class="info--title">
                       <h5>Published</h5>
-                      <p>{{ singleBook.publishedDate }}</p>
+                      <p>
+                        {{
+                          new Date(singleBook.publishedDate).toLocaleDateString(
+                            "en-GB"
+                          )
+                        }}
+                      </p>
                     </div>
                     <div class="info--title">
                       <h5>Price</h5>
@@ -115,28 +123,6 @@ export default {
 <style lang="scss" scoped>
 @import "../../assets/scss/variables.scss";
 
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.5s ease;
-  transition-delay: 0.25s;
-}
-
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
-}
-
-.movein-enter-active,
-.movein-leave-active {
-  transition: all 0.5s ease;
-}
-
-.movein-enter-from,
-.movein-leave-to {
-  opacity: 0;
-  transform: translateY(50px);
-}
-
 .info__wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -152,13 +138,20 @@ export default {
   background-color: $beigeMain;
 
   h1 {
-    font-size: 4rem;
+    font-size: 2rem;
+
+    @media (min-width: $laptop) {
+      font-size: 4rem;
+    }
   }
 
   &__container {
-    padding: 2rem 5rem;
-    margin: 2rem;
+    padding: 2rem 2rem;
     min-height: 675px;
+
+    @media (min-width: 675px) {
+      padding: 2rem 4.5rem;
+    }
   }
 
   &__quote {
@@ -204,13 +197,29 @@ export default {
 
   &__image {
     height: 100%;
+    padding: 1rem;
   }
 
   &--image {
     max-width: 100%;
     object-fit: fill;
     width: 100%;
-    max-height: 700px;
+    max-height: 450px;
+    display: block;
+    margin: auto;
+
+    @media (min-width: $mobile-lg) {
+      width: 70%;
+    }
+
+    @media (min-width: 575px) {
+      width: 50%;
+    }
+
+    @media (min-width: $laptop-sm) {
+      width: 100%;
+      max-height: 700px;
+    }
   }
 }
 

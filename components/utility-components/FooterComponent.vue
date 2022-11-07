@@ -23,7 +23,9 @@
           >
         </li>
       </ul>
-      <p class="footer__copyright">&copy; Sandra Plumb {{ year }}</p>
+      <div>
+        <p class="footer__copyright">&copy; Sandra Plumb {{ year }}</p>
+      </div>
     </div>
     <!-- <div class="footer__bottom"></div> -->
   </footer>

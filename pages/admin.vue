@@ -1,6 +1,6 @@
 <template>
   <NuxtLayout name="admin">
-    <div>
+    <div class="w-100">
       <AdminForm />
     </div>
     <div class="admin__diff">
@@ -25,3 +25,13 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.position-abso-center {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+</style>

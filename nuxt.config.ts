@@ -20,8 +20,23 @@ export default defineNuxtConfig({
       },
     ],
   },
-  buildModules: ["@nuxtjs/google-fonts"],
-  googleFonts: {
-    useStylesheet: true,
-  },
+  buildModules: [
+    [
+      "@nuxt-modules/cache",
+      {
+        browser: {
+          pages: [
+            ["/", { "max-age": 3600, "stale-when-revalidate": 10 }],
+            ["/books", { "max-age": 3600, "stale-when-revalidate": 10 }],
+            ["/reviews", { "max-age": 3600, "stale-when-revalidate": 10 }],
+            [
+              "/illustrations",
+              { "max-age": 3600, "stale-when-revalidate": 10 },
+            ],
+            ["/downloads", { "max-age": 3600, "stale-when-revalidate": 10 }],
+          ],
+        },
+      },
+    ],
+  ],
 });

@@ -7,11 +7,11 @@
         :space-between="0"
         :pagination="{ clickable: true }"
         :loop="true"
-        :autoplay="{
+      >
+        <!-- :autoplay="{
           delay: 5000,
           disableOnInteraction: false,
-        }"
-      >
+        }" -->
         <swiper-slide
           v-for="(book, index) in allBooks"
           :key="book.id"

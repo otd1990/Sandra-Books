@@ -50,10 +50,10 @@ export default {
     };
   },
   mounted() {
-    window.addEventListener("resize", this.getWidth);
+    window.addEventListener("resize", this.getDimensions);
   },
   unmounted() {
-    window.removeEventListener("resize", this.getWidth);
+    window.removeEventListener("resize", this.getDimensions);
   },
   methods: {
     getDimensions() {
@@ -70,6 +70,7 @@ export default {
         this.navShowing = false;
         this.classes = "not-showing";
       }
+      console.log("classes ", this.classes);
     },
     handleNavClick() {
       this.navShowing = !this.navShowing;

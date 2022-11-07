@@ -1,6 +1,12 @@
 <template>
   <div class="container mt-5">
-    <form @submit.prevent="onSubmit" v-if="!loggedIn">
+    <form
+      @submit.prevent="onSubmit"
+      v-if="!loggedIn"
+      class="mt-5"
+      :class="!loggedIn ? 'show-login' : 'asdf'"
+    >
+      <h1 class="text-center mb-5">Please Login In</h1>
       <div class="row justify-content-center align-items-center">
         <div class="col-12 col-sm-10 col-md-6">
           <div class="row">
@@ -39,7 +45,9 @@
       </div>
     </form>
     <div v-else>
-      <button @click="handleLogout" class="btn btn--orange">Log Out</button>
+      <button @click="handleLogout" class="btn btn--orange mt-5">
+        Log Out
+      </button>
       <div class="show-diff-forms">
         <nav class="show-diff-forms-nav">
           <ul class="show-diff-forms-list">
@@ -149,3 +157,18 @@ export default {
   },
 };
 </script>
+
+<style scoped lang="scss">
+@import "~/assets/scss/mixins.scss";
+.show-login {
+  @include pos-abs-center;
+  width: 100%;
+}
+
+.form--btn {
+  button {
+    display: block;
+    margin-left: auto;
+  }
+}
+</style>
