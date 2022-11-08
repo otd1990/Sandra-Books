@@ -41,6 +41,11 @@ export default {
       return possibleHeaders[num];
     },
   },
+  head() {
+    return {
+      title: "Sandra Plumb Books | 404",
+    };
+  },
 };
 </script>
 

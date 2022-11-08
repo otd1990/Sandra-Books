@@ -5,6 +5,12 @@ export default defineNuxtConfig({
   modules: ["@nuxtjs/supabase", "@pinia/nuxt"],
   css: ["@/assets/css/bootstrap.css", "~/assets/scss/main.scss"],
   head: {
+    title: "Sandra Plumb Books",
+    meta: [
+      // <meta name="description" content="My amazing site">
+      { name: "description", content: "Sandra Pulmb Book Site." },
+      { name: "theme-color", content: "#ffae6d" },
+    ],
     link: [
       {
         rel: "preconnect",

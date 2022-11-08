@@ -5,5 +5,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+  head() {
+    return {
+      title: "Sandra Plumb Books | Downloads",
+    };
+  },
+};
 </script>

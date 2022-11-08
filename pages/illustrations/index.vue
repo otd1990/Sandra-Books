@@ -39,6 +39,11 @@ export default {
   components: {
     Skeletor,
   },
+  head() {
+    return {
+      title: "Sandra Plumb Books | Illustrations",
+    };
+  },
 };
 </script>
 

@@ -17,5 +17,10 @@ export default {
   component: {
     Home,
   },
+  head() {
+    return {
+      title: "Sandra Plumb Books | Home",
+    };
+  },
 };
 </script>

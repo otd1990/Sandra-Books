@@ -20,6 +20,11 @@ export default {
   components: {
     ReviewForm,
   },
+  head() {
+    return {
+      title: "Sandra Plumb Books | Reviews",
+    };
+  },
 };
 </script>
 

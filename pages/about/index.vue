@@ -11,6 +11,11 @@ export default {
   components: {
     About,
   },
+  head() {
+    return {
+      title: "Sandra Plumb Books | About",
+    };
+  },
 };
 </script>
 

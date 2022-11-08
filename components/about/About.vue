@@ -32,8 +32,8 @@
         <div class="col-12 col-md-6 order-1 order-md-2 mb-4 mb-md-0">
           <img
             class="about__image"
-            src="https://images.unsplash.com/photo-1523311964370-42ac336c878b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bGFtYnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-            alt="sandra plum profile"
+            src="~/assets/images/sp1.png"
+            alt="sandra plum author"
           />
         </div>
       </div>

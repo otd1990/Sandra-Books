@@ -16,7 +16,11 @@ export default {
       show: false,
     };
   },
-  transition: "home",
+  head() {
+    return {
+      title: "Sandra Plumb Books | Book",
+    };
+  },
 };
 </script>
 
