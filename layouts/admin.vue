@@ -28,26 +28,18 @@ export default {
   },
   watch: {
     $route(to, from) {
-      console.log("route change to", to);
-      console.log("route change from", from);
-
       const toName = to.name.split("-");
       const fromName = from.name.split("-");
 
       if (fromName.includes("admin") && toName.includes("admin")) {
-        console.log("admin logged in");
         return;
       }
 
-      // if (from.name === "admin") {
-      console.log("leaving admin");
       this.handleLogout();
-      // }
     },
   },
   methods: {
     async handleLogout() {
-      console.log("Logging out");
       const supabase = useSupabaseClient();
       const booksStore = useBooksStore();
 

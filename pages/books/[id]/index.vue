@@ -2,7 +2,7 @@
   <div class="single__book-page">
     <Transition>
       <div>
-        <Book :bookId="bookId" />
+        <Book :bookId="$route.params.id" />
       </div>
     </Transition>
   </div>
@@ -10,12 +10,6 @@
 
 <script>
 export default {
-  data() {
-    return {
-      bookId: this.$route.params.id,
-      show: false,
-    };
-  },
   head() {
     return {
       title: "Sandra Plumb Books | Book",

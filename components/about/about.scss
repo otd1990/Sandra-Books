@@ -9,16 +9,16 @@
     margin: 2rem 0;
     position: relative;
 
-    &::after {
-      content: "";
-      display: block;
-      height: 3px;
-      width: 7rem;
-      background-color: $orangeMain;
-      position: absolute;
-      top: 50%;
-      left: -50%;
-    }
+    // &::after {
+    //   content: "";
+    //   display: block;
+    //   height: 3px;
+    //   width: 7rem;
+    //   background-color: $orangeMain;
+    //   position: absolute;
+    //   top: 50%;
+    //   left: -50%;
+    // }
   }
   &__image {
     width: 100%;

@@ -59,20 +59,16 @@
 </template>
 
 <script>
+import { ref } from "vue";
+
 export default {
   name: "ReviewList",
   props: ["reviews", "showAdminControls"],
-  data() {
-    return {
-      approved: false,
-      rejected: false,
-    };
-  },
-  created(props) {
-    console.log(this.$props);
-  },
-  methods: {
-    async approveReview(id) {
+  setup() {
+    const approved = ref(false);
+    const rejected = ref(false);
+
+    async function approveReview(id) {
       const supabase = useSupabaseClient();
 
       try {
@@ -81,18 +77,17 @@ export default {
           .update({ approved: true })
           .eq("id", id);
 
-        console.log("Resp ", resp);
-
         if (resp.error) throw resp.error;
 
-        this.approved = true;
-        this.rejected = false;
+        approved.value = true;
+        rejected.value = false;
       } catch (error) {
         console.error("ERROR APPROVING ", error);
         alert(error.message);
       }
-    },
-    async rejectReview(id) {
+    }
+
+    async function rejectReview(id) {
       const supabase = useSupabaseClient();
 
       try {
@@ -101,7 +96,27 @@ export default {
           .update({ approved: false })
           .eq("id", id);
 
-        console.log("Resp ", resp);
+        if (resp.error) throw resp.error;
+
+        rejected.value = true;
+        approved.value = false;
+      } catch (error) {
+        console.error("ERROR REJECTING ", error);
+        alert(error.message);
+      }
+    }
+
+    return { approved, rejected, approveReview, rejectReview };
+  },
+  methods: {
+    async rejectReview(id) {
+      const supabase = useSupabaseClient();
+
+      try {
+        const resp = await supabase
+          .from("reviews")
+          .update({ approved: false })
+          .eq("id", id);
 
         if (resp.error) throw resp.error;
 

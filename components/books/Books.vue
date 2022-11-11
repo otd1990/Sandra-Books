@@ -30,22 +30,6 @@ import { useBooksStore } from "@/store/BooksStore";
 const booksStore = useBooksStore();
 </script>
 
-<script>
-export default {
-  data() {
-    return {
-      show: false,
-    };
-  },
-  mounted() {
-    this.show = true;
-  },
-  unmounted() {
-    this.show = false;
-  },
-};
-</script>
-
 <style lang="scss" scoped>
 h2 {
   font-size: 3rem;

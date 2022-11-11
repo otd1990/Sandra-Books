@@ -180,13 +180,13 @@
     @media (min-width: $mobile-sm) {
       font-size: 4rem;
     }
-    &::after {
-      display: none;
-      @media (min-width: 1023px) {
-        display: block;
-        left: -56.45%;
-      }
-    }
+    // &::after {
+    //   display: none;
+    //   @media (min-width: 1023px) {
+    //     display: block;
+    //     left: -56.45%;
+    //   }
+    // }
   }
 }
 
@@ -201,19 +201,19 @@
     @media (min-width: $mobile-sm) {
       font-size: 4rem;
     }
-    &::after {
-      content: "";
-      height: 3px;
-      width: 7rem;
-      background-color: $orangeMain;
-      position: absolute;
-      top: 50%;
-      left: -25%;
-      display: none;
-      @media (min-width: 1023px) {
-        display: block;
-      }
-    }
+    // &::after {
+    //   content: "";
+    //   height: 3px;
+    //   width: 7rem;
+    //   background-color: $orangeMain;
+    //   position: absolute;
+    //   top: 50%;
+    //   left: -25%;
+    //   display: none;
+    //   @media (min-width: 1023px) {
+    //     display: block;
+    //   }
+    // }
   }
   &__books {
     &-wrap {
@@ -248,10 +248,7 @@
       font-size: 4rem;
     }
     @media (min-width: $tablet) {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -370%);
+      margin-top: -75px;
     }
   }
 

@@ -6,7 +6,7 @@
         v-if="singleBook"
       >
         <div class="single-book__quote">
-          <p v-if="show">
+          <p>
             “
             {{ singleBook.quote }}
             ”
@@ -14,7 +14,7 @@
         </div>
         <div v-if="1 > 100" class="col-12 col-md-2">
           <div class="single-book__quote">
-            <p v-if="show">
+            <p>
               “<br />
               {{ singleBook.quote }}
               <br />
@@ -102,20 +102,14 @@ export default {
       }
     });
 
-    console.log("single book ", singleBook);
+    if (!singleBook) {
+      throw createError({
+        statusCode: 404,
+        statusMessage: "I don't have a book that matches that ID.",
+      });
+    }
 
     return { books, singleBook };
-  },
-  data() {
-    return {
-      show: false,
-    };
-  },
-  mounted() {
-    this.show = true;
-  },
-  unmounted() {
-    this.show = false;
   },
 };
 </script>

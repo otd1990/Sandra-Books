@@ -39,43 +39,46 @@
 
 <script>
 import "./scss/nav.scss";
+import { ref, onMounted, onUnmounted } from "vue";
 
 export default {
   name: "NavComponent",
-  data() {
-    return {
-      navShowing: false,
-      classes: "",
-      width: process.client ? document.documentElement.clientWidth : "",
-    };
-  },
-  mounted() {
-    window.addEventListener("resize", this.getDimensions);
-  },
-  unmounted() {
-    window.removeEventListener("resize", this.getDimensions);
-  },
-  methods: {
-    getDimensions() {
+  setup() {
+    const navShowing = ref(false);
+    const classes = ref("");
+    const width = ref(
+      process.client ? document.documentElement.clientWidth : ""
+    );
+
+    onMounted(() => {
+      window.addEventListener("resize", getDimensions);
+    });
+
+    onUnmounted(() => {
+      window.removeEventListener("resize", getDimensions);
+    });
+
+    function getDimensions() {
       if (!process.client) return;
 
-      this.width = document.documentElement.clientWidth;
+      width.value = document.documentElement.clientWidth;
 
-      if (this.width > 767) {
-        this.navShowing = true;
-        this.classes = "";
+      if (width.value > 767) {
+        navShowing.value = true;
+        classes.value = "";
       }
 
-      if (this.width < 768) {
-        this.navShowing = false;
-        this.classes = "not-showing";
+      if (width.value < 768) {
+        navShowing.value = false;
+        classes.value = "not-showing";
       }
-      console.log("classes ", this.classes);
-    },
-    handleNavClick() {
-      this.navShowing = !this.navShowing;
-      this.classes = this.navShowing ? "showing" : "not-showing";
-    },
+    }
+    function handleNavClick() {
+      navShowing.value = !navShowing.value;
+      classes.value = navShowing.value ? "showing" : "not-showing";
+    }
+
+    return { handleNavClick, classes };
   },
 };
 </script>

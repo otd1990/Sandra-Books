@@ -44,15 +44,15 @@
       @media (min-width: $tablet) {
         font-size: 3rem;
       }
-      &::after {
-        position: absolute;
-        top: 50%;
-        left: -50%;
-        content: "";
-        height: 3px;
-        width: 7rem;
-        background-color: $orangeMain;
-      }
+      // &::after {
+      //   position: absolute;
+      //   top: 50%;
+      //   left: -50%;
+      //   content: "";
+      //   height: 3px;
+      //   width: 7rem;
+      //   background-color: $orangeMain;
+      // }
     }
     &__image {
       max-width: 75%;

@@ -18,7 +18,9 @@
               <h5>Title:</h5>
               {{ book.title }}
             </div>
-            <div @click="() => editBook(book)">Edit This Book</div>
+            <div @click="() => editBook(book)" class="btn btn--orange">
+              Edit This Book
+            </div>
           </div>
           <div class="book__desc">
             <h5>Description:</h5>
@@ -48,7 +50,7 @@
           </div>
         </div>
         <div v-if="editing && bookToEdit.id === book.id">
-          <div @click="cancelEdit">Cancel Editing</div>
+          <div @click="cancelEdit" class="btn btn--black">Cancel Editing</div>
           <EditBookForm
             :book="bookToEdit"
             @formEditSuccess="handleEditSuccess"
@@ -62,7 +64,7 @@
 <script>
 import { useBooksStore } from "~~/store/BooksStore";
 import { storeToRefs } from "pinia";
-import { watchEffect } from "vue";
+import { watchEffect, ref } from "vue";
 
 import EditBookForm from "@/components/forms/EditBookForm.vue";
 import "./scss/manage-books.scss";
@@ -75,36 +77,33 @@ export default {
   setup() {
     const bookStore = useBooksStore();
     const { books } = storeToRefs(bookStore);
+    const editing = ref(false);
+    const bookToEdit = ref(undefined);
 
-    watchEffect(() => {
-      console.log("BOOKS CHANGED ", books);
-    });
+    function editBook(book) {
+      bookToEdit.value = book;
+      editing.value = true;
+    }
 
-    return { books };
-  },
-  data() {
-    return {
-      editing: false,
-      bookToEdit: undefined,
-    };
-  },
-  methods: {
-    editBook(book) {
-      console.log("BOok ", book);
-      this.bookToEdit = book;
-      this.editing = true;
+    function cancelEdit() {
+      bookToEdit.value = undefined;
+      editing.value = false;
+    }
 
-      console.log(this.bookToEdit.id === book.id);
-    },
-    cancelEdit() {
-      this.bookToEdit = undefined;
-      this.editing = false;
-    },
-    handleEditSuccess() {
-      this.cancelEdit();
+    function handleEditSuccess() {
+      cancelEdit();
       const bookStore = useBooksStore();
-      this.books = bookStore.getBooks;
-    },
+      books.value = bookStore.getBooks;
+    }
+
+    return {
+      books,
+      editing,
+      bookToEdit,
+      editBook,
+      cancelEdit,
+      handleEditSuccess,
+    };
   },
 };
 </script>

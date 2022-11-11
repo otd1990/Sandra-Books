@@ -3,7 +3,7 @@
     <div class="row justify-content-center">
       <div class="col-12 col-md-6">
         <div class="form-group">
-          <label class="form-label" for="name">Name:</label>
+          <label class="form-label" for="name">Name--test:</label>
           <input
             type="text"
             class="form-control"
@@ -24,10 +24,10 @@
             class="form-control"
             name="email"
             id="email"
-            v-model="email"
+            v-model="mail"
           />
-          <span class="error-msg" v-if="v$.$dirty && v$.email.$error">
-            {{ v$.email.$errors[0].$message }}
+          <span class="error-msg" v-if="v$.$dirty && v$.mail.$error">
+            {{ v$.mail.$errors[0].$message }}
           </span>
         </div>
       </div>
@@ -62,64 +62,59 @@
 <script>
 import useVuelidate from "@vuelidate/core";
 import { required, email, helpers } from "@vuelidate/validators";
-
+import { reactive, ref } from "vue";
 export default {
   name: "ContactForm",
   props: ["buttonColor"],
-  data() {
-    return {
-      v$: useVuelidate(),
-      personName: "",
-      email: "",
-      message: "",
-    };
-  },
-  validations() {
-    return {
-      email: {
+  setup() {
+    const personName = ref("");
+    const mail = ref("");
+    const message = ref("");
+
+    const rules = {
+      personName: {
+        required: helpers.withMessage("Please enter you name", required),
+      },
+      mail: {
         email,
         required: helpers.withMessage(
           "Please enter your email address",
           required
         ),
       },
-      personName: {
-        required: helpers.withMessage("Please enter you name", required),
-      },
       message: {
         required: helpers.withMessage("Please enter a message", required),
       },
     };
-  },
-  methods: {
-    async onSubmit() {
-      this.v$.$validate();
+
+    const v$ = useVuelidate(rules, { personName, mail, message });
+
+    async function onSubmit() {
+      v$.value.$validate();
       const supabase = useSupabaseClient();
 
-      if (this.v$.$error) return;
+      if (v$.value.$error) return;
 
       try {
         const resp = await supabase.from("contact").insert({
-          name: this.personName,
-          email: this.email,
-          message: this.message,
+          name: personName.value,
+          email: mail.value,
+          message: message.value,
         });
 
         if (resp.error) throw resp.error;
 
-        console.log("RESP ", resp);
-
         alert("Thanks for your message I will be in touch shortly");
-
-        this.personName = "";
-        this.email = "";
-        this.message = "";
+        v$.value.$reset();
+        personName.value = "";
+        mail.value = "";
+        message.value = "";
       } catch (error) {
         alert("There has been an error ", error);
       }
-    },
+    }
+
+    return { personName, mail, message, v$, onSubmit };
   },
 };
 </script>
-
-<style lang="scss" scoped></style>

@@ -9,7 +9,10 @@
       </div>
     </div>
     <div class="reviewModal" v-if="leaveReview">
-      <div class="review-modal__container">
+      <div
+        class="review-modal__container"
+        :class="leaveReview ? 'show' : 'hide'"
+      >
         <div v-if="submitError">
           <p class="error">
             There was an error, please refresh the page and try again, if the
@@ -96,69 +99,72 @@
   </div>
 </template>
 
-<script setup>
-import { useBooksStore } from "@/store/BooksStore";
-const booksStore = useBooksStore();
-</script>
-
 <script>
 import ReviewList from "@/components/review-list/ReviewList";
+import { watchEffect, ref } from "vue";
+import { useBooksStore } from "@/store/BooksStore";
 
 export default {
   name: "ReviewForm",
   components: {
     ReviewList,
   },
-  data() {
-    return {
-      leaveReview: false,
-      review: {
-        dispName: null,
-        comment: null,
-        bookTitle: null,
-        reviewTitle: null,
-      },
-      submitSuccess: false,
-      submitError: false,
-      reviews: undefined,
-    };
-  },
-  methods: {
-    async handleSubmit() {
-      this.submitError = false;
+  setup() {
+    const booksStore = useBooksStore();
+    const leaveReview = ref(false);
+
+    const review = ref({
+      dispName: null,
+      comment: null,
+      bookTitle: null,
+      reviewTitle: null,
+    });
+
+    const submitSuccess = ref(false);
+    const submitError = ref(false);
+    const reviews = ref(undefined);
+
+    async function handleSubmit() {
+      submitError.value = false;
 
       const supabase = useSupabaseClient();
 
       try {
         const resp = await supabase.from("reviews").insert({
-          review: this.review.comment,
-          reviewerName: this.review.dispName,
-          bookTitle: this.review.bookTitle,
-          reviewTitle: this.review.reviewTitle,
+          review: review.value.comment,
+          reviewerName: review.value.dispName,
+          bookTitle: review.value.bookTitle,
+          reviewTitle: review.value.reviewTitle,
         });
-
-        console.log("REVIEW SUBMIT ", resp);
 
         if (resp.error) throw resp.error;
 
-        this.review = {
-          dispName: null,
-          comment: null,
-          bookTitle: null,
-          reviewTitle: null,
-        };
+        review.value.dispName = null;
+        review.value.comment = null;
+        review.value.bookTitle = null;
+        review.value.reviewTitle = null;
 
-        this.submitSuccess = true;
+        submitSuccess.value = true;
 
         setTimeout(() => {
-          this.submitSuccess = false;
-          this.leaveReview = false;
+          submitSuccess.value = false;
+          leaveReview.value = false;
         }, 5000);
       } catch (error) {
         console.error("ERROR SUBMITTING REVIEW ", error);
-        this.submitError = true;
+        submitError.value = true;
       }
-    },
+    }
+
+    return {
+      leaveReview,
+      review,
+      submitSuccess,
+      submitError,
+      reviews,
+      handleSubmit,
+      booksStore,
+    };
   },
 };
 </script>
@@ -179,20 +185,53 @@ export default {
   align-items: center;
   justify-content: center;
   z-index: 5;
+  backdrop-filter: blur(10px);
 }
 
 .review-modal__container {
   padding: 2rem 3rem;
   background: #fff;
   border-radius: 0.8rem;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  z-index: 5;
   text-align: left;
+
+  &.hide {
+    opacity: 0;
+    transform: translateX(-100vw);
+    animation: slideOutBlock 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+
+  &.show {
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    z-index: 5;
+    animation: slideInBlock 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
 }
 
 .review-modal__buttons {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+@keyframes slideInBlock {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutBlock {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
 }
 </style>

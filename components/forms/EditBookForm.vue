@@ -162,8 +162,6 @@ export default {
       const supabase = useSupabaseClient();
       const bookStore = useBooksStore();
 
-      console.log(this.book);
-
       try {
         const { data, error } = await supabase
           .from("books")
@@ -172,8 +170,6 @@ export default {
 
         if (error) throw error;
 
-        console.log(data);
-
         this.$emit("formEditSuccess");
         bookStore.getBooksFromServ();
       } catch (error) {
@@ -181,11 +177,9 @@ export default {
       }
     },
     async uploadAvatar(evt) {
-      console.log(evt.target.id);
       const supabase = useSupabaseClient();
       const files = evt.target.files;
       const isBanner = evt.target.id === "bannerImg" ? true : false;
-      console.log(isBanner);
       const uploadURL = isBanner
         ? "https://ryjvicejickwdbxrtvmp.supabase.co/storage/v1/object/public/bookpics/banners"
         : "https://ryjvicejickwdbxrtvmp.supabase.co/storage/v1/object/public/bookpics";
@@ -209,8 +203,6 @@ export default {
         } else {
           this.uploadState.image = `${uploadURL}/${fileName}`;
         }
-
-        console.log(this.uploadState);
       } catch (error) {
         alert(error.message);
       }

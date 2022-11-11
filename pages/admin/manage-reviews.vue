@@ -22,8 +22,6 @@ export default {
     const reviews = booksStore.reviews;
     const showAdmin = true;
 
-    console.log("REVIEWS ", reviews);
-
     return { reviews, showAdmin };
   },
 };

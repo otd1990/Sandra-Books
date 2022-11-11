@@ -25,20 +25,15 @@ export const useBooksStore = defineStore("BooksStore", {
       }
     },
     async getIllustrations() {
-      console.log("Getting illustrations");
       const supabase = useSupabaseClient();
       try {
         const resp = await supabase.storage.from("illustrations").list();
-
-        console.log("Data ", resp);
 
         if (resp.error) throw resp.error;
         this.illustrations = resp.data;
       } catch (error) {
         console.error("Error getting images ", error);
       }
-
-      console.log("IMAGES ", this.illustrations);
 
       return this.illustrations;
     },
@@ -49,8 +44,6 @@ export const useBooksStore = defineStore("BooksStore", {
           .from("reviews")
           .select()
           .is("approved", true);
-
-        console.log("RESPONSE ", resp);
 
         if (resp.error) throw error;
 
@@ -64,8 +57,6 @@ export const useBooksStore = defineStore("BooksStore", {
       try {
         const resp = await supabase.from("reviews").select();
 
-        console.log("RESPONSE ", resp);
-
         if (resp.error) throw error;
 
         this.reviews = resp.data;
@@ -77,8 +68,6 @@ export const useBooksStore = defineStore("BooksStore", {
       const supabase = useSupabaseClient();
       try {
         const resp = await supabase.from("contact").select();
-
-        console.log("CONSTACT RESP ", resp);
 
         if (resp.error) throw error;
 
