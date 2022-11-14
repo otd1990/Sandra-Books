@@ -139,44 +139,44 @@
 
 <script>
 import { useBooksStore } from "~~/store/BooksStore";
+import { ref } from "vue";
 export default {
   name: "EditBookForm",
   props: ["book"],
-  data() {
-    return {
-      uploadState: {
-        image: this.book.image,
-        title: this.book.title,
-        desc: this.book.desc,
-        extract: this.book.extract,
-        publishedDate: this.book.publishedDate,
-        price: this.book.price,
-        quote: this.book.quote,
-        showOnHomePage: this.book.showOnHomePage,
-        bannerImg: this.book.bannerImg,
-      },
-    };
-  },
-  methods: {
-    async handleNewDataSubmit() {
+  defineEmits: ["formEditSuccess"],
+  setup(props, { emit }) {
+    const uploadState = ref({
+      image: props.book.image,
+      title: props.book.title,
+      desc: props.book.desc,
+      extract: props.book.extract,
+      publishedDate: props.book.publishedDate,
+      price: props.book.price,
+      quote: props.book.quote,
+      showOnHomePage: props.book.showOnHomePage,
+      bannerImg: props.book.bannerImg,
+    });
+
+    async function handleNewDataSubmit() {
       const supabase = useSupabaseClient();
       const bookStore = useBooksStore();
 
       try {
         const { data, error } = await supabase
           .from("books")
-          .update(this.uploadState)
-          .eq("id", this.book.id);
+          .update(uploadState.value)
+          .eq("id", props.book.id);
 
         if (error) throw error;
 
-        this.$emit("formEditSuccess");
+        emit("formEditSuccess");
         bookStore.getBooksFromServ();
       } catch (error) {
         console.error("Error submitting data ", error);
       }
-    },
-    async uploadAvatar(evt) {
+    }
+
+    async function uploadAvatar(evt) {
       const supabase = useSupabaseClient();
       const files = evt.target.files;
       const isBanner = evt.target.id === "bannerImg" ? true : false;
@@ -199,15 +199,36 @@ export default {
 
         if (resp.error) throw error;
         if (isBanner) {
-          this.uploadState.bannerImg = `${uploadURL}/${fileName}`;
+          uploadState.value.bannerImg = `${uploadURL}/${fileName}`;
         } else {
-          this.uploadState.image = `${uploadURL}/${fileName}`;
+          uploadState.value.image = `${uploadURL}/${fileName}`;
         }
       } catch (error) {
         alert(error.message);
       }
-    },
+    }
+
+    return {
+      uploadState,
+      handleNewDataSubmit,
+      uploadAvatar,
+    };
   },
+  // data() {
+  //   return {
+  //     uploadState: {
+  //       image: this.book.image,
+  //       title: this.book.title,
+  //       desc: this.book.desc,
+  //       extract: this.book.extract,
+  //       publishedDate: this.book.publishedDate,
+  //       price: this.book.price,
+  //       quote: this.book.quote,
+  //       showOnHomePage: this.book.showOnHomePage,
+  //       bannerImg: this.book.bannerImg,
+  //     },
+  //   };
+  // },
 };
 </script>
 

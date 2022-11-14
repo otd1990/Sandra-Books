@@ -147,25 +147,23 @@
 </template>
 
 <script>
+import { ref } from "vue";
+
 export default {
   name: "AddBookForm",
-  data() {
-    return {
-      uploadState: {
-        image: "",
-        title: "",
-        desc: "",
-        extract: "",
-        publishedDate: "",
-        price: 0,
-        quote: "",
-        showOnHomePage: true,
-        bannerImg: "",
-      },
-    };
-  },
-  methods: {
-    async handleNewDataSubmit() {
+  setup() {
+    const uploadState = ref({
+      image: "",
+      title: "",
+      desc: "",
+      extract: "",
+      publishedDate: "",
+      price: 0,
+      quote: "",
+      showOnHomePage: true,
+      bannerImg: "",
+    });
+    async function handleNewDataSubmit() {
       const supabase = useSupabaseClient();
 
       try {
@@ -175,7 +173,7 @@ export default {
 
         if (error) throw error;
         alert("this book was uploaded successfully");
-        this.uploadState = {
+        uploadState.value = {
           image: "",
           title: "",
           desc: "",
@@ -186,11 +184,12 @@ export default {
           showOnHomePage: false,
           bannerImg: "",
         };
+        console.log("UPLOAD STATE ", uploadState.value);
       } catch (error) {
         console.error("Error submitting data ", error);
       }
-    },
-    async uploadAvatar(evt) {
+    }
+    async function uploadAvatar(evt) {
       const supabase = useSupabaseClient();
       const files = evt.target.files;
       const isBanner = evt.target.id === "bannerImg" ? true : false;
@@ -213,14 +212,19 @@ export default {
 
         if (resp.error) throw error;
         if (isBanner) {
-          this.uploadState.bannerImg = `${uploadURL}/${fileName}`;
+          uploadState.value.bannerImg = `${uploadURL}/${fileName}`;
         } else {
-          this.uploadState.image = `${uploadURL}/${fileName}`;
+          uploadState.value.image = `${uploadURL}/${fileName}`;
         }
       } catch (error) {
         alert(error.message);
       }
-    },
+    }
+    return {
+      uploadState,
+      uploadAvatar,
+      handleNewDataSubmit,
+    };
   },
 };
 </script>
