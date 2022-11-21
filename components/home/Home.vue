@@ -6,7 +6,7 @@
         :slides-per-view="1"
         :space-between="0"
         :pagination="{ clickable: true }"
-        :loop="true"
+        :loop="false"
         :autoplay="{
           delay: 5000,
           disableOnInteraction: false,

@@ -15,7 +15,11 @@ export const useBooksStore = defineStore("BooksStore", {
   },
   actions: {
     async getBooksFromServ() {
-      const supabase = useSupabaseClient();
+      const supabase = useSupabaseClient({
+        global: {
+          headers: { "content-encoding": "br, gzip" },
+        },
+      });
       try {
         let { data } = await supabase.from("books").select(`*`);
         this.books = data;

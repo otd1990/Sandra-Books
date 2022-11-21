@@ -2,8 +2,11 @@ import { defineNuxtConfig } from "nuxt";
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
+  nitro: {
+    compressPublicAssets: true,
+  },
   modules: ["@nuxtjs/supabase", "@pinia/nuxt"],
-  css: ["@/assets/css/bootstrap.css", "~/assets/scss/main.scss"],
+  css: ["@/assets/css/bootstrap.min.css", "~/assets/scss/main.scss"],
   head: {
     title: "Sandra Plumb Books",
     meta: [

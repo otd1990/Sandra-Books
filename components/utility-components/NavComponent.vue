@@ -4,7 +4,7 @@
       <nuxt-link to="/" class="nav__link">Sandra Plumb</nuxt-link>
     </div>
     <div class="nav__control">
-      <button @click="handleNavClick">
+      <button @click="handleNavClick" aria-label="Show Nav On Mobile Button">
         <span class="nav__control--burger"></span>
         <span class="nav__control--burger"></span>
         <span class="nav__control--burger"></span>
