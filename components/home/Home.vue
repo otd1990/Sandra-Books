@@ -84,9 +84,9 @@ import { Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 
 // Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/autoplay";
+// import "swiper/css";
+// import "swiper/css/pagination";
+// import "swiper/css/autoplay";
 
 export default {
   name: "Home",
@@ -104,6 +104,10 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" src="swiper/css" />
+<style lang="scss" src="swiper/css/pagination" />
+<style lang="scss" src="swiper/css/autoplay" />
 
 <style lang="scss" scoped>
 @import "../../assets/scss/variables.scss";
