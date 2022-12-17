@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="home__hero" v-if="booksStore">
-      <swiper
+      <Swiper
         :modules="modules"
         :slides-per-view="1"
         :space-between="0"
@@ -12,7 +12,7 @@
           disableOnInteraction: false,
         }"
       >
-        <swiper-slide
+        <SwiperSlide
           v-for="(book, index) in allBooks"
           :key="book.id"
           :index="index"
@@ -29,8 +29,8 @@
               {{ new Date(book.publishedDate).toLocaleDateString("en-GB") }}
             </p>
           </div>
-        </swiper-slide>
-      </swiper>
+        </SwiperSlide>
+      </Swiper>
       <div class="home__overlay"></div>
     </div>
     <section class="home__main">
@@ -88,7 +88,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 
-import "./home.scss";
+import "./scss/home.scss";
 
 export default {
   name: "Home",

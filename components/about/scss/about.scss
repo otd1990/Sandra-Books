@@ -1,0 +1,34 @@
+@import "../../../assets/scss/mixins.scss";
+@import "../../../assets/scss/variables.scss";
+
+.about {
+  margin: $sectionSpacer;
+  text-align: left;
+  .h1 {
+    // text-align: center;
+    margin: 2rem 0;
+    position: relative;
+
+    // &::after {
+    //   content: "";
+    //   display: block;
+    //   height: 3px;
+    //   width: 7rem;
+    //   background-color: $orangeMain;
+    //   position: absolute;
+    //   top: 50%;
+    //   left: -50%;
+    // }
+  }
+  &__image {
+    width: 100%;
+    height: 330px;
+    margin: 0 auto;
+    display: block;
+    filter: $shadow;
+    @media (min-width: $mobile-sm) {
+      width: 293px;
+      height: 440px;
+    }
+  }
+}

@@ -42,11 +42,9 @@
 </template>
 
 <script>
-import "./about.scss";
+import "./scss/about.scss";
 
 export default {
   name: "About",
 };
 </script>
-
-<style lang="scss" scoped></style>
