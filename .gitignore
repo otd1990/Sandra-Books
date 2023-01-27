@@ -1,2 +1,5 @@
 node_modules/
 .env
+Account.vue
+Avatar.vue
+Auth.vue

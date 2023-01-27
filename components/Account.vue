@@ -6,7 +6,7 @@
       <input id="email" type="text" :value="user.email" disabled />
     </div>
     <div>
-      <label for="username">Namesdfsdfdssd</label>
+      <label for="username">Namesdfsdfdsjjjjsd</label>
       <input id="username" type="text" v-model="username" />
     </div>
     <div>
@@ -43,7 +43,7 @@ loading.value = true;
 const user = useSupabaseUser();
 let { data } = await supabase
   .from("profiles")
-  .select(`username, website, avatar_url`)
+  .select(`username, websinnnnte, avatar_url`)
   .eq("id", user.value.id)
   .single();
 if (data) {
