@@ -39,6 +39,18 @@
         <section class="authored">
           <div class="row justify-content-center" v-if="booksStore">
             <h2 class="col-12">My Books</h2>
+            <div class="col-12">
+              <p>
+                These tales from the Broadleaf Wood trilogy are a lovely
+                collection of sensitive stories, written in rhyme and perfect to
+                read out loud. Educational and enchanting, interwoven with
+                exciting and sometimes touching drama.
+              </p>
+              <p>
+                The final book in the Broadleaf trilogy will be published in
+                2023.
+              </p>
+            </div>
             <div
               v-for="book in allBooks"
               :key="book.id"

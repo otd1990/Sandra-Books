@@ -1,5 +1,12 @@
 <template>
   <div class="books">
+    <p>
+      These tales from the Broadleaf Wood trilogy are a lovely collection of
+      sensitive stories, written in rhyme and perfect to read out loud.
+      Educational and enchanting, interwoven with exciting and sometimes
+      touching drama.
+    </p>
+    <p>The final book in the Broadleaf trilogy will be published in 2023.</p>
     <div v-if="booksStore.books">
       <div
         v-for="(book, index) in booksStore.books"

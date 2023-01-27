@@ -184,7 +184,6 @@ export default {
           showOnHomePage: false,
           bannerImg: "",
         };
-        console.log("UPLOAD STATE ", uploadState.value);
       } catch (error) {
         console.error("Error submitting data ", error);
       }

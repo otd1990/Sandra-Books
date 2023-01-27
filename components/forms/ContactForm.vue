@@ -3,7 +3,7 @@
     <div class="row justify-content-center">
       <div class="col-12 col-md-6">
         <div class="form-group">
-          <label class="form-label" for="name">Name--test:</label>
+          <label class="form-label" for="name">Name:</label>
           <input
             type="text"
             class="form-control"

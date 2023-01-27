@@ -14,11 +14,11 @@ import Books from "@/components/books/Books";
 export default {
   components: {
     Books,
-    head() {
-      return {
-        title: "Sandra Plumb Books | Books",
-      };
-    },
+  },
+  head() {
+    return {
+      title: "Sandra Plumb Books | Books",
+    };
   },
 };
 </script>

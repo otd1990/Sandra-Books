@@ -8,7 +8,9 @@
       <p>
         I can't find the page you've requested. Click
         <nuxt-link to="/">HERE</nuxt-link> to go to the homepage or
-        <nuxt-link class="error__back" @click="$router.back()">HERE</nuxt-link>
+        <nuxt-link class="error__back" :to="$router.options.history.state.back"
+          >HERE</nuxt-link
+        >
         to go the previous page.
       </p>
     </div>
@@ -18,53 +20,6 @@
 <script>
 export default {
   name: "ErrorPage",
-  // setup() {
-  //   const errorHeading = ref("");
-  //   const pickHeading = () => {
-  //     const possibleHeaders = [
-  //       "Oh No!",
-  //       "How Did You Get Here?",
-  //       "There's Nothing To See Here",
-  //       "Sorry",
-  //       "Page Not Found",
-  //       "Whoops!",
-  //       "What's Happened Now?",
-  //     ];
-
-  //     const min = Math.ceil(0);
-  //     const max = Math.floor(possibleHeaders.length);
-
-  //     const num = Math.floor(Math.random() * (max - min + 1)) + min;
-
-  //     errorHeading.value = possibleHeaders[num];
-  //   };
-
-  //   onBeforeMount(() => {
-  //     pickHeading();
-  //   });
-
-  //   return { errorHeading };
-  // },
-  // computed: {
-  //   errorHeading() {
-  //     const possibleHeaders = [
-  //       "Oh No!",
-  //       "How Did You Get Here?",
-  //       "There's Nothing To See Here",
-  //       "Sorry",
-  //       "Page Not Found",
-  //       "Whoops!",
-  //       "What's Happened Now?",
-  //     ];
-
-  //     const min = Math.ceil(0);
-  //     const max = Math.floor(possibleHeaders.length);
-
-  //     const num = Math.floor(Math.random() * (max - min + 1)) + min;
-
-  //     return possibleHeaders[num];
-  //   },
-  // },
   head() {
     return {
       title: "Sandra Plumb Books | 404",

@@ -8,25 +8,25 @@
           <p>
             I live in the beautiful village of Long Crendon in Buckinghamshire,
             with my husband and Yellow Labrador Bella. The combination of moving
-            to Hare House, which backs onto fields and has far fetching
-            countryside views, and becoming a grandma inspired me to start
-            writing. I have always loved nature and animals and I am so lucky to
-            have many different species of wildlife visit my garden. One day
-            during Covid, I sat watching a newt in my pond. I started to imagine
-            what he was getting up to which led me to write, 'Noah the Newt' for
-            my granddaughters' 1st birthday. I really enjoyed penning my first
+            to Hare House, which backs onto fields with far reaching countryside
+            views, and becoming a grandma inspired me to start writing. I have
+            always loved nature and animals and I am so lucky to have many
+            different species of wildlife visiting my garden. One day I sat
+            watching a newt in my pond, and started to imagine what he was
+            getting up to. This led me to write, 'Noah the Newt' for my
+            granddaughter's 1st birthday. I really enjoyed penning my first
             story and felt compelled to write more.
           </p>
           <p>
-            I left school before taking any exams, but I remember English
-            lessons were a favourite, especially writing essays. The launch of
-            my first book, 'Figg the Funky Fox and other read aloud Rhymes',
-            with the help of my amazing illustrator, Alicia Howard and Husband
-            Chris, has made me feel so proud of myself. Knowing that children
-            are reading my stories and connecting with the animal kingdom gives
-            me great pleasure. Throughout my life I have lacked confidence and
-            self-worth, but writing has made me realise that anything is
-            possible if you really believe in yourself.
+            I left school before taking any exams, but I remember English was my
+            favourite lesson, especially writing essays. The launch of my first
+            book, 'Figg the Funky Fox and other read aloud Rhymes', with the
+            help of my amazing illustrator, Alicia Howard has made me feel so
+            proud of myself. Knowing that children are reading my stories and
+            connecting with the animal kingdom gives me great pleasure.
+            Throughout my life I have lacked confidence and self-worth, but
+            writing has made me realise that anything is possible if you really
+            believe in yourself.
           </p>
         </div>
         <div class="col-12 col-md-6 order-1 order-md-2 mb-4 mb-md-0">
