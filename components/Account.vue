@@ -6,7 +6,7 @@
       <input id="email" type="text" :value="user.email" disabled />
     </div>
     <div>
-      <label for="username">Name</label>
+      <label for="username">Namesdfsdfdssd</label>
       <input id="username" type="text" v-model="username" />
     </div>
     <div>
