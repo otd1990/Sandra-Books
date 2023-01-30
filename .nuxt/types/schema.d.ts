@@ -1,43 +1,42 @@
 import { NuxtModule } from '@nuxt/schema'
 declare module '@nuxt/schema' {
   interface NuxtConfig {
-    ["cache"]?: typeof import("@nuxt-modules/cache").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
     ["supabase"]?: typeof import("@nuxtjs/supabase").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
     ["pinia"]?: typeof import("@pinia/nuxt").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
     ["telemetry"]?: typeof import("@nuxt/telemetry").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
   }
   interface RuntimeConfig {
-     app: {
-        baseURL: string,
+   app: {
+      baseURL: string,
 
-        buildAssetsDir: string,
+      buildAssetsDir: string,
 
-        cdnURL: string,
-    },
+      cdnURL: string,
+   },
 
-    supabase: {
-        serviceKey: any,
-    },
+   supabase: {
+      serviceKey: any,
+   },
   }
   interface PublicRuntimeConfig {
-     supabase: {
-        url: string,
+   supabase: {
+      url: string,
 
-        key: string,
+      key: string,
 
-        client: any,
+      client: any,
 
-        cookies: {
-             name: string,
+      cookies: {
+         name: string,
 
-             lifetime: number,
+         lifetime: number,
 
-             domain: string,
+         domain: string,
 
-             path: string,
+         path: string,
 
-             sameSite: string,
-        },
-    },
+         sameSite: string,
+      },
+   },
   }
 }

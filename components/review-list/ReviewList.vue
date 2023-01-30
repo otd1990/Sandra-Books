@@ -137,7 +137,9 @@ p {
 }
 .review-list {
   padding: 2rem;
-
+  @media (max-width: 375px) {
+    padding: 2rem 0.25rem;
+  }
   &__wrapper {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -166,6 +168,11 @@ p {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  &__by {
+    text-align: left;
   }
 
   &__header {

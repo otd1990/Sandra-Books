@@ -44,6 +44,7 @@
               <div class="form-group">
                 <label for="displayName" class="form-label"
                   >Display Name
+                  <br />
                   <small
                     >(This will be the name that is shown against the
                     review)</small
@@ -172,6 +173,12 @@ export default {
 <style lang="scss" scoped>
 .review__trigger {
   cursor: pointer;
+  color: #0d6efd;
+  text-decoration: underline;
+  transition: color 0.3s;
+  &:hover {
+    color: #0a58ca;
+  }
 }
 
 .reviewModal {
@@ -193,7 +200,7 @@ export default {
   background: #fff;
   border-radius: 0.8rem;
   text-align: left;
-
+  margin: 0 1.75rem;
   &.hide {
     opacity: 0;
     transform: translateX(-100vw);
@@ -211,6 +218,17 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media (max-width: 375px) {
+    flex-wrap: wrap;
+    button {
+      width: 100%;
+      margin: 0;
+    }
+    button:first-child {
+      order: 2;
+      margin-top: 0.5rem;
+    }
+  }
 }
 
 @keyframes slideInBlock {

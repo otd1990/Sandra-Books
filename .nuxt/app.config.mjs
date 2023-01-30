@@ -1,5 +1,5 @@
 
-import { defuFn } from 'defu'
+import { defuFn } from 'C:/Users/oliver.dyer/sp-books/node_modules/defu/dist/defu.mjs'
 
 const inlineConfig = {}
 
