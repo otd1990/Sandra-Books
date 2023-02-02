@@ -1,6 +1,6 @@
 import { useBooksStore } from "@/store/BooksStore";
 
-export default async function (nuxtApp, { route }) {
+export default async function (nuxtApp: any) {
   const bookStore = useBooksStore(nuxtApp.$pinia);
   const routeName = nuxtApp.name;
 
@@ -11,7 +11,9 @@ export default async function (nuxtApp, { route }) {
     } catch (error) {
       console.error("there was a problem");
     }
-    const localStore = JSON.parse(localStorage.getItem("supabase.auth.token"));
+    const localStore = JSON.parse(
+      localStorage.getItem("supabase.auth.token") as any
+    );
     const user = localStore !== null ? localStore.currentSession.user : null;
 
     if (user === null && routeName !== "admin") {

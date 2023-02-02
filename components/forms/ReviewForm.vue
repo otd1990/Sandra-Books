@@ -193,14 +193,28 @@ export default {
   justify-content: center;
   z-index: 5;
   backdrop-filter: blur(10px);
+
+  @media (max-width: 575px) {
+    .form-label {
+      margin: 0.25rem 0;
+    }
+  }
 }
 
 .review-modal__container {
-  padding: 2rem 3rem;
+  padding: 1rem 3rem;
   background: #fff;
   border-radius: 0.8rem;
   text-align: left;
   margin: 0 1.75rem;
+  position: relative;
+  top: 35px;
+  @media (max-width: 768px) {
+    top: 28px;
+  }
+  @media (max-width: 575px) {
+    padding: 1rem 1.5rem;
+  }
   &.hide {
     opacity: 0;
     transform: translateX(-100vw);
