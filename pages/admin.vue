@@ -47,7 +47,7 @@
           </nav>
         </div>
       </div>
-      <NuxtChild />
+      <NuxtPage />
     </div>
   </NuxtLayout>
 </template>

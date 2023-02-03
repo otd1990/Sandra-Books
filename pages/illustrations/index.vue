@@ -43,9 +43,7 @@ export default {
       ? bookStore.illustrations
       : await bookStore.getIllustrations();
 
-    setTimeout(() => {
-      loading.value = false;
-    }, 4500);
+    loading.value = false;
 
     return { loading, illustrations };
   },

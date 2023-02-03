@@ -15,9 +15,6 @@
           <nuxt-link to="/reviews" class="footer__link">Reviews</nuxt-link>
         </li>
         <li class="footer__list--item">
-          <nuxt-link to="/downloads" class="footer__link">Downloads</nuxt-link>
-        </li>
-        <li class="footer__list--item">
           <nuxt-link to="/illustrations" class="footer__link"
             >Illustrations</nuxt-link
           >

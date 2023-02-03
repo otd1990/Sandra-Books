@@ -25,9 +25,6 @@
           <nuxt-link to="/reviews" class="nav__link">Reviews</nuxt-link>
         </li>
         <li class="nav__item">
-          <nuxt-link to="/downloads" class="nav__link">Downloads</nuxt-link>
-        </li>
-        <li class="nav__item">
           <nuxt-link to="/illustrations" class="nav__link"
             >Illustrations</nuxt-link
           >
