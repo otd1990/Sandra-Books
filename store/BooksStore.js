@@ -21,10 +21,13 @@ export const useBooksStore = defineStore("BooksStore", {
         },
       });
       try {
-        let { data } = await supabase.from("books").select(`*`);
+        let { error, data } = await supabase.from("books").select(`*`);
+
+        if (error) throw error;
+
         this.books = data;
       } catch (error) {
-        console.error("ERROR GETTING BOOKS ", error);
+        console.error("ERROR GETTING BOOKS ", error.code);
         return error;
       }
     },
@@ -36,7 +39,7 @@ export const useBooksStore = defineStore("BooksStore", {
         if (resp.error) throw resp.error;
         this.illustrations = resp.data;
       } catch (error) {
-        console.error("Error getting images ", error);
+        console.error("Error getting images ", error.code);
       }
 
       return this.illustrations;
@@ -53,7 +56,7 @@ export const useBooksStore = defineStore("BooksStore", {
 
         this.approvedReviews = resp.data;
       } catch (error) {
-        console.error("ERROR GETTING Approved REVIEWS ", error);
+        console.error("ERROR GETTING Approved REVIEWS ", error.code);
       }
     },
     async getAllReviews() {
@@ -65,7 +68,7 @@ export const useBooksStore = defineStore("BooksStore", {
 
         this.reviews = resp.data;
       } catch (error) {
-        console.error("ERROR GETTING All REVIEWS ", error);
+        console.error("ERROR GETTING All REVIEWS ", error.code);
       }
     },
     async getContactData() {
