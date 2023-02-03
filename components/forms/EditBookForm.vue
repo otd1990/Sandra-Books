@@ -35,14 +35,15 @@
             <div class="col-12 col-md-6 mb-2">
               <div class="form-group">
                 <label class="form-label" for="extract">Extract</label>
-                <input
+                <textarea
                   type="text"
                   name="extract"
                   id="extract"
                   class="form-control"
                   required
+                  plaintext
                   v-model="uploadState.extract"
-                />
+                ></textarea>
               </div>
             </div>
 

@@ -28,7 +28,9 @@
           </div>
           <div class="book__extract">
             <h5>Extract</h5>
-            <p>{{ book.extract }}</p>
+            <textarea rows="5" columns="12" readonly class="w-100 border-0">{{
+              book.extract
+            }}</textarea>
           </div>
           <div class="book__quote">
             <h5>Quote</h5>

@@ -1,11 +1,11 @@
 <template>
   <div class="container text-center page-top-padding">
     <h1 class="my-2">Images</h1>
+    <p>
+      All of the illustrations below were done by the incredibly talented
+      <a href="mailto: alicia@allaboutartwork.co.uk">Alicia Howard</a>
+    </p>
     <section class="grid">
-      <!-- <div
-        class="grid__container skeletor"
-        :class="loading ? 'loading' : 'loaded'"
-      ></div> -->
       <div class="grid__container">
         <Skeletor
           v-if="loading"

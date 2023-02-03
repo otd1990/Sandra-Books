@@ -53,9 +53,16 @@
                       <h5>Price</h5>
                       <p>&pound;{{ singleBook.price }}</p>
                     </div>
-                    <div class="info--title">
-                      <h5>Extract</h5>
-                      <p class="extract">{{ singleBook.extract }}</p>
+                    <div class="col-12">
+                      <div class="info--title">
+                        <h5>Extract</h5>
+                        <div
+                          class="extract d-block w-100"
+                          style="white-space: pre-wrap"
+                        >
+                          {{ singleBook.extract }}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

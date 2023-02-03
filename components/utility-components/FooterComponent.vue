@@ -22,6 +22,10 @@
       </ul>
       <div>
         <p class="footer__copyright">&copy; Sandra Plumb {{ year }}</p>
+        <small class="footer__copyright d-block">
+          Illustrations by
+          <a href="mailto: alicia@allaboutartwork.co.uk">Alicia Howard</a>
+        </small>
       </div>
     </div>
     <!-- <div class="footer__bottom"></div> -->
