@@ -7,12 +7,7 @@
   </div>
 </template>
 
-<script setup>
-definePageMeta({
-  middleware: ["auth"],
-  // or middleware: 'auth'
-});
-</script>
+<script setup></script>
 
 <script>
 import NavComponent from "@/components/utility-components/NavComponent";
