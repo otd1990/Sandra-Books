@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row justify-content-center align-items-center">
         <h2 class="h1 d-md-none d-block">About</h2>
-        <div class="col-12 col-md-6 order-2 order-md-1">
+        <div class="col-12 col-md-6 order-2 order-md-1 p-0">
           <h2 class="h1 d-none d-md-block">About</h2>
           <p>
             I live in the beautiful village of Long Crendon in Buckinghamshire,

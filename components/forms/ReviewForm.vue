@@ -94,7 +94,7 @@
         </form>
       </div>
     </div>
-    <div class="container" v-if="booksStore.approvedReviews">
+    <div v-if="booksStore.approvedReviews" class="container__review-list">
       <ReviewList :reviews="booksStore.approvedReviews" />
     </div>
   </div>
@@ -178,6 +178,21 @@ export default {
   transition: color 0.3s;
   &:hover {
     color: #0a58ca;
+  }
+}
+
+.container__review-list {
+  max-width: 1342px;
+  padding: 0 2rem;
+  margin: 0 auto;
+  @media (max-width: 1324px) {
+    max-width: 1024px;
+  }
+  @media (max-width: 1024px) {
+    max-width: 875px;
+  }
+  @media (max-width: 495px) {
+    padding: 0 1.5rem;
   }
 }
 

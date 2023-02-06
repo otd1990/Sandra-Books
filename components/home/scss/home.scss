@@ -8,19 +8,20 @@
     overflow: hidden;
     background-color: $orangeMain;
     @include display-flex-column;
-    height: 35vh;
+    height: 70vh;
 
     @media (min-width: $mobile-md) {
-      height: 40vh;
+      height: 75vh;
     }
 
     @media (min-width: $mobile-lg) {
-      height: 50vh;
+      height: 80vh;
     }
 
     @media (min-width: $tablet) {
-      height: 60vh;
+      height: 70vh;
     }
+
     //1024px and above
     @media (min-width: $laptop) {
       height: 90vh;
@@ -36,7 +37,7 @@
       width: 100%;
       background-repeat: no-repeat;
       background-position: center;
-      background-size: 100% 155%;
+      background-size: cover;
       @media (min-width: $laptop) {
         background-size: 100%;
       }
@@ -77,6 +78,16 @@
       }
       &-title {
         opacity: 0;
+        font-size: 3rem;
+        @media (min-width: $mobile-lg) {
+          font-size: 3.25rem;
+        }
+        @media (min-width: $tablet) {
+          font-size: 4.15rem;
+        }
+        @media (min-width: $laptop) {
+          font-size: 4.35rem;
+        }
       }
       &-published {
         background: #000;
@@ -87,12 +98,12 @@
         opacity: 0;
         font-size: 1rem;
         @media (min-width: $mobile-lg) {
-          font-size: 1.25rem;
-          margin-top: -1rem;
+          font-size: 1.15rem;
+          margin-top: -0.65rem;
           padding: 15px;
         }
         @media (min-width: $tablet) {
-          font-size: 1.45rem;
+          font-size: 1.25rem;
         }
       }
     }
@@ -178,42 +189,22 @@
   .h1 {
     font-size: 3.5rem;
     @media (min-width: $mobile-sm) {
-      font-size: 4rem;
+      font-size: 3.5rem;
     }
-    // &::after {
-    //   display: none;
-    //   @media (min-width: 1023px) {
-    //     display: block;
-    //     left: -56.45%;
-    //   }
-    // }
   }
 }
 
 .authored {
-  margin: $sectionSpacer;
   text-align: left;
+  margin-bottom: 3rem;
   h2 {
     // text-align: center;
-    margin: 2rem 0;
+    margin: 1rem 0;
     position: relative;
     font-size: 3rem;
     @media (min-width: $mobile-sm) {
-      font-size: 4rem;
+      font-size: 3.5rem;
     }
-    // &::after {
-    //   content: "";
-    //   height: 3px;
-    //   width: 7rem;
-    //   background-color: $orangeMain;
-    //   position: absolute;
-    //   top: 50%;
-    //   left: -25%;
-    //   display: none;
-    //   @media (min-width: 1023px) {
-    //     display: block;
-    //   }
-    // }
   }
   &__books {
     &-wrap {
@@ -248,7 +239,7 @@
       font-size: 4rem;
     }
     @media (min-width: $tablet) {
-      margin-top: -75px;
+      margin-top: -74px;
     }
   }
 
@@ -257,12 +248,15 @@
   }
 
   .form-group {
-    margin-bottom: 1rem;
     font-size: 0.85rem;
   }
 
   .form-control {
     border: none;
+  }
+
+  .container {
+    padding: 0 1.5rem;
   }
 }
 

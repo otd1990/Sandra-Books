@@ -34,7 +34,7 @@
       <div class="home__overlay"></div>
     </div>
     <section class="home__main">
-      <div class="container">
+      <div class="container -lg">
         <About />
         <section class="authored">
           <div class="row justify-content-center" v-if="booksStore">

@@ -2,31 +2,24 @@
 @import "../../../assets/scss/variables.scss";
 
 .about {
-  margin: $sectionSpacer;
+  margin-top: 2rem;
   text-align: left;
   .h1 {
-    // text-align: center;
     margin: 2rem 0;
     position: relative;
-
-    // &::after {
-    //   content: "";
-    //   display: block;
-    //   height: 3px;
-    //   width: 7rem;
-    //   background-color: $orangeMain;
-    //   position: absolute;
-    //   top: 50%;
-    //   left: -50%;
-    // }
+    margin-bottom: 1rem;
   }
   &__image {
     width: 100%;
-    height: 330px;
+    height: 370px;
     margin: 0 auto;
     display: block;
     filter: $shadow;
-    @media (min-width: $mobile-sm) {
+    @media (min-width: $mobile-md) {
+      width: 295px;
+      height: 385px;
+    }
+    @media (min-width: $mobile-lg) {
       width: 293px;
       height: 440px;
     }
