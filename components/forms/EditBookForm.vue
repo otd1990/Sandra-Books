@@ -158,6 +158,8 @@ export default {
       bannerImg: props.book.bannerImg,
     });
 
+    const config = useRuntimeConfig();
+
     async function handleNewDataSubmit() {
       const supabase = useSupabaseClient();
       const bookStore = useBooksStore();
@@ -182,8 +184,8 @@ export default {
       const files = evt.target.files;
       const isBanner = evt.target.id === "bannerImg" ? true : false;
       const uploadURL = isBanner
-        ? "https://ryjvicejickwdbxrtvmp.supabase.co/storage/v1/object/public/bookpics/banners"
-        : "https://ryjvicejickwdbxrtvmp.supabase.co/storage/v1/object/public/bookpics";
+        ? `${config.public.supabase.url}/storage/v1/object/public/bookpics/banners`
+        : `${config.public.supabase.url}/storage/v1/object/public/bookpics`;
 
       try {
         if (!files || files.length === 0) {

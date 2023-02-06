@@ -40,18 +40,7 @@ export default {
   },
   methods: {
     async handleLogout() {
-      const supabase = useSupabaseClient();
-      const booksStore = useBooksStore();
-
-      try {
-        const { error } = await supabase.auth.signOut();
-
-        if (error) throw error;
-        booksStore.setUser(null);
-        localStorage.removeItem("supabase.auth.token");
-      } catch (error) {
-        console.error("ERROR Signing out ", error);
-      }
+      await useLogOut();
     },
   },
 };
