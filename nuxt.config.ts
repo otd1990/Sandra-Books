@@ -27,16 +27,6 @@ export default defineNuxtConfig({
           rel: "stylesheet",
           href: "https://fonts.googleapis.com/css2?family=Abyssinica+SIL&display=swap",
         },
-        {
-          rel: "icon",
-          type: "image/png",
-          href: "assets/images/favicon/favicon-32x32.png",
-        },
-        {
-          rel: "icon",
-          type: "image/x-icon",
-          href: "assets/images/favicon/favicon.ico",
-        },
       ],
     },
   },

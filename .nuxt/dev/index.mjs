@@ -769,7 +769,7 @@ const renderer$1 = /*#__PURE__*/Object.freeze({
   'default': renderer
 });
 
-const _virtual__headStatic = {"headTags":"<meta charset=\"utf-8\">\n<title>Sandra Plumb Books</title>\n<meta name=\"description\" content=\"Sandra Pulmb Book Site.\">\n<meta name=\"theme-color\" content=\"#ffae6d\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\">\n<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Abyssinica+SIL&display=swap\">\n<link rel=\"icon\" type=\"image/png\" href=\"assets/images/favicon/favicon-32x32.png\">\n<link rel=\"icon\" type=\"image/x-icon\" href=\"assets/images/favicon/favicon.ico\">","bodyTags":"","bodyTagsOpen":"","htmlAttrs":"","bodyAttrs":""};
+const _virtual__headStatic = {"headTags":"<meta charset=\"utf-8\">\n<title>Sandra Plumb Books</title>\n<meta name=\"description\" content=\"Sandra Pulmb Book Site.\">\n<meta name=\"theme-color\" content=\"#ffae6d\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\">\n<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Abyssinica+SIL&display=swap\">","bodyTags":"","bodyTagsOpen":"","htmlAttrs":"","bodyAttrs":""};
 
 const _virtual__headStatic$1 = /*#__PURE__*/Object.freeze({
   __proto__: null,

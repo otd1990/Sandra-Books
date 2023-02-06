@@ -34,7 +34,10 @@ export const useBooksStore = defineStore("BooksStore", {
     async getIllustrations() {
       const supabase = useSupabaseClient();
       try {
-        const resp = await supabase.storage.from("illustrations").list();
+        const resp = await supabase.storage
+          .from("illustrations")
+          .select(`id`)
+          .list();
 
         if (resp.error) throw resp.error;
         this.illustrations = resp.data;
