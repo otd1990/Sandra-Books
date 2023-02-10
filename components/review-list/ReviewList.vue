@@ -39,12 +39,6 @@
               REVIEW STATUS:
               <b>{{ review.approved ? "APPROVED" : "NOT APPROVED" }}</b>
             </p>
-            <p v-if="approved" class="review-status">
-              Review has been <b>APPROVED</b> and will show on the site
-            </p>
-            <p v-if="rejected" class="review-status">
-              Review has been <b>REJECTED</b> and will not show on the site
-            </p>
           </div>
         </div>
       </div>

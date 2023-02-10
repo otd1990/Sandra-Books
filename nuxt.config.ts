@@ -3,7 +3,28 @@ export default defineNuxtConfig({
   nitro: {
     compressPublicAssets: true,
   },
-  modules: ["@nuxtjs/supabase", "@pinia/nuxt", "@nuxt-modules/cache"],
+  modules: [
+    "@nuxtjs/supabase",
+    "@pinia/nuxt",
+    "@nuxt-modules/cache",
+    [
+      "@nuxtjs/google-fonts",
+      {
+        families: {
+          Roboto: {
+            wght: [400, 600, 700],
+          },
+        },
+        subsets: ["latin"],
+        display: "swap",
+        prefetch: false,
+        preconnect: false,
+        preload: false,
+        download: true,
+        base64: false,
+      },
+    ],
+  ],
   css: ["@/assets/css/bootstrap.min.css", "~/assets/scss/main.scss"],
   app: {
     head: {
@@ -14,20 +35,20 @@ export default defineNuxtConfig({
         { charset: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
       ],
-      link: [
-        {
-          rel: "preconnect",
-          href: "https://fonts.googleapis.com",
-        },
-        {
-          rel: "preconnect",
-          href: "https://fonts.gstatic.com",
-        },
-        {
-          rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css2?family=Abyssinica+SIL&display=swap",
-        },
-      ],
+      // link: [
+      //   {
+      //     rel: "preconnect",
+      //     href: "https://fonts.googleapis.com",
+      //   },
+      //   {
+      //     rel: "preconnect",
+      //     href: "https://fonts.gstatic.com",
+      //   },
+      //   {
+      //     rel: "stylesheet",
+      //     href: "https://fonts.googleapis.com/css2?family=&display=swap",
+      //   },
+      // ],
     },
   },
 });
