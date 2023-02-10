@@ -28,6 +28,9 @@ export default defineNuxtConfig({
   css: ["@/assets/css/bootstrap.min.css", "~/assets/scss/main.scss"],
   app: {
     head: {
+      htmlAttrs: {
+        lang: "en",
+      },
       title: "Sandra Plumb Books",
       meta: [
         { name: "description", content: "Sandra Pulmb Book Site." },
