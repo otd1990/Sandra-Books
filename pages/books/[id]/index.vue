@@ -9,11 +9,49 @@
 </template>
 
 <script>
+import { uuid } from "vue-uuid";
 export default {
+  data() {
+    return {
+      uuid: uuid.v1(),
+    };
+  },
   head() {
     return {
       title: "Sandra Plumb Books | Book",
+      script: [
+        {
+          src: "https://gateway.sumup.com/gateway/ecom/card/v2/sdk.js",
+        },
+      ],
     };
+  },
+  async mounted() {
+    try {
+      const { error, data } = await useFetch(
+        "https://api.sumup.com/v0.1/checkouts/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            Authorization: "Bearer <TOKEN>",
+          },
+          data: {
+            checkout_reference: this.uuid,
+            amount: 10,
+            currency: "GBP",
+            pay_to_email: "sandrajplumb@gmail.com",
+          },
+        }
+      );
+
+      if (error.value) throw error.value;
+
+      console.log("CHECKOUT RESP ", data);
+    } catch (error) {
+      console.log("ERROR CREATEING CHECKOUT ", error.message);
+    }
   },
 };
 </script>
