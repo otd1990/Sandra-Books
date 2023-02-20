@@ -5,7 +5,7 @@
         <img src="~/assets/images/tangled-sheep.png" alt="Tangled Sheep" />
       </div>
       <h1>Whoops!</h1>
-      <p>{{ error.statusCode }} - {{ error.message }}</p>
+      <p>Somethings gone wrong</p>
       <p>
         I can't find the page you've requested. Click
         <nuxt-link class="error__back" @click="goHome">HERE</nuxt-link>
