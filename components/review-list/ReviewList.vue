@@ -74,7 +74,7 @@ export default {
         approved.value = true;
         rejected.value = false;
       } catch (error) {
-        console.error("ERROR APPROVING ", error);
+        console.error("ERROR APPROVING ");
         alert(error.message);
       }
     }
@@ -93,7 +93,7 @@ export default {
         rejected.value = true;
         approved.value = false;
       } catch (error) {
-        console.error("ERROR REJECTING ", error);
+        console.error("ERROR REJECTING ");
         alert(error.message);
       }
     }
@@ -115,7 +115,7 @@ export default {
         this.rejected = true;
         this.approved = false;
       } catch (error) {
-        console.error("ERROR REJECTING ", error);
+        console.error("ERROR REJECTING ");
         alert(error.message);
       }
     },

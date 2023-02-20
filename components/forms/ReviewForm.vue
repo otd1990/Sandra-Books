@@ -152,7 +152,7 @@ export default {
           leaveReview.value = false;
         }, 5000);
       } catch (error) {
-        console.error("ERROR SUBMITTING REVIEW ", error);
+        console.error("ERROR SUBMITTING REVIEW ");
         submitError.value = true;
       }
     }

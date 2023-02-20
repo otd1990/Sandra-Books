@@ -175,7 +175,7 @@ export default {
         emit("formEditSuccess");
         bookStore.getBooksFromServ();
       } catch (error) {
-        console.error("Error submitting data ", error);
+        console.error("Error submitting data ");
       }
     }
 

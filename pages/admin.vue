@@ -1,11 +1,7 @@
 <template>
   <NuxtLayout name="admin">
     <div v-if="!user" class="w-100">
-      <AdminForm
-        @onFormSubmit="handleSubmit"
-        :showError="showError"
-        :errorText="errorText"
-      />
+      <AdminForm @onFormSubmit="handleSubmit" :showError="showError" />
     </div>
     <div v-else class="admin__diff">
       <div class="container mt-5">
@@ -73,7 +69,6 @@ export default {
     const booksStore = useBooksStore();
 
     const showError = ref(false);
-    const errorText = ref("");
 
     async function handleLogout() {
       await useLogOut();
@@ -82,7 +77,6 @@ export default {
     async function handleSubmit(email, password) {
       const supabase = useSupabaseClient();
       showError.value = false;
-      errorText.value = "";
 
       try {
         const { data, error } = await supabase.auth.signIn({
@@ -96,16 +90,14 @@ export default {
         booksStore.setUser(data.user);
         navigateTo("/admin/add-books");
       } catch (error) {
-        console.error("Error Signing in ", error);
+        console.error("Error Signing in ");
         showError.value = true;
-        errorText.value = error.message;
       }
     }
 
     return {
       user,
       showError,
-      errorText,
       handleSubmit,
       handleLogout,
     };

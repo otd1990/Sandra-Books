@@ -187,7 +187,7 @@ export default {
           bannerImg: "",
         };
       } catch (error) {
-        console.error("Error submitting data ", error);
+        console.error("Error submitting data ");
       }
     }
     async function uploadAvatar(evt) {

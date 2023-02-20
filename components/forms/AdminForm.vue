@@ -8,7 +8,9 @@
         <div class="col-12 col-sm-10 col-md-6">
           <div class="row">
             <div class="col-12 text-center" v-if="showError">
-              <p class="my-3 error font-weight-bold">{{ errorText }}</p>
+              <p class="my-3 error font-weight-bold">
+                There was an error, please try again
+              </p>
             </div>
             <div class="col-12">
               <div class="form-group">
@@ -53,7 +55,6 @@ export default {
   name: "AdminForm",
   props: {
     showError: Boolean,
-    errorText: String,
   },
   emits: ["onFormSubmit"],
   setup(props, ctx) {
