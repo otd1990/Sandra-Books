@@ -66,7 +66,6 @@ export const useBooksStore = defineStore("BooksStore", {
       const supabase = useSupabaseClient();
       try {
         const resp = await supabase.from("reviews").select();
-
         if (resp.error) throw error;
 
         this.reviews = resp.data;

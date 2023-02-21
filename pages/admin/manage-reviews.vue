@@ -7,7 +7,11 @@
       site on the <nuxt-link to="/reviews">reviews page</nuxt-link>
     </p>
 
-    <ReviewList :reviews="reviews" :showAdminControls="showAdmin" />
+    <ReviewList
+      :reviews="reviews"
+      :showAdminControls="showAdmin"
+      @modalClosed="handleModalClosed"
+    />
   </div>
 </template>
 
@@ -19,10 +23,15 @@ export default {
   components: { ReviewList },
   setup() {
     const booksStore = useBooksStore();
-    const reviews = booksStore.reviews;
+    const reviews = ref(booksStore.reviews);
     const showAdmin = true;
 
-    return { reviews, showAdmin };
+    async function handleModalClosed() {
+      await booksStore.getAllReviews();
+      reviews.value = booksStore.reviews;
+    }
+
+    return { reviews, showAdmin, handleModalClosed };
   },
 };
 </script>

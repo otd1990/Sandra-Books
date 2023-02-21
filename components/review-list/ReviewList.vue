@@ -42,6 +42,15 @@
           </div>
         </div>
       </div>
+      <div v-if="reviewModal" class="modal-container">
+        <div class="modal-inner">
+          <h4>Review {{ approved ? "Approved" : "Rejected" }}</h4>
+          <p>Review has been {{ approved ? "Approved" : "Rejected" }}</p>
+          <div class="modal__buttons">
+            <button @click="handleClose" class="btn btn--orange">Close</button>
+          </div>
+        </div>
+      </div>
     </div>
     <div v-else>
       <hr />
@@ -56,9 +65,11 @@ import { ref } from "vue";
 export default {
   name: "ReviewList",
   props: ["reviews", "showAdminControls"],
-  setup() {
+  emits: ["modalClosed"],
+  setup(_, ctx) {
     const approved = ref(false);
     const rejected = ref(false);
+    const reviewModal = ref(false);
 
     async function approveReview(id) {
       const supabase = useSupabaseClient();
@@ -73,6 +84,7 @@ export default {
 
         approved.value = true;
         rejected.value = false;
+        reviewsFinisher();
       } catch (error) {
         console.error("ERROR APPROVING ");
         alert(error.message);
@@ -92,33 +104,30 @@ export default {
 
         rejected.value = true;
         approved.value = false;
+        reviewsFinisher();
       } catch (error) {
         console.error("ERROR REJECTING ");
         alert(error.message);
       }
     }
 
-    return { approved, rejected, approveReview, rejectReview };
-  },
-  methods: {
-    async rejectReview(id) {
-      const supabase = useSupabaseClient();
+    function handleClose() {
+      reviewModal.value = false;
+    }
 
-      try {
-        const resp = await supabase
-          .from("reviews")
-          .update({ approved: false })
-          .eq("id", id);
+    function reviewsFinisher() {
+      ctx.emit("modalClosed");
+      reviewModal.value = true;
+    }
 
-        if (resp.error) throw resp.error;
-
-        this.rejected = true;
-        this.approved = false;
-      } catch (error) {
-        console.error("ERROR REJECTING ");
-        alert(error.message);
-      }
-    },
+    return {
+      approved,
+      rejected,
+      reviewModal,
+      approveReview,
+      rejectReview,
+      handleClose,
+    };
   },
 };
 </script>
@@ -220,5 +229,30 @@ p {
 .review-status {
   text-align: center;
   margin: 1rem;
+}
+
+.modal-container {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-inner {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem 1rem;
+  text-align: center;
+  margin: 1rem 1.75rem;
+  min-width: 22rem;
+  h4 {
+    font-size: 2.5rem;
+  }
 }
 </style>

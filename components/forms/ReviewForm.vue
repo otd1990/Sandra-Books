@@ -43,7 +43,7 @@
             <div class="col-12 mb-2">
               <div class="form-group">
                 <label for="displayName" class="form-label"
-                  >Display Name
+                  >Your First Name
                   <br />
                   <small
                     >(This will be the name that is shown against the

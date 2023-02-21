@@ -11,7 +11,7 @@ export const useLogOut = async () => {
       body: { event: "SIGNED_OUT", session: null },
     });
   } catch (error) {
-    console.log("there was an error");
+    console.error("there was an error");
     return;
   }
 
