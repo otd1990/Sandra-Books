@@ -1,6 +1,4 @@
 <template>
-  query .... {{ query }} ///
-
   <section class="single-book">
     <div class="single-book__container">
       <div
@@ -130,34 +128,26 @@ export default {
       });
     }
 
-    console.log("ROOOOUTE ", route, " query ", query);
-
-    function initPayPalButton() {}
+    // function initPayPalButton() {}
 
     onMounted(() => {
       function loadScript(url, callback) {
-        console.log("loading script  1");
         const el = document.querySelector(`script[src="${url}"]`);
-        console.log("loading script  2");
 
         if (!el) {
-          console.log("loading script 3");
           const s = document.createElement("script");
           s.setAttribute("src", url);
-          console.log("loading script 4");
 
           s.onload = callback;
-          console.log("loading script 5");
 
           document.head.insertBefore(s, document.head.firstElementChild);
-          console.log("loading script 6");
         } else {
           console.log("not el");
         }
       }
 
       loadScript(
-        "https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=GBP",
+        "https://www.paypal.com/sdk/js?client-id=AXf4sEV5ymrvRjpcp_nlDc-6lfXF2TSWKzyv7m78FONNepq64_yW-PWN9tLb1T-DGCm-DU8kenPTYsgn&enable-funding=venmo&currency=GBP",
         () => {
           console.log("sdfdfsdfs");
           console.log("Init");
