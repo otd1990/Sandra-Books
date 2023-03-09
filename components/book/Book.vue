@@ -147,7 +147,7 @@ export default {
       }
 
       loadScript(
-        "https://www.paypal.com/sdk/js?client-id=AXf4sEV5ymrvRjpcp_nlDc-6lfXF2TSWKzyv7m78FONNepq64_yW-PWN9tLb1T-DGCm-DU8kenPTYsgn&enable-funding=venmo&currency=GBP",
+        "https://www.paypal.com/sdk/js?client-id=ASfaOwagjb1aOHDIst_xybBWns2A3-y7tP0pvUo0tBRjFQYAQufDhY9Zv0w8DHt5zZOLot0ThLibFoU_&enable-funding=venmo&currency=GBP",
         () => {
           console.log("sdfdfsdfs");
           console.log("Init");
