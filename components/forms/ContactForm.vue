@@ -57,6 +57,18 @@
       </button>
     </div>
   </form>
+  <div v-if="contactSuccess" class="contact-modal">
+    <div class="contact-modal__inner">
+      <div class="contact-modal__body">
+        <h3>{{ modal.heading }}</h3>
+        <p>{{ modal.text1 }}</p>
+        <p>{{ modal.text2 }}</p>
+        <div class="modal__footer">
+          <div class="btn btn--orange" @click="handleModalClose">Close</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -70,6 +82,12 @@ export default {
     const personName = ref("");
     const mail = ref("");
     const message = ref("");
+    const contactSuccess = ref(false);
+    const modal = ref({
+      heading: "Thanks",
+      text1: "Thank you for your enquiry",
+      text2: "I will be in touch shortly",
+    });
 
     const rules = {
       personName: {
@@ -104,17 +122,65 @@ export default {
 
         if (resp.error) throw resp.error;
 
-        alert("Thanks for your message I will be in touch shortly");
+        contactSuccess.value = true;
         v$.value.$reset();
         personName.value = "";
         mail.value = "";
         message.value = "";
       } catch (error) {
-        alert("There has been an error ", error);
+        contactSuccess.value = true;
+        modal.value.heading = "Error";
+        modal.value.text1 = "There looks like there has been an error";
+        modal.value.text2 =
+          "Please try again, if the problem persists - email me at sandrajplumb@gamil.com";
       }
     }
 
-    return { personName, mail, message, v$, onSubmit };
+    function handleModalClose() {
+      contactSuccess.value = false;
+      modal.value.heading = "Thanks";
+      modal.value.text1 = "Thank you for your enquiry";
+      modal.value.text2 = "I will be in touch shortly";
+    }
+
+    return {
+      personName,
+      mail,
+      message,
+      v$,
+      modal,
+      contactSuccess,
+      onSubmit,
+      handleModalClose,
+    };
   },
 };
 </script>
+
+<style lang="scss">
+.contact-modal {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__inner {
+    background: #fff;
+    max-width: 30rem;
+    padding: 2rem;
+    margin: 2rem;
+  }
+
+  &__body {
+    text-align: center;
+    h3 {
+      font-size: 2rem;
+    }
+  }
+}
+</style>

@@ -18,11 +18,11 @@ import ContactForm from "@/components/forms/ContactForm";
 export default {
   components: {
     ContactForm,
-    head() {
-      return {
-        title: "Sandra Plumb Books | Contact",
-      };
-    },
+  },
+  head() {
+    return {
+      title: "Sandra Plumb Books | Contact",
+    };
   },
 };
 </script>

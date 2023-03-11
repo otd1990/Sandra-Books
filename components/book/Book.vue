@@ -62,6 +62,12 @@
                         >
                           {{ singleBook.extract }}
                         </div>
+                        <p class="info__cta">
+                          If you'd like to purchase one of my books please fill
+                          out the contact form on the
+                          <a href="/#contact-section">home</a>
+                          or <nuxt-link to="/contact">contact</nuxt-link> page
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -72,21 +78,6 @@
           <div class="flex-between">
             <nuxt-link @click="$router.back()" class="btn btn--black"
               >Back</nuxt-link
-            >
-
-            <div
-              v-if="query === 'showthebuttonplease'"
-              id="smart-button-container"
-            >
-              <div style="text-align: center">
-                <div id="paypal-button-container"></div>
-              </div>
-            </div>
-            <nuxt-link
-              v-else
-              :to="`/buy/book/${singleBook.id}`"
-              class="btn btn-primary btn--orange"
-              >Buy Book</nuxt-link
             >
           </div>
         </div>
@@ -108,8 +99,6 @@ export default {
     const booksStore = useBooksStore();
     const { books } = storeToRefs(booksStore);
     let singleBook = ref(null);
-    const route = useRoute();
-    const query = route.query.showpaybtn;
 
     //https://www.thisdot.co/blog/vue-3-composition-api-watch-and-watcheffect
     watchEffect(() => {
@@ -128,87 +117,7 @@ export default {
       });
     }
 
-    // function initPayPalButton() {}
-
-    onMounted(() => {
-      function loadScript(url, callback) {
-        const el = document.querySelector(`script[src="${url}"]`);
-
-        if (!el) {
-          const s = document.createElement("script");
-          s.setAttribute("src", url);
-
-          s.onload = callback;
-
-          document.head.insertBefore(s, document.head.firstElementChild);
-        } else {
-          console.log("not el");
-        }
-      }
-
-      loadScript(
-        "https://www.paypal.com/sdk/js?client-id=ASfaOwagjb1aOHDIst_xybBWns2A3-y7tP0pvUo0tBRjFQYAQufDhY9Zv0w8DHt5zZOLot0ThLibFoU_&enable-funding=venmo&currency=GBP",
-        () => {
-          console.log("sdfdfsdfs");
-          console.log("Init");
-          paypal
-            .Buttons({
-              style: {
-                shape: "rect",
-                color: "gold",
-                layout: "vertical",
-                label: "paypal",
-              },
-
-              createOrder: function (data, actions) {
-                return actions.order.create({
-                  purchase_units: [
-                    {
-                      description: "Children's Book",
-                      amount: {
-                        currency_code: "GBP",
-                        value: 11.5,
-                        breakdown: {
-                          item_total: { currency_code: "GBP", value: 10 },
-                          shipping: { currency_code: "GBP", value: 1.5 },
-                          tax_total: { currency_code: "GBP", value: 0 },
-                        },
-                      },
-                    },
-                  ],
-                });
-              },
-
-              onApprove: function (data, actions) {
-                return actions.order.capture().then(function (orderData) {
-                  // Full available details
-                  console.log(
-                    "Capture result",
-                    orderData,
-                    JSON.stringify(orderData, null, 2)
-                  );
-
-                  // Show a success message within this page, e.g.
-                  const element = document.getElementById(
-                    "paypal-button-container"
-                  );
-                  element.innerHTML = "";
-                  element.innerHTML = "<h3>Thank you for your payment!</h3>";
-
-                  // Or go to another URL:  actions.redirect('thank_you.html');
-                });
-              },
-
-              onError: function (err) {
-                console.log(err);
-              },
-            })
-            .render("#paypal-button-container");
-        }
-      );
-    });
-
-    return { books, singleBook, query };
+    return { books, singleBook };
   },
 };
 </script>

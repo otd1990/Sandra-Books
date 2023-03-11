@@ -1,6 +1,10 @@
 @import "./mixins.scss";
 @import "./variables.scss";
 
+button {
+  cursor: pointer;
+}
+
 .btn--orange {
   background-color: $orangeMain;
   color: $blackMain;

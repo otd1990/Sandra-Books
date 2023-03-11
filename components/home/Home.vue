@@ -71,7 +71,7 @@
         </section>
       </div>
     </section>
-    <section class="contact">
+    <section id="contact-section" class="contact">
       <div class="container">
         <h2>Get In Touch</h2>
         <p>If you have any queries please get in touch using the form below</p>
