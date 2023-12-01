@@ -6,11 +6,16 @@
 </template>
 
 <script setup>
-import { useBooksStore } from "@/store/BooksStore";
-const booksStore = useBooksStore();
-if (!booksStore.approvedReviews) {
-  booksStore.getApprovedReviews();
-}
+// import { onMounted } from "vue";
+// import { useBooksStore } from "@/store/BooksStore";
+
+// const booksStore = useBooksStore();
+
+// onMounted(() => {
+//   if (!booksStore.approvedReviews) {
+//     booksStore.getApprovedReviews();
+//   }
+// });
 </script>
 
 <script>

@@ -6,10 +6,10 @@
     "module": true,
     "resourceType": "script"
   },
-  "C:/Users/oliver.dyer/sp-books/node_modules/nuxt/dist/app/entry.mjs": {
+  "/Users/oliverdyer1/Sandra-Books/node_modules/nuxt/dist/app/entry.mjs": {
     "resourceType": "script",
     "module": true,
     "isEntry": true,
-    "file": "C:/Users/oliver.dyer/sp-books/node_modules/nuxt/dist/app/entry.mjs"
+    "file": "/Users/oliverdyer1/Sandra-Books/node_modules/nuxt/dist/app/entry.mjs"
   }
 }

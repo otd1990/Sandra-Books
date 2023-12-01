@@ -17,10 +17,6 @@ export default {
   components: {
     NavComponent,
   },
-  setup() {
-    const booksStore = useBooksStore();
-    booksStore.getAllReviews();
-  },
   watch: {
     $route(to, from) {
       const toName = to.name.split("-");

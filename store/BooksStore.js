@@ -53,9 +53,10 @@ export const useBooksStore = defineStore("BooksStore", {
         const resp = await supabase
           .from("reviews")
           .select()
-          .is("approved", true);
+          .is("approved", true)
+          .order("created_at", { ascending: false });
 
-        if (resp.error) throw error;
+        if (resp.error) throw resp.error;
 
         this.approvedReviews = resp.data;
       } catch (error) {
@@ -65,7 +66,10 @@ export const useBooksStore = defineStore("BooksStore", {
     async getAllReviews() {
       const supabase = useSupabaseClient();
       try {
-        const resp = await supabase.from("reviews").select();
+        const resp = await supabase
+          .from("reviews")
+          .select()
+          .order("created_at", { ascending: false });
         if (resp.error) throw error;
 
         this.reviews = resp.data;
@@ -76,9 +80,12 @@ export const useBooksStore = defineStore("BooksStore", {
     async getContactData() {
       const supabase = useSupabaseClient();
       try {
-        const resp = await supabase.from("contact").select();
+        const resp = await supabase
+          .from("contact")
+          .select()
+          .order("created_at", { ascending: false });
 
-        if (resp.error) throw error;
+        if (resp.error) throw resp.error;
 
         this.contactData = resp.data;
       } catch (error) {

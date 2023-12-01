@@ -8,6 +8,7 @@
     </p>
 
     <ReviewList
+      v-if="reviews !== undefined && reviews.length > 0"
       :reviews="reviews"
       :showAdminControls="showAdmin"
       @modalClosed="handleModalClosed"
@@ -16,15 +17,27 @@
 </template>
 
 <script>
+import { onMounted } from "vue";
 import ReviewList from "@/components/review-list/ReviewList.vue";
 import { useBooksStore } from "@/store/BooksStore";
+import { storeToRefs } from "pinia";
 
 export default {
   components: { ReviewList },
   setup() {
     const booksStore = useBooksStore();
-    const reviews = ref(booksStore.reviews);
+    const { reviews } = storeToRefs(booksStore);
     const showAdmin = true;
+
+    onMounted(async () => {
+      try {
+        if (!booksStore.reviews) {
+          await booksStore.getAllReviews();
+        }
+      } catch (error) {
+        console.error("Error fetching reviews", error);
+      }
+    });
 
     async function handleModalClosed() {
       await booksStore.getAllReviews();

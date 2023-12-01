@@ -7,8 +7,6 @@ export default defineNuxtPlugin(async (nuxtApp) => {
   try {
     await bookStore.getBooksFromServ();
     await bookStore.getApprovedReviews();
-    await bookStore.getAllReviews();
-    await bookStore.getContactData();
   } catch (error) {
     console.error("there was a problem");
   }

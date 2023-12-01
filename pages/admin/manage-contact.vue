@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import { onMounted } from "vue";
 import { useBooksStore } from "@/store/BooksStore";
 import { storeToRefs } from "pinia";
 
@@ -42,6 +43,18 @@ export default {
   setup() {
     const bookStore = useBooksStore();
     const { contactData } = storeToRefs(bookStore);
+
+
+    onMounted(async () => {
+      try {
+        if (!bookStore.contactData) {
+          await bookStore.getContactData();
+
+        }
+      } catch (error) {
+        console.error("Error fetching reviews", error);
+      }
+    });
 
     return { contactData };
   },

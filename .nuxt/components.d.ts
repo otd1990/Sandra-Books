@@ -2,8 +2,6 @@
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     'Account': typeof import("../components/Account.vue")['default']
-    'Auth': typeof import("../components/Auth.vue")['default']
-    'Avatar': typeof import("../components/Avatar.vue")['default']
     'About': typeof import("../components/about/About.vue")['default']
     'Book': typeof import("../components/book/Book.vue")['default']
     'Books': typeof import("../components/books/Books.vue")['default']
@@ -36,8 +34,6 @@ declare module '@vue/runtime-core' {
     'Html': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
     'LazyAccount': typeof import("../components/Account.vue")['default']
-    'LazyAuth': typeof import("../components/Auth.vue")['default']
-    'LazyAvatar': typeof import("../components/Avatar.vue")['default']
     'LazyAbout': typeof import("../components/about/About.vue")['default']
     'LazyBook': typeof import("../components/book/Book.vue")['default']
     'LazyBooks': typeof import("../components/books/Books.vue")['default']
@@ -73,8 +69,6 @@ declare module '@vue/runtime-core' {
 }
 
 export const Account: typeof import("../components/Account.vue")['default']
-export const Auth: typeof import("../components/Auth.vue")['default']
-export const Avatar: typeof import("../components/Avatar.vue")['default']
 export const About: typeof import("../components/about/About.vue")['default']
 export const Book: typeof import("../components/book/Book.vue")['default']
 export const Books: typeof import("../components/books/Books.vue")['default']
@@ -107,8 +101,6 @@ export const Head: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const LazyAccount: typeof import("../components/Account.vue")['default']
-export const LazyAuth: typeof import("../components/Auth.vue")['default']
-export const LazyAvatar: typeof import("../components/Avatar.vue")['default']
 export const LazyAbout: typeof import("../components/about/About.vue")['default']
 export const LazyBook: typeof import("../components/book/Book.vue")['default']
 export const LazyBooks: typeof import("../components/books/Books.vue")['default']
