@@ -21,7 +21,7 @@ import unstorage_47drivers_47fs from 'file:///Users/oliverdyer1/Sandra-Books/nod
 import defu from 'file:///Users/oliverdyer1/Sandra-Books/node_modules/defu/dist/defu.mjs';
 import { toRouteMatcher, createRouter } from 'file:///Users/oliverdyer1/Sandra-Books/node_modules/radix3/dist/index.mjs';
 
-const _runtimeConfig = {"app":{"baseURL":"/","buildAssetsDir":"/_nuxt/","cdnURL":""},"nitro":{"routeRules":{"/__nuxt_error":{"cache":false}},"envPrefix":"NUXT_"},"public":{"supabase":{"url":"https://ryjvicejickwdbxrtvmp.supabase.co","key":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ5anZpY2VqaWNrd2RieHJ0dm1wIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjQ2Mjg4MDIsImV4cCI6MTk4MDIwNDgwMn0.-fsZdY0aKal72zq4IbVYTYCVAznYO0kPxSq3iD21EjA","client":{},"cookies":{"name":"sb","lifetime":28800,"domain":"","path":"/","sameSite":"lax"}}},"supabase":{}};
+const _runtimeConfig = {"app":{"baseURL":"/","buildAssetsDir":"/_nuxt/","cdnURL":""},"nitro":{"routeRules":{"/__nuxt_error":{"cache":false},"/**":{"redirect":{"to":"https://www.plumb-books.com","statusCode":301}}},"envPrefix":"NUXT_"},"public":{"supabase":{"url":"https://ryjvicejickwdbxrtvmp.supabase.co","key":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ5anZpY2VqaWNrd2RieHJ0dm1wIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjQ2Mjg4MDIsImV4cCI6MTk4MDIwNDgwMn0.-fsZdY0aKal72zq4IbVYTYCVAznYO0kPxSq3iD21EjA","client":{},"cookies":{"name":"sb","lifetime":28800,"domain":"","path":"/","sameSite":"lax"}}},"supabase":{}};
 const ENV_PREFIX = "NITRO_";
 const ENV_PREFIX_ALT = _runtimeConfig.nitro.envPrefix ?? process.env.NITRO_ENV_PREFIX ?? "_";
 const getEnv = (key) => {

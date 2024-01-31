@@ -1,5 +1,8 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
+  routeRules:{
+    "/**": { redirect: { to: 'https://www.plumb-books.com', statusCode: 301 } },
+  },
   nitro: {
     compressPublicAssets: true,
   },
